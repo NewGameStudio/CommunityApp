@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Сообщество</string>
 
-    <string name="tasks">Задачи</string>
+    <string name="freelance">Фриланс</string>
     <string name="gdz">Решебник</string>
     <string name="messenger">Сообщения</string>
     <string name="profile">Профиль</string>
