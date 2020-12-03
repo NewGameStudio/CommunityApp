@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Сообщество</string>
+
+    <string name="tasks">Задачи</string>
+    <string name="gdz">Решебник</string>
+    <string name="messenger">Сообщения</string>
+    <string name="profile">Профиль</string>
+
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="signin">Войти</string>
+    <string name="signup">Регистрация</string>
+</resources>
