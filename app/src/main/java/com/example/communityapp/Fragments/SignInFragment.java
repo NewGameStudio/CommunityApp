@@ -4,22 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
-import com.example.communityapp.Controllers.LoginController;
+import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Masters.NavigationMaster;
 import com.example.communityapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.android.material.textview.MaterialTextView;
 
 public class SignInFragment extends Fragment implements View.OnClickListener {
 
@@ -54,7 +49,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
                 TextInputLayout passwordLayout = getActivity().findViewById(R.id.signin_password_input);
                 String password = passwordLayout.getEditText().getText().toString();
 
-                if (LoginController.login(username, password)) {
+                if (UserController.login(username, password)) {
 
                     BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
 
