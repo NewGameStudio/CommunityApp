@@ -9,18 +9,32 @@
     android:background="@drawable/gradient_list"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@android:color/transparent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/colorPrimary"/>
+
     <fragment
         android:id="@+id/content_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
         android:layout_above="@+id/bottom_navigation"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_above="@+id/bottom_navigation"
         android:background="@color/colorPrimary"/>
 

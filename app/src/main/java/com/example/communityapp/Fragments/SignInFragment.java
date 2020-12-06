@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.example.communityapp.Controllers.UserController;
@@ -32,6 +33,9 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
         bottomNavigation.setVisibility(View.GONE);
 
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.GONE);
+
         MaterialButton signinButton = getActivity().findViewById(R.id.signin_btn);
         signinButton.setOnClickListener(this);
     }
@@ -49,16 +53,18 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
                 TextInputLayout passwordLayout = getActivity().findViewById(R.id.signin_password_input);
                 String password = passwordLayout.getEditText().getText().toString();
 
-                if (UserController.login(username, password)) {
-
-                    BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
-
-                    bottomNavigation.setVisibility(View.VISIBLE);
-
-                    NavigationMaster.navigate(getView(), R.id.action_signInFragment_to_profileFragment);
-
-                } else
+                if (!UserController.login(username, password)) {
                     passwordLayout.setError("Неверный логин или пароль");
+                    return;
+                }
+
+                BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
+                bottomNavigation.setVisibility(View.VISIBLE);
+
+                Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+                toolbar.setVisibility(View.VISIBLE);
+
+                NavigationMaster.navigate(getView(), R.id.action_signInFragment_to_profileFragment);
 
                 break;
         }
