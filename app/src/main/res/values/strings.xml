@@ -10,4 +10,8 @@
     <string name="password">Пароль</string>
     <string name="signin">Войти</string>
     <string name="signup">Регистрация</string>
+
+    <string name="gradient">Градиент</string>
+    <string name="logout">Выйти</string>
+
 </resources>

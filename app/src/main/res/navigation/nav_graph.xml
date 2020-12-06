@@ -44,4 +44,10 @@
         android:label="fragment_freelance"
         tools:layout="@layout/fragment_freelance"/>
 
+    <action
+        android:id="@+id/action_global_signInFragment"
+        app:destination="@id/signInFragment"
+        app:popUpTo="@id/nav_profile"
+        app:popUpToInclusive="true"/>
+
 </navigation>

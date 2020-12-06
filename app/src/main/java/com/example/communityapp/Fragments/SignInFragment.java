@@ -11,7 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.example.communityapp.Controllers.UserController;
-import com.example.communityapp.Masters.NavigationMaster;
+import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;

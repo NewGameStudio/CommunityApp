@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/gradient_toggle"
+        android:checkable="true"
+        android:checked="true"
+        android:title="@string/gradient"/>
+
+    <item
+        android:id="@+id/logout_btn"
+        android:title="@string/logout"/>
+
+</menu>

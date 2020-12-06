@@ -1,4 +1,4 @@
-package com.example.communityapp.Masters;
+package com.example.communityapp.Master;
 
 import android.view.View;
 
