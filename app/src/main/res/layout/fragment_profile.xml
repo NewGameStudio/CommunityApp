@@ -29,7 +29,6 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="@color/colorLightBlack"
                     android:text="17"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
@@ -59,7 +58,6 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="@color/colorLightBlack"
                     android:text="2"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 

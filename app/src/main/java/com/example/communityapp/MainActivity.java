@@ -6,9 +6,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 
 import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Master.NavigationMaster;
@@ -40,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
     }
 
+    protected void configureBackground() {
+        RelativeLayout layout = findViewById(R.id.main_activity_layout);
+        AnimationDrawable drawable = (AnimationDrawable) layout.getBackground();
+        drawable.setEnterFadeDuration(2000);
+        drawable.setExitFadeDuration(4000);
+        drawable.start();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         configureToolbar();
         configureBottomNavigation();
+        configureBackground();
 
         activity = this;
     }

@@ -15,6 +15,9 @@ public class UserController {
 
     public static boolean login(String username, String password) {
 
+        if(!username.equals("admin") || !password.equals("admin"))
+            return false;
+
         user = new UserEntity();
 
         Activity activity = MainActivity.getMainActivity();
