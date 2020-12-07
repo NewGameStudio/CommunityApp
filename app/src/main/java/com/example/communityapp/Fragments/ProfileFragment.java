@@ -4,18 +4,17 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.example.communityapp.Controllers.UserController;
+import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -41,6 +40,20 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.settings_btn:
+                NavigationMaster.navigate(getView(), R.id.action_nav_profile_to_profileEditFragment);
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
 
@@ -54,7 +67,7 @@ public class ProfileFragment extends Fragment {
         TextView profileDesc = getActivity().findViewById(R.id.profile_desc_label);
 
         avatarView.setImageBitmap(UserController.getAvatarImage());
-        profileName.setText(UserController.getName());
+        profileName.setText(UserController.getUsername());
         profileDesc.setText(UserController.getProfileDescription());
     }
 }

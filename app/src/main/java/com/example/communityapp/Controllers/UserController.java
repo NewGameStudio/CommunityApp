@@ -5,13 +5,26 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.example.communityapp.Entities.UserEntity;
 import com.example.communityapp.MainActivity;
 import com.example.communityapp.R;
 
 public class UserController {
 
+    private static UserEntity user;
+
     public static boolean login(String username, String password) {
-        return username.equals("admin") && password.equals("admin");
+
+        user = new UserEntity();
+
+        Activity activity = MainActivity.getMainActivity();
+        Bitmap profileAvatar = BitmapFactory.decodeResource(activity.getResources(), R.drawable.wolf);
+
+        user.setAvatarBitmap(profileAvatar);
+        user.setUsername("Жак Фреско");
+        user.setDescription("Я баллически-эллипсический объект\nЯ гендерно реверсивно ориентированный");
+
+        return true;
     }
 
     public static void logout() {
@@ -20,15 +33,27 @@ public class UserController {
 
 
     public static Bitmap getAvatarImage() {
-        Activity activity = MainActivity.getMainActivity();
-        return BitmapFactory.decodeResource(activity.getResources(), R.drawable.wolf);
+        return user.getAvatar();
     }
 
-    public static String getName() {
-        return "Дима Шелохвостов";
+    public static String getUsername() {
+        return user.getUsername();
     }
 
     public static String getProfileDescription() {
-        return "Прошу вас запомнить сразу, что я не кальянщик.\nНенавижу неточности";
+        return user.getDescription();
+    }
+
+
+    public static void setAvatarImage(Bitmap avatarImage) {
+        user.setAvatarBitmap(avatarImage);
+    }
+
+    public static void setUsername(String username) {
+        user.setUsername(username);
+    }
+
+    public static void setProfileDescription(String description) {
+        user.setDescription(description);
     }
 }
