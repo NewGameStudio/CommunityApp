@@ -1,27 +1,27 @@
 package com.example.communityapp;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Master.NavigationMaster;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static MainActivity activity;
+
+    public static MainActivity getMainActivity() {
+        return activity;
+    }
+
 
     protected void configureToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         configureToolbar();
         configureBottomNavigation();
+
+        activity = this;
     }
 
     @Override
