@@ -40,21 +40,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    protected void configureBackground(boolean gradient) {
-
-        RelativeLayout layout = findViewById(R.id.main_activity_layout);
-
-        if(gradient) {
-            layout.setBackground(getDrawable(R.drawable.gradient_list));
-            AnimationDrawable animationDrawable = (AnimationDrawable) layout.getBackground();
-            animationDrawable.setEnterFadeDuration(4000);
-            animationDrawable.setExitFadeDuration(4000);
-            animationDrawable.start();
-        } else {
-            layout.setBackgroundColor(Color.parseColor("#FAFAFA"));
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         configureToolbar();
         configureBottomNavigation();
-        configureBackground(true);
     }
 
     @Override
@@ -75,12 +59,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-
-            case R.id.gradient_toggle:
-                boolean checked = !item.isChecked();
-                item.setChecked(checked);
-                configureBackground(checked);
-                return true;
 
             case R.id.logout_btn:
                 UserController.logout();
