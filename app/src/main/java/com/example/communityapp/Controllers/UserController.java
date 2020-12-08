@@ -25,7 +25,7 @@ public class UserController {
 
         user.setAvatarBitmap(profileAvatar);
         user.setUsername("Жак Фреско");
-        user.setDescription("Я баллически-эллипсический объект\nЯ гендерно реверсивно ориентированный");
+        user.setDescription("Я мячик");
 
         return true;
     }
