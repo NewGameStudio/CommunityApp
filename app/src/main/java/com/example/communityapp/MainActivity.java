@@ -42,14 +42,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
     }
 
-    protected void configureBackground() {
-        RelativeLayout layout = findViewById(R.id.main_activity_layout);
-        AnimationDrawable drawable = (AnimationDrawable) layout.getBackground();
-        drawable.setEnterFadeDuration(2000);
-        drawable.setExitFadeDuration(4000);
-        drawable.start();
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         configureToolbar();
         configureBottomNavigation();
-        configureBackground();
 
         activity = this;
     }

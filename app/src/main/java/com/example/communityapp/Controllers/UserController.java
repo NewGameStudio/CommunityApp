@@ -21,7 +21,8 @@ public class UserController {
         user = new UserEntity();
 
         Activity activity = MainActivity.getMainActivity();
-        Bitmap profileAvatar = BitmapFactory.decodeResource(activity.getResources(), R.drawable.wolf);
+        Bitmap profileAvatar = BitmapFactory.decodeResource(activity.getResources(),
+                R.drawable.blank_profile);
 
         user.setAvatarBitmap(profileAvatar);
         user.setUsername("Жак Фреско");
