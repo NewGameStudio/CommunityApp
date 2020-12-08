@@ -43,7 +43,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/blank_profile"
                 app:civ_border_width="4dp"
-                app:civ_border_color="#FFFF"/>
+                app:civ_border_color="@color/white"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_profile_name_input"
@@ -92,7 +92,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="#FFFF"
             android:orientation="horizontal"
             android:clipChildren="false">
 
@@ -108,7 +107,7 @@
                     android:textSize="25sp"
                     android:textColor="@color/colorDarkBlack"
                     android:text="35"
-                    android:backgroundTint="#FFFF"/>
+                    android:backgroundTint="@color/white"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,7 +135,7 @@
                     android:textSize="25sp"
                     android:textColor="@color/colorDarkBlack"
                     android:text="3"
-                    android:backgroundTint="#FFFF"/>
+                    android:backgroundTint="@color/white"/>
 
                 <TextView
                     android:layout_width="wrap_content"

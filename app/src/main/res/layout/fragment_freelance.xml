@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.FreelanceFragment">
 
-    <TextView
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/search_task_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/freelance"
-        android:textSize="54sp"
-        android:layout_centerInParent="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:selectionRequired="true"
+        app:checkedButton="@+id/search_task_btn"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/search_task_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search_tasks"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        <Button
+            android:id="@+id/my_task_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_tasks"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
 </RelativeLayout>

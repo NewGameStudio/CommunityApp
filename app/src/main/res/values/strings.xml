@@ -15,8 +15,14 @@
     <string name="logout">Выйти</string>
 
     <string name="settings">Настройки</string>
+    <string name="filter">Фильтр</string>
     <string name="save">Сохранить</string>
 
     <string name="username">Имя пользователя</string>
     <string name="description">Описание</string>
+
+    <string name="search_tasks">Ищу задания</string>
+    <string name="my_tasks">Мои задания</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

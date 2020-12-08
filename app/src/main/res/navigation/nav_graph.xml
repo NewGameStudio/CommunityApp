@@ -46,7 +46,15 @@
         android:id="@+id/nav_freelance"
         android:name="com.example.communityapp.Fragments.FreelanceFragment"
         android:label="fragment_freelance"
-        tools:layout="@layout/fragment_freelance"/>
+        tools:layout="@layout/fragment_freelance">
+        <action
+            android:id="@+id/action_nav_freelance_to_searchTasksFilterFragment"
+            app:destination="@id/searchTasksFilterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
     <action
         android:id="@+id/action_global_signInFragment"
@@ -62,5 +70,10 @@
             android:id="@+id/action_profileEditFragment_to_nav_profile"
             app:destination="@id/nav_profile" />
     </fragment>
+    <fragment
+        android:id="@+id/searchTasksFilterFragment"
+        android:name="com.example.communityapp.Fragments.SearchTasksFilterFragment"
+        android:label="fragment_search_tasks_filter"
+        tools:layout="@layout/fragment_search_tasks_filter" />
 
 </navigation>
