@@ -7,30 +7,46 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.FreelanceFragment">
 
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/search_task_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        app:selectionRequired="true"
-        app:checkedButton="@+id/search_task_btn"
-        app:singleSelection="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/search_task_btn"
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/search_task_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/search_tasks"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            app:selectionRequired="true"
+            app:checkedButton="@+id/search_task_btn"
+            app:singleSelection="true">
 
-        <Button
-            android:id="@+id/my_task_btn"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/search_task_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_tasks"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+            <Button
+                android:id="@+id/my_task_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_tasks"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/freelance_tasks_recycler_view"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/my_tasks"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            android:scrollbars="vertical"
+            tools:listitem="@layout/freelance_task_card_view">
 
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
 </RelativeLayout>

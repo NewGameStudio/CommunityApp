@@ -6,6 +6,12 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/signInFragment">
 
+    <action
+        android:id="@+id/action_global_signInFragment"
+        app:destination="@id/signInFragment"
+        app:popUpTo="@id/nav_profile"
+        app:popUpToInclusive="true"/>
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.communityapp.Fragments.SignInFragment"
@@ -27,7 +33,11 @@
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_nav_profile_to_profileEditFragment"
-            app:destination="@id/profileEditFragment"/>
+            app:destination="@id/profileEditFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -56,11 +66,6 @@
             app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
-    <action
-        android:id="@+id/action_global_signInFragment"
-        app:destination="@id/signInFragment"
-        app:popUpTo="@id/nav_profile"
-        app:popUpToInclusive="true"/>
     <fragment
         android:id="@+id/profileEditFragment"
         android:name="com.example.communityapp.Fragments.ProfileEditFragment"
@@ -68,12 +73,25 @@
         tools:layout="@layout/fragment_profile_edit" >
         <action
             android:id="@+id/action_profileEditFragment_to_nav_profile"
-            app:destination="@id/nav_profile" />
+            app:destination="@id/nav_profile"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
+
     <fragment
         android:id="@+id/searchTasksFilterFragment"
         android:name="com.example.communityapp.Fragments.SearchTasksFilterFragment"
         android:label="fragment_search_tasks_filter"
-        tools:layout="@layout/fragment_search_tasks_filter" />
+        tools:layout="@layout/fragment_search_tasks_filter" >
+        <action
+            android:id="@+id/action_searchTasksFilterFragment_to_nav_freelance"
+            app:destination="@id/nav_freelance"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
 
 </navigation>

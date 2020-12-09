@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
-public class SearchTasksFilterFragment extends Fragment {
+public class SearchTasksFilterFragment extends Fragment implements View.OnClickListener {
 
     private String[] classNames = {
             "Любой", "Первый", "Второй", "Третий",
@@ -39,6 +41,14 @@ public class SearchTasksFilterFragment extends Fragment {
         configureClassFromSpinner();
         configureClassToSpinner();
         configureSubjectSpinner();
+
+        Button applyButton = getActivity().findViewById(R.id.apply_filter_button);
+        applyButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        NavigationMaster.navigate(getView(), R.id.action_searchTasksFilterFragment_to_nav_freelance);
     }
 
 

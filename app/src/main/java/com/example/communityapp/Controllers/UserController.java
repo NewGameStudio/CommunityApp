@@ -25,7 +25,7 @@ public class UserController {
                 R.drawable.blank_profile);
 
         user.setAvatarBitmap(profileAvatar);
-        user.setUsername("Жак Фреско");
+        user.setUsername("Дима Шелохвостов");
         user.setDescription("Я мячик");
 
         return true;
