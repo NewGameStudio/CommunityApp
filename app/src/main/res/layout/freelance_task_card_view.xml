@@ -4,132 +4,182 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:background="@color/white"
-    app:cardCornerRadius="4dp">
+    android:layout_margin="8dp"
+    android:background="@drawable/shape_rectangle"
+    android:backgroundTint="@color/white"
+    android:backgroundTintMode="add"
+    android:translationZ="4dp"
+    android:clipChildren="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="4dp"
-        android:orientation="horizontal">
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="14dp"
+        android:orientation="vertical"
+        android:clipChildren="false">
+
+        <TextView
+            android:id="@+id/freelance_task_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Название задачи"
+            android:textSize="24sp"
+            android:textColor="@color/colorBlack"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:orientation="vertical">
+            android:layout_marginVertical="8dp">
 
             <TextView
-                android:id="@+id/freelance_task_title"
+                android:id="@+id/freelance_task_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="@android:color/primary_text_light"
-                android:text="Название задачи"/>
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="10dp"
+                android:text="10 класс"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_rectangle"
+                android:backgroundTint="@color/colorAccent"
+                android:backgroundTintMode="add"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="10dp"
+                android:layout_marginStart="15dp"
+                android:text="Математика"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_rectangle"
+                android:backgroundTint="@color/colorGrey"
+                android:backgroundTintMode="add"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Мы открываем новую компанию по подбору
+автомобилей (Автоподбор). Мы ищем"
+            android:textSize="16sp"
+            android:textColor="@color/colorGrey"
+            android:maxLines="2"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_calendar"/>
 
             <TextView
                 android:id="@+id/freelance_task_publ_date"
-                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@android:color/secondary_text_light"
-                android:text="Дата публикации: 23.01.20"/>
+                android:layout_marginLeft="4dp"
+                android:text="25.01.2010"
+                android:textColor="@color/colorBlack"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_otkliki"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="откликов : 7"
+                android:textColor="@color/colorBlack"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6dp"
+            android:orientation="vertical">
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/colorPrimary"/>
-
-            <TextView
-                android:id="@+id/freelance_task_exp_date"
-                android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@android:color/secondary_text_light"
-                android:text="Дата окончания: 23.01.20"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorGrey"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/blank_profile"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="@color/colorLightBlack"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/freelance_task_class"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:textColor="@android:color/primary_text_light"
-                        android:textSize="15sp"
-                        android:text="1"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:textColor="@android:color/secondary_text_light"
-                        android:textSize="12sp"
-                        android:text="Класс"/>
-
-                </LinearLayout>
-
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorPrimary"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/freelance_task_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/primary_text_light"
-                        android:textSize="15sp"
-                        android:text="500"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/secondary_text_light"
-                        android:textSize="12sp"
-                        android:text="Цена"/>
-
-                </LinearLayout>
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:text="Дима Шелохвостов"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorBlack"/>
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorGrey"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="12dp"
+            android:background="@drawable/shape_rectangle"
+            android:backgroundTint="@color/colorLightGrey"
+            android:backgroundTintMode="add"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/freelance_task_exp_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Срок выполнения 30 дней"
+                android:textSize="14sp"
+                android:textColor="@color/colorBlack"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/freelance_task_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500 руб"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"/>
 
         </LinearLayout>
 

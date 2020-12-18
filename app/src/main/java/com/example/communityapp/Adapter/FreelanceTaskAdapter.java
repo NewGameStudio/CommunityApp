@@ -20,7 +20,7 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
 
         public TextView taskTitle;
         public TextView taskPublDate;
-        public TextView taskExpDate;
+        public TextView taskExpLeft;
         public TextView taskClass;
         public TextView taskPrice;
 
@@ -29,7 +29,7 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
 
             taskTitle = itemView.findViewById(R.id.freelance_task_title);
             taskPublDate = itemView.findViewById(R.id.freelance_task_publ_date);
-            taskExpDate = itemView.findViewById(R.id.freelance_task_exp_date);
+            taskExpLeft = itemView.findViewById(R.id.freelance_task_exp_left);
             taskClass = itemView.findViewById(R.id.freelance_task_class);
             taskPrice = itemView.findViewById(R.id.freelance_task_price);
         }
@@ -55,10 +55,10 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
         FreelanceTaskEntity currentTask = tasks.get(position);
 
         holder.taskTitle.setText(currentTask.title);
-        holder.taskPublDate.setText(("Дата публикации : " + currentTask.publicationDate));
-        holder.taskExpDate.setText(("Дата окончания : " + currentTask.expirationDate));
-        holder.taskClass.setText(Integer.toString(currentTask.classIndex));
-        holder.taskPrice.setText(Integer.toString(currentTask.price));
+        holder.taskPublDate.setText(currentTask.publicationDate.toString());
+//        holder.taskExpDate.setText(("Дата окончания : " + currentTask.expirationDate));
+//        holder.taskClass.setText(Integer.toString(currentTask.classIndex));
+//        holder.taskPrice.setText(Integer.toString(currentTask.price));
     }
 
     @Override

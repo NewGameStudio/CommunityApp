@@ -18,6 +18,7 @@ import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
+import com.example.communityapp.Utils.DateUtil;
 
 import java.util.ArrayList;
 
@@ -68,22 +69,22 @@ public class FreelanceFragment extends Fragment {
         task1.title = "Сочинение по русскому";
         task1.price = 300;
         task1.classIndex = 10;
-        task1.publicationDate = "20.01.20";
-        task1.expirationDate = "11.12.20";
+        task1.publicationDate = DateUtil.toDateStandard("20.01.20");
+        task1.expirationDate = DateUtil.toDateStandard("11.12.20");
 
         FreelanceTaskEntity task2 = new FreelanceTaskEntity();
         task2.title = "Калькулятор на c++";
         task2.price = 500;
         task2.classIndex = 8;
-        task2.publicationDate = "17.05.20";
-        task2.expirationDate = "11.12.20";
+        task2.publicationDate = DateUtil.toDateStandard("17.05.20");
+        task2.expirationDate = DateUtil.toDateStandard("11.12.20");
 
         FreelanceTaskEntity task3 = new FreelanceTaskEntity();
         task3.title = "Доклад по истории";
         task3.price = 1000;
         task3.classIndex = 9;
-        task3.publicationDate = "03.07.20";
-        task3.expirationDate = "11.12.20";
+        task3.publicationDate = DateUtil.toDateStandard("03.07.20");
+        task3.expirationDate = DateUtil.toDateStandard("11.12.20");
 
         ArrayList<FreelanceTaskEntity> freelanceTasks = new ArrayList<>();
         freelanceTasks.add(task1);
