@@ -1,6 +1,7 @@
 package com.example.communityapp.Utils;
 
 import android.annotation.SuppressLint;
+import android.content.res.Resources;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,6 +29,6 @@ public class DateUtil {
     }
 
     public static String standardDateToString() {
-        
+        throw new Resources.NotFoundException();
     }
 }
