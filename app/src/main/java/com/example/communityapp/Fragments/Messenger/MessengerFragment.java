@@ -1,4 +1,4 @@
-package com.example.communityapp.Fragments;
+package com.example.communityapp.Fragments.Messenger;
 
 import android.os.Bundle;
 
@@ -12,11 +12,11 @@ import android.view.ViewGroup;
 
 import com.example.communityapp.R;
 
-public class GdzFragment extends Fragment {
+public class MessengerFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_gdz, container, false);
+        return inflater.inflate(R.layout.fragment_messenger, container, false);
     }
 }

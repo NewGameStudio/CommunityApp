@@ -1,4 +1,4 @@
-package com.example.communityapp.Fragments;
+package com.example.communityapp.Fragments.Profile;
 
 import android.os.Bundle;
 

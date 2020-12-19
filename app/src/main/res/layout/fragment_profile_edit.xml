@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    tools:context=".Fragments.ProfileEditFragment">
+    tools:context=".Fragments.Profile.ProfileEditFragment">
 
 
     <LinearLayout

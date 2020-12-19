@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.communityapp.Fragments.SignInFragment"
+        android:name="com.example.communityapp.Fragments.Authorization.SignInFragment"
         android:label="fragment_signin"
         tools:layout="@layout/fragment_signin" >
         <action
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.communityapp.Fragments.ProfileFragment"
+        android:name="com.example.communityapp.Fragments.Profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -42,19 +42,19 @@
 
     <fragment
         android:id="@+id/nav_gdz"
-        android:name="com.example.communityapp.Fragments.GdzFragment"
+        android:name="com.example.communityapp.Fragments.Gdz.GdzFragment"
         android:label="fragment_gdz"
         tools:layout="@layout/fragment_gdz" />
 
     <fragment
         android:id="@+id/nav_messenger"
-        android:name="com.example.communityapp.Fragments.MessengerFragment"
+        android:name="com.example.communityapp.Fragments.Messenger.MessengerFragment"
         android:label="fragment_messenger"
         tools:layout="@layout/fragment_messenger" />
 
     <fragment
         android:id="@+id/nav_freelance"
-        android:name="com.example.communityapp.Fragments.FreelanceFragment"
+        android:name="com.example.communityapp.Fragments.Freelance.FreelanceFragment"
         android:label="fragment_freelance"
         tools:layout="@layout/fragment_freelance">
         <action
@@ -68,7 +68,7 @@
 
     <fragment
         android:id="@+id/profileEditFragment"
-        android:name="com.example.communityapp.Fragments.ProfileEditFragment"
+        android:name="com.example.communityapp.Fragments.Profile.ProfileEditFragment"
         android:label="fragment_profile_edit"
         tools:layout="@layout/fragment_profile_edit" >
         <action
@@ -82,7 +82,7 @@
 
     <fragment
         android:id="@+id/searchTasksFilterFragment"
-        android:name="com.example.communityapp.Fragments.SearchTasksFilterFragment"
+        android:name="com.example.communityapp.Fragments.Freelance.SearchTasksFilterFragment"
         android:label="fragment_search_tasks_filter"
         tools:layout="@layout/fragment_search_tasks_filter" >
         <action

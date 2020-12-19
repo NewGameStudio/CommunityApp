@@ -1,4 +1,4 @@
-package com.example.communityapp.Fragments;
+package com.example.communityapp.Fragments.Authorization;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

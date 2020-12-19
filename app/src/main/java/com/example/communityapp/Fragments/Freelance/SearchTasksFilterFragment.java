@@ -1,4 +1,4 @@
-package com.example.communityapp.Fragments;
+package com.example.communityapp.Fragments.Freelance;
 
 import android.os.Bundle;
 
