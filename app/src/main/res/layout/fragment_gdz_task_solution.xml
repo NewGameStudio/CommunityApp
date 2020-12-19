@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.GdzTaskSolutionFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@drawable/shape_rectangle"
+             android:backgroundTint="@color/white"
+             android:paddingVertical="10dp"
+             android:backgroundTintMode="add"
+             android:translationZ="4dp"
+             android:layout_marginTop="10dp"
+             android:layout_marginHorizontal="14dp"
+             android:orientation="vertical">
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginHorizontal="13dp"
+                 android:backgroundTintMode="add"
+                 android:gravity="center"
+                 android:text="Номер задания: 123"
+                 android:textAlignment="viewStart"
+                 android:textColor="@color/colorDarkBlack"
+                 android:textSize="16sp"
+                 android:textStyle="bold"/>
+         </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:clipChildren="false"
+            android:id="@+id/gdz_task_solution_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:scrollbars="vertical"
+            android:paddingBottom="5dp"
+            tools:listitem="@layout/gdz_task_solution_card_view">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/apply_filter_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="30dp"
+                android:text="Добавить своё решение"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

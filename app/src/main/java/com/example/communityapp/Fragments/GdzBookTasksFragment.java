@@ -119,10 +119,10 @@ public class GdzBookTasksFragment extends Fragment {
                     new TaskEntity(142, true, 10)};
 
             for (TaskEntity task : tasks){
-                createTask(task.number, task.solved, task.solved_number, categoryLayout, scale);
+                //createTask(task.number, task.solved, task.solved_number, categoryLayout, scale);
             }
 
-            linearLayout.addView(categoryLayout);
+            //linearLayout.addView(categoryLayout);
         }
 
     }
@@ -221,50 +221,50 @@ public class GdzBookTasksFragment extends Fragment {
         taskSolveDescription.setTextColor(getResources().getColor(R.color.white));
 
         subTaskLayout.addView(taskSolveDescription);
-//
-//        if(solved) {
-//            //ImageView
-//            ImageView solveSectionImage = new ImageView(getActivity().getApplicationContext());
-//
-//            int solveSectionImagePixels = (int) (18 * scale + 0.5f);
-//            LinearLayout.LayoutParams solveSectionImageParams = new LinearLayout.LayoutParams(
-//                    solveSectionImagePixels,
-//                    solveSectionImagePixels
-//            );
-//
-//            int solveSectionImageMarginBottom = (int) (3 * scale + 0.5f);
-//            solveSectionImageParams.setMargins(0, 0, 0, 0);
-//            solveSectionImageParams.gravity = Gravity.CENTER;
-//            solveSectionImage.setLayoutParams(solveSectionImageParams);
-//            solveSectionImage.setImageResource(R.drawable.chat);
-//
-//            subTaskLayout.addView(solveSectionImage);
-//
-//            //SolvedText
-//            TextView solvedText = new TextView(getActivity().getApplicationContext());
-//
-//            int solvedTextWidthPixels = (int) (0 * scale + 0.5f);
-//            LinearLayout.LayoutParams solvedTextParams = new LinearLayout.LayoutParams(
-//                    solvedTextWidthPixels,
-//                    LinearLayout.LayoutParams.WRAP_CONTENT, 0.4f
-//            );
-//
-//            int solvedTextMarginTop = (int) (10 * scale + 0.5f);
-//            taskSolveParams.setMargins(0, solvedTextMarginTop,0, 0);
-//            solvedText.setLayoutParams(solvedTextParams);
-//            solvedText.setGravity(Gravity.START);
-//            solvedText.setText("решений " + solved_number);
-//            solvedText.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-//            solvedText.setTextColor(getResources().getColor(R.color.colorBlack));
-//
-//            int solvedTextVerticalPixelsPadding = (int) (5 * scale + 0.5f);
-//            int solvedTextHorizontalPixelsPadding = (int) (5 * scale + 0.5f);
-//            solvedText.setPadding(solvedTextHorizontalPixelsPadding, solvedTextVerticalPixelsPadding, solvedTextHorizontalPixelsPadding, solvedTextVerticalPixelsPadding);
-//            solvedText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
-//            solvedText.setTextColor(getResources().getColor(R.color.colorDarkBlack));
-//
-//            subTaskLayout.addView(solvedText);
-//        }
+
+        if(solved) {
+            //ImageView
+            ImageView solveSectionImage = new ImageView(getActivity().getApplicationContext());
+
+            int solveSectionImagePixels = (int) (18 * scale + 0.5f);
+            LinearLayout.LayoutParams solveSectionImageParams = new LinearLayout.LayoutParams(
+                    solveSectionImagePixels,
+                    solveSectionImagePixels
+            );
+
+            int solveSectionImageMarginBottom = (int) (3 * scale + 0.5f);
+            solveSectionImageParams.setMargins(0, 0, 0, 0);
+            solveSectionImageParams.gravity = Gravity.CENTER;
+            solveSectionImage.setLayoutParams(solveSectionImageParams);
+            solveSectionImage.setImageResource(R.drawable.chat);
+
+            subTaskLayout.addView(solveSectionImage);
+
+            //SolvedText
+            TextView solvedText = new TextView(getActivity().getApplicationContext());
+
+            int solvedTextWidthPixels = (int) (0 * scale + 0.5f);
+            LinearLayout.LayoutParams solvedTextParams = new LinearLayout.LayoutParams(
+                    solvedTextWidthPixels,
+                    LinearLayout.LayoutParams.WRAP_CONTENT, 0.4f
+            );
+
+            int solvedTextMarginTop = (int) (10 * scale + 0.5f);
+            taskSolveParams.setMargins(0, solvedTextMarginTop,0, 0);
+            solvedText.setLayoutParams(solvedTextParams);
+            solvedText.setGravity(Gravity.START);
+            solvedText.setText("решений " + solved_number);
+            solvedText.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+            solvedText.setTextColor(getResources().getColor(R.color.colorBlack));
+
+            int solvedTextVerticalPixelsPadding = (int) (5 * scale + 0.5f);
+            int solvedTextHorizontalPixelsPadding = (int) (5 * scale + 0.5f);
+            solvedText.setPadding(solvedTextHorizontalPixelsPadding, solvedTextVerticalPixelsPadding, solvedTextHorizontalPixelsPadding, solvedTextVerticalPixelsPadding);
+            solvedText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+            solvedText.setTextColor(getResources().getColor(R.color.colorDarkBlack));
+
+            subTaskLayout.addView(solvedText);
+        }
 
         mainLayout.addView(taskLayout);
     }
