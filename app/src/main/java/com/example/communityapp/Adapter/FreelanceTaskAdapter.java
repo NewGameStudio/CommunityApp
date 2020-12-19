@@ -54,8 +54,8 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
     public void onBindViewHolder(@NonNull FreelanceTaskViewHolder holder, int position) {
         FreelanceTaskEntity currentTask = tasks.get(position);
 
-        holder.taskTitle.setText(currentTask.title);
-        holder.taskPublDate.setText(currentTask.publicationDate.toString());
+//        holder.taskTitle.setText(currentTask.getTitle());
+//        holder.taskPublDate.setText(currentTask.getPublicationDate().toString());
 //        holder.taskExpDate.setText(("Дата окончания : " + currentTask.expirationDate));
 //        holder.taskClass.setText(Integer.toString(currentTask.classIndex));
 //        holder.taskPrice.setText(Integer.toString(currentTask.price));

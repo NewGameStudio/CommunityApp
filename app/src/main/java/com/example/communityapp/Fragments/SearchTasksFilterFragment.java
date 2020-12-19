@@ -38,17 +38,19 @@ public class SearchTasksFilterFragment extends Fragment implements View.OnClickL
     public void onStart() {
         super.onStart();
 
-        configureClassFromSpinner();
-        configureClassToSpinner();
-        configureSubjectSpinner();
-
-        Button applyButton = getActivity().findViewById(R.id.apply_filter_button);
-        applyButton.setOnClickListener(this);
+//        configureClassFromSpinner();
+//        configureClassToSpinner();
+//        configureSubjectSpinner();
+//
+//        Button applyButton = getActivity().findViewById(R.id.apply_filter_button);
+//        applyButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        NavigationMaster.navigate(getView(), R.id.action_searchTasksFilterFragment_to_nav_freelance);
+
+        if (view.getId() == R.id.filter_btn)
+            NavigationMaster.navigate(getView(), R.id.action_searchTasksFilterFragment_to_nav_freelance);
     }
 
 

@@ -66,36 +66,19 @@ public class FreelanceFragment extends Fragment {
         super.onStart();
 
         FreelanceTaskEntity task1 = new FreelanceTaskEntity();
-        task1.title = "Сочинение по русскому";
-        task1.price = 300;
-        task1.classIndex = 10;
-        task1.publicationDate = DateUtil.toDateStandard("20.01.20");
-        task1.expirationDate = DateUtil.toDateStandard("11.12.20");
-
-        FreelanceTaskEntity task2 = new FreelanceTaskEntity();
-        task2.title = "Калькулятор на c++";
-        task2.price = 500;
-        task2.classIndex = 8;
-        task2.publicationDate = DateUtil.toDateStandard("17.05.20");
-        task2.expirationDate = DateUtil.toDateStandard("11.12.20");
-
-        FreelanceTaskEntity task3 = new FreelanceTaskEntity();
-        task3.title = "Доклад по истории";
-        task3.price = 1000;
-        task3.classIndex = 9;
-        task3.publicationDate = DateUtil.toDateStandard("03.07.20");
-        task3.expirationDate = DateUtil.toDateStandard("11.12.20");
+        task1.setTitle("Сочинение по русскому");
+        task1.setPrice(300);
+        task1.setClassIndex(10);
+        task1.setPublicationDate(DateUtil.toDateStandard("20.01.20"));
+        task1.setExpirationDate(DateUtil.toDateStandard("11.12.20"));
 
         ArrayList<FreelanceTaskEntity> freelanceTasks = new ArrayList<>();
         freelanceTasks.add(task1);
-        freelanceTasks.add(task2);
-        freelanceTasks.add(task3);
         freelanceTasks.add(task1);
-        freelanceTasks.add(task2);
-        freelanceTasks.add(task3);
         freelanceTasks.add(task1);
-        freelanceTasks.add(task2);
-        freelanceTasks.add(task3);
+        freelanceTasks.add(task1);
+        freelanceTasks.add(task1);
+        freelanceTasks.add(task1);
 
         searchTaskRecycler = getActivity().findViewById(R.id.freelance_tasks_recycler_view);
         searchTaskRecycler.setHasFixedSize(true);

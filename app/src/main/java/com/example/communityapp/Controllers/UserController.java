@@ -24,7 +24,7 @@ public class UserController {
         Bitmap profileAvatar = BitmapFactory.decodeResource(activity.getResources(),
                 R.drawable.blank_profile);
 
-        user.setAvatarBitmap(profileAvatar);
+        user.setAvatar(profileAvatar);
         user.setUsername("Дима Шелохвостов");
         user.setDescription("Я мячик");
 
@@ -50,7 +50,7 @@ public class UserController {
 
 
     public static void setAvatarImage(Bitmap avatarImage) {
-        user.setAvatarBitmap(avatarImage);
+        user.setAvatar(avatarImage);
     }
 
     public static void setUsername(String username) {
