@@ -5,12 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
@@ -36,9 +39,18 @@ public class PublishFreelanceTask2 extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.next_btn)
+        if(view.getId() == R.id.next_btn) {
+            EditText titleEditText = getView().findViewById(R.id.title_edit_text);
+
+            FreelanceTaskEntity taskEntity = DataMaster.getCurrentCreatingFreelanceTask();
+
+            taskEntity.setTitle(titleEditText.getText().toString());
+
+            DataMaster.setCurrentCreatingFreelanceTask(taskEntity);
+
             NavigationMaster.navigate(getView(),
                     R.id.action_publishFreelanceTask2_to_publishFreelanceTask3);
+        }
 
         else if(view.getId() == R.id.previous_btn)
             NavigationMaster.navigate(getView(),

@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.Master.DataMaster;
@@ -34,7 +33,7 @@ public class FreelancerTaskViewFragment extends Fragment implements View.OnClick
     public void onStart() {
         super.onStart();
 
-        freelanceTask = DataMaster.getCurrentFreelanceTask();
+        freelanceTask = DataMaster.getCurrentFreelanceViewTask();
 
         setTaskData();
 
@@ -60,7 +59,7 @@ public class FreelancerTaskViewFragment extends Fragment implements View.OnClick
         taskExpLeft.setText(("Дата сдачи: " + DateUtil.standardDateToString(freelanceTask.getExpirationDate())));
         taskClass.setText(Integer.toString(freelanceTask.getClassIndex()) + " класс");
         taskSubject.setText(freelanceTask.getSubjectName());
-        //taskPrice.setText(Integer.toString(freelanceTask.getPrice()) + " руб");
+        taskPrice.setText(Integer.toString(freelanceTask.getPrice()) + " руб");
         taskResponses.setText("откликов : " + freelanceTask.getResponsesCount());
     }
 

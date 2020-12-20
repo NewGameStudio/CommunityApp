@@ -178,7 +178,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/respond_btn"
+        android:id="@+id/publish_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Controllers.FreelanceTasksController;
@@ -125,9 +124,17 @@ public class FreelanceFragment extends Fragment
         else if(view.getId() == R.id.my_task_btn)
             onFreelanceMyTasksSelected();
 
-        else if(view.getId() == R.id.new_task_btn)
+        else if(view.getId() == R.id.new_task_btn) {
+
+            FreelanceTaskEntity freelanceTask = new FreelanceTaskEntity();
+
+            freelanceTask.setTaskOwner(UserController.getUser());
+
+            DataMaster.setCurrentCreatingFreelanceTask(freelanceTask);
+
             NavigationMaster.navigate(getView(),
                     R.id.action_nav_freelance_to_publishFreelanceTask1);
+        }
     }
 
     @Override
@@ -136,7 +143,7 @@ public class FreelanceFragment extends Fragment
         if(freelanceTasks.get(itemIndex).getTaskOwner().getId() == UserController.getUser().getId())
             return;
 
-        DataMaster.setCurrentFreelanceTask(freelanceTasks.get(itemIndex));
+        DataMaster.setCurrentFreelanceViewTask(freelanceTasks.get(itemIndex));
         NavigationMaster.navigate(getView(),
                 R.id.action_nav_freelance_to_freelancerTaskViewFragment);
     }

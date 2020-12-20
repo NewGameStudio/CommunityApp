@@ -5,11 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
+import com.example.communityapp.Utils.DateUtil;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PublishFreelanceTask4 extends Fragment implements View.OnClickListener {
 
@@ -27,15 +34,33 @@ public class PublishFreelanceTask4 extends Fragment implements View.OnClickListe
         Button nextButton = getView().findViewById(R.id.next_btn);
         nextButton.setOnClickListener(this);
 
+        EditText expDateEditText = getView().findViewById(R.id.task_exp_date_edit_text);
+        expDateEditText.setText("23.12.2020");
+
         Button previousButton = getView().findViewById(R.id.previous_btn);
         previousButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.next_btn)
+        if(view.getId() == R.id.next_btn) {
+            EditText expDateEditText = getView().findViewById(R.id.task_exp_date_edit_text);
+            EditText taskPriceEditText = getView().findViewById(R.id.task_price_edit_text);
+
+            if (taskPriceEditText.getText().toString().equals(""))
+                taskPriceEditText.setText("0");
+
+            FreelanceTaskEntity freelanceTask = DataMaster.getCurrentCreatingFreelanceTask();
+
+            freelanceTask.setPrice(Integer.parseInt(taskPriceEditText.getText().toString()));
+            freelanceTask.setPublicationDate(DateUtil.toDateStandard("23.12.2020"));
+            freelanceTask.setExpirationDate(DateUtil.toDateStandard(expDateEditText.getText().toString()));
+
+            DataMaster.setCurrentCreatingFreelanceTask(freelanceTask);
+
             NavigationMaster.navigate(getView(),
                     R.id.action_publishFreelanceTask4_to_publishFreelanceTaskFinal);
+        }
 
         else if(view.getId() == R.id.previous_btn)
             NavigationMaster.navigate(getView(),

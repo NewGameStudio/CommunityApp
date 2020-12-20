@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
@@ -18,15 +20,14 @@ public class PublishFreelanceTask1 extends Fragment
         implements View.OnClickListener {
 
     private String[] classNames = {
-            "Любой", "Первый", "Второй", "Третий",
+            "Первый", "Второй", "Третий",
             "Четвертый", "Пятый", "Шестой", "Восьмой",
             "Девятый", "Десятый", "Одиннадцатый"
     };
 
-    private String[] subjects = {
-            "Любой", "Математика", "Русский язык", "История",
+    private String[] subjects = { "Математика", "Русский язык", "История",
             "Иностранный язык", "Алгебра", "Геометрия", "Биология",
-            "Информатика"
+            "Информатика", "Другое"
     };
 
     @Override
@@ -73,6 +74,21 @@ public class PublishFreelanceTask1 extends Fragment
 
     @Override
     public void onClick(View view) {
-        NavigationMaster.navigate(getView(), R.id.action_publishFreelanceTask1_to_publishFreelanceTask2);
+
+        if(view.getId() == R.id.next_btn) {
+            Spinner classSpinner = getView().findViewById(R.id.class_spinner);
+            Spinner subjectSpinner = getView().findViewById(R.id.subject_spinner);
+
+            String subject = subjects[subjectSpinner.getSelectedItemPosition()];
+
+            FreelanceTaskEntity taskEntity = DataMaster.getCurrentCreatingFreelanceTask();
+
+            taskEntity.setClassIndex(classSpinner.getSelectedItemPosition() + 1);
+            taskEntity.setSubjectName(subject);
+
+            DataMaster.setCurrentCreatingFreelanceTask(taskEntity);
+
+            NavigationMaster.navigate(getView(), R.id.action_publishFreelanceTask1_to_publishFreelanceTask2);
+        }
     }
 }

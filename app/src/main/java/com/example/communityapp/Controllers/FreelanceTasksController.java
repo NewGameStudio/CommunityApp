@@ -104,4 +104,8 @@ public class FreelanceTasksController {
 
         return tasks;
     }
+
+    public static void publishNewTask(FreelanceTaskEntity taskEntity) {
+        freelanceTasks.add(taskEntity);
+    }
 }
