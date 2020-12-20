@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.R;
+import com.example.communityapp.Utils.DateUtil;
 
 
 public class FreelancerTaskViewFragment extends Fragment {
@@ -37,9 +38,24 @@ public class FreelancerTaskViewFragment extends Fragment {
     }
 
     private void setTaskData() {
+        TextView taskTitle = getView().findViewById(R.id.task_title);
         TextView taskDescription = getView().findViewById(R.id.task_description);
-        taskDescription.setText(freelanceTask.getDescription());
+        TextView taskPublDate = getView().findViewById(R.id.task_public_date);
+        TextView taskExpLeft = getView().findViewById(R.id.task_exp_left);
+        TextView taskClass = getView().findViewById(R.id.task_class);
+        TextView taskSubject = getView().findViewById(R.id.task_subject);
+        TextView taskPrice = getView().findViewById(R.id.task_price);
+        TextView taskResponses = getView().findViewById(R.id.task_responses);
 
         taskDescription.setMovementMethod(new ScrollingMovementMethod());
+
+        taskTitle.setText(freelanceTask.getTitle());
+        taskDescription.setText(freelanceTask.getDescription());
+        taskPublDate.setText(DateUtil.standardDateToString(freelanceTask.getPublicationDate()));
+        taskExpLeft.setText(("Дата сдачи: " + DateUtil.standardDateToString(freelanceTask.getExpirationDate())));
+        taskClass.setText(Integer.toString(freelanceTask.getClassIndex()) + " класс");
+        taskSubject.setText(freelanceTask.getSubjectName());
+        //taskPrice.setText(Integer.toString(freelanceTask.getPrice()) + " руб");
+        taskResponses.setText("откликов : " + freelanceTask.getResponsesCount());
     }
 }

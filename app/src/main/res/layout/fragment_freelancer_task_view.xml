@@ -24,112 +24,108 @@
         android:padding="8dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clipChildren="false"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/task_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Название задачи"
+                android:textColor="@color/colorBlack"
+                android:textSize="22sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:clipChildren="false"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/task_class"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Название задачи"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="24sp" />
+                    android:background="@drawable/shape_rectangle"
+                    android:backgroundTint="@color/colorAccent"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="10 класс"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/task_subject"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:clipChildren="false"
-                    android:orientation="horizontal">
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/shape_rectangle"
+                    android:backgroundTint="@color/colorGrey"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="Русский"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/shape_rectangle"
-                        android:backgroundTint="@color/colorAccent"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="5dp"
-                        android:text="10 класс"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="7dp"
-                        android:background="@drawable/shape_rectangle"
-                        android:backgroundTint="@color/colorGrey"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="5dp"
-                        android:text="Русский"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/task_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:clipChildren="false"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_calendar" />
-
-                    <TextView
-                        android:id="@+id/freelance_task_publ_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="25.01.2010"
-                        android:textColor="@color/colorBlack" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="20dp"
-                        android:src="@drawable/ic_otkliki" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="откликов : 7"
-                        android:textColor="@color/colorBlack" />
-
-                </LinearLayout>
+                    android:background="@drawable/shape_rectangle"
+                    android:backgroundTint="@color/colorAccent"
+                    android:backgroundTintMode="add"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="10dp"
+                    android:text="15000 руб."
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/shape_rectangle"
-                android:backgroundTint="@color/colorAccent"
-                android:backgroundTintMode="add"
-                android:paddingHorizontal="6dp"
-                android:paddingVertical="10dp"
-                android:text="15000 руб."
-                android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:layout_marginTop="10dp"
+                android:clipChildren="false"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_calendar" />
+
+                <TextView
+                    android:id="@+id/task_public_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="25.01.2010"
+                    android:textColor="@color/colorBlack" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_otkliki" />
+
+                <TextView
+                    android:id="@+id/task_responses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="откликов : 7"
+                    android:textColor="@color/colorBlack" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -168,7 +164,7 @@
             android:textColor="@color/colorBlack" />
 
         <TextView
-            android:id="@+id/freelance_task_exp_left"
+            android:id="@+id/task_exp_left"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
