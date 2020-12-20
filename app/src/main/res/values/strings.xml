@@ -23,6 +23,5 @@
 
     <string name="search_tasks">Ищу задания</string>
     <string name="my_tasks">Мои задания</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

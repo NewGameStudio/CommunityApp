@@ -81,13 +81,17 @@ public class FreelanceFragment extends Fragment
 
         Button searchTasksButton = getView().findViewById(R.id.search_task_btn);
         Button myTasksButton = getView().findViewById(R.id.my_task_btn);
+        Button newTaskButton = getView().findViewById(R.id.new_task_btn);
 
         searchTasksButton.setOnClickListener(this);
         myTasksButton.setOnClickListener(this);
+        newTaskButton.setOnClickListener(this);
     }
 
     private void onFreelanceTasksSearchSelected() {
         freelanceTasks = FreelanceTasksController.findAvailableTasks();
+
+        getView().findViewById(R.id.new_task_btn).setVisibility(View.INVISIBLE);
 
         RecyclerView.Adapter recyclerAdapter = new FreelanceTaskAdapter(freelanceTasks,
                 this);
@@ -99,6 +103,8 @@ public class FreelanceFragment extends Fragment
 
     private void onFreelanceMyTasksSelected() {
         freelanceTasks = new ArrayList<>();
+
+        getView().findViewById(R.id.new_task_btn).setVisibility(View.VISIBLE);
 
         freelanceTasks.addAll(FreelanceTasksController.findExecutableTasks());
         freelanceTasks.addAll(FreelanceTasksController.findPublishedTasks());
@@ -115,8 +121,13 @@ public class FreelanceFragment extends Fragment
     public void onClick(View view) {
         if(view.getId() == R.id.search_task_btn)
             onFreelanceTasksSearchSelected();
-        else
+
+        else if(view.getId() == R.id.my_task_btn)
             onFreelanceMyTasksSelected();
+
+        else if(view.getId() == R.id.new_task_btn)
+            NavigationMaster.navigate(getView(),
+                    R.id.action_nav_freelance_to_publishFreelanceTask1);
     }
 
     @Override

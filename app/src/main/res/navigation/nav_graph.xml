@@ -67,6 +67,9 @@
         <action
             android:id="@+id/action_nav_freelance_to_freelancerTaskViewFragment"
             app:destination="@id/freelancerTaskViewFragment" />
+        <action
+            android:id="@+id/action_nav_freelance_to_publishFreelanceTask1"
+            app:destination="@id/publishFreelanceTask1" />
     </fragment>
 
     <fragment
@@ -114,5 +117,56 @@
             android:id="@+id/action_freelanceTaskResponseFragment_to_nav_freelance"
             app:destination="@id/nav_freelance" />
     </fragment>
+    <fragment
+        android:id="@+id/publishFreelanceTask1"
+        android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTask1"
+        android:label="fragment_publish_freelance_task1"
+        tools:layout="@layout/fragment_publish_freelance_task1" >
+        <action
+            android:id="@+id/action_publishFreelanceTask1_to_publishFreelanceTask2"
+            app:destination="@id/publishFreelanceTask2" />
+    </fragment>
+    <fragment
+        android:id="@+id/publishFreelanceTask2"
+        android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTask2"
+        android:label="fragment_publish_freelance_task2"
+        tools:layout="@layout/fragment_publish_freelance_task2" >
+        <action
+            android:id="@+id/action_publishFreelanceTask2_to_publishFreelanceTask1"
+            app:destination="@id/publishFreelanceTask1" />
+        <action
+            android:id="@+id/action_publishFreelanceTask2_to_publishFreelanceTask3"
+            app:destination="@id/publishFreelanceTask3" />
+    </fragment>
+    <fragment
+        android:id="@+id/publishFreelanceTask3"
+        android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTask3"
+        android:label="fragment_publish_freelance_task3"
+        tools:layout="@layout/fragment_publish_freelance_task3" >
+        <action
+            android:id="@+id/action_publishFreelanceTask3_to_publishFreelanceTask2"
+            app:destination="@id/publishFreelanceTask2" />
+        <action
+            android:id="@+id/action_publishFreelanceTask3_to_publishFreelanceTask4"
+            app:destination="@id/publishFreelanceTask4" />
+    </fragment>
+    <fragment
+        android:id="@+id/publishFreelanceTask4"
+        android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTask4"
+        android:label="fragment_publish_freelance_task4"
+        tools:layout="@layout/fragment_publish_freelance_task4" >
+        <action
+            android:id="@+id/action_publishFreelanceTask4_to_publishFreelanceTask3"
+            app:destination="@id/publishFreelanceTask3" />
+        <action
+            android:id="@+id/action_publishFreelanceTask4_to_publishFreelanceTaskFinal"
+            app:destination="@id/publishFreelanceTaskFinal" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/publishFreelanceTaskFinal"
+        android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTaskFinal"
+        android:label="fragment_publish_freelance_task_final"
+        tools:layout="@layout/fragment_publish_freelance_task_final" />
 
 </navigation>
