@@ -9,18 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
-public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdapter.FreelanceTaskViewHolder> {
+public class FreelanceTaskAdapter
+        extends RecyclerView.Adapter<FreelanceTaskAdapter.FreelanceTaskViewHolder> {
 
-
-    public static class FreelanceTaskViewHolder extends RecyclerView.ViewHolder {
+    public static class FreelanceTaskViewHolder
+            extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView taskTitle;
         public TextView taskDescription;
@@ -31,8 +30,9 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
         public TextView taskPrice;
         public TextView taskOwnerName;
         public TextView taskResponses;
+        private OnClickItemListener onClickItemListener;
 
-        public FreelanceTaskViewHolder(@NonNull View itemView) {
+        public FreelanceTaskViewHolder(@NonNull View itemView, OnClickItemListener onClickItemListener) {
             super(itemView);
 
             taskTitle = itemView.findViewById(R.id.task_title);
@@ -44,13 +44,25 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
             taskPrice = itemView.findViewById(R.id.task_price);
             taskOwnerName = itemView.findViewById(R.id.task_owner_name);
             taskResponses = itemView.findViewById(R.id.task_responses);
+
+            this.onClickItemListener = onClickItemListener;
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            onClickItemListener.onClick(getAdapterPosition());
         }
     }
 
-    private List<FreelanceTaskEntity> tasks;
 
-    public FreelanceTaskAdapter(List<FreelanceTaskEntity> tasks) {
+    private List<FreelanceTaskEntity> tasks;
+    private OnClickItemListener onClickItemListener;
+
+    public FreelanceTaskAdapter(List<FreelanceTaskEntity> tasks, OnClickItemListener onClickItemListener) {
         this.tasks = tasks;
+        this.onClickItemListener = onClickItemListener;
     }
 
     @NonNull
@@ -59,7 +71,7 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.freelance_task_card_view, parent, false);
 
-        return new FreelanceTaskViewHolder(view);
+        return new FreelanceTaskViewHolder(view, onClickItemListener);
     }
 
     @Override

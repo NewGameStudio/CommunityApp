@@ -13,23 +13,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Controllers.FreelanceTasksController;
 import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Handlers.OnClickItemListener;
+import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
-import com.example.communityapp.Utils.DateUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class FreelanceFragment extends Fragment {
+public class FreelanceFragment extends Fragment
+        implements OnClickItemListener {
 
-    private RecyclerView searchTaskRecycler;
-    private RecyclerView.Adapter searchTaskAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-
+    private RecyclerView tasksRecycler;
+    private List<FreelanceTaskEntity> freelanceTasks;
 
     @Nullable
     @Override
@@ -67,15 +67,28 @@ public class FreelanceFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        List<FreelanceTaskEntity> freelanceTasks = FreelanceTasksController.findAvailableTasks();
+        tasksRecycler = getView().findViewById(R.id.freelance_tasks_recycler_view);
+        tasksRecycler.setHasFixedSize(true);
 
-        searchTaskRecycler = getActivity().findViewById(R.id.freelance_tasks_recycler_view);
-        searchTaskRecycler.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        tasksRecycler.setLayoutManager(layoutManager);
 
-        layoutManager = new LinearLayoutManager(getActivity());
-        searchTaskAdapter = new FreelanceTaskAdapter(freelanceTasks);
+        onFreelanceTasksSearchSelected();
+    }
 
-        searchTaskRecycler.setLayoutManager(layoutManager);
-        searchTaskRecycler.setAdapter(searchTaskAdapter);
+    private void onFreelanceTasksSearchSelected() {
+        freelanceTasks = FreelanceTasksController.findAvailableTasks();
+
+        RecyclerView.Adapter searchTaskAdapter = new FreelanceTaskAdapter(freelanceTasks,
+                this);
+
+        tasksRecycler.setAdapter(searchTaskAdapter);
+    }
+
+    @Override
+    public void onClick(int itemIndex) {
+        DataMaster.setCurrentFreelanceTask(freelanceTasks.get(itemIndex));
+        NavigationMaster.navigate(getView(),
+                R.id.action_nav_freelance_to_freelancerTaskViewFragment);
     }
 }

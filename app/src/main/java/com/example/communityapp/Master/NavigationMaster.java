@@ -5,7 +5,11 @@ import android.view.View;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.communityapp.Entities.FreelanceTaskEntity;
+
 public class NavigationMaster {
+
+    private static FreelanceTaskEntity currentFreelanceTask;
 
     public static void navigate(View view, int actionId) {
 

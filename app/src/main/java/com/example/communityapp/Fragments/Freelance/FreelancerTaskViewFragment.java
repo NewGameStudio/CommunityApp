@@ -9,11 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.R;
 
 
 public class FreelancerTaskViewFragment extends Fragment {
+
+    private FreelanceTaskEntity freelanceTask;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,7 +31,14 @@ public class FreelancerTaskViewFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        TextView taskDescription = getActivity().findViewById(R.id.task_description);
+        freelanceTask = DataMaster.getCurrentFreelanceTask();
+
+        setTaskData();
+    }
+
+    private void setTaskData() {
+        TextView taskDescription = getView().findViewById(R.id.task_description);
+        taskDescription.setText(freelanceTask.getDescription());
 
         taskDescription.setMovementMethod(new ScrollingMovementMethod());
     }
