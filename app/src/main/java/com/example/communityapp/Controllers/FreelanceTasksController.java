@@ -11,13 +11,18 @@ import java.util.List;
 
 public class FreelanceTasksController {
 
-    public static List<FreelanceTaskEntity> findAvailableTasks() {
+    private static List<FreelanceTaskEntity> freelanceTasks = new ArrayList<>();
+
+    //TODO delete this
+    public static void init() {
 
         UserEntity user1 = new UserEntity();
+        user1.setId(2);
         user1.setUsername("Дима Шелохвостов");
         user1.setDescription("Дебик");
 
         UserEntity user2 = new UserEntity();
+        user2.setId(3);
         user2.setUsername("Отец Даниил");
         user2.setDescription("Не дебик");
 
@@ -56,10 +61,47 @@ public class FreelanceTasksController {
         task2.setExpirationDate(DateUtil.toDateStandard("01.03.2020"));
         task2.setTaskOwner(user2);
 
-        ArrayList<FreelanceTaskEntity> freelanceTasks = new ArrayList<>();
+        FreelanceTaskEntity task3 = new FreelanceTaskEntity();
+        task3.setTitle("Сочинение по географии");
+        task3.setDescription("Я не покакал");
+        task3.setPrice(1000);
+        task3.setClassIndex(10);
+        task3.setSubjectName("География");
+        task3.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
+        task3.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
+        task3.setResponsesCount(5);
+        task3.setTaskOwner(UserController.getUser());
+
         freelanceTasks.add(task1);
         freelanceTasks.add(task2);
+        freelanceTasks.add(task3);
+    }
 
+    public static List<FreelanceTaskEntity> findAvailableTasks() {
         return freelanceTasks;
+    }
+
+    public static List<FreelanceTaskEntity> findExecutableTasks() {
+        ArrayList<FreelanceTaskEntity> tasks = new ArrayList<>();
+
+        for(int i = 0; i < freelanceTasks.size(); i++) {
+            if(freelanceTasks.get(i).getTaskExecutor() != null) {
+                if (freelanceTasks.get(i).getTaskExecutor().getId() == UserController.getUser().getId())
+                    tasks.add(freelanceTasks.get(i));
+            }
+        }
+
+        return tasks;
+    }
+
+    public static List<FreelanceTaskEntity> findPublishedTasks() {
+        ArrayList<FreelanceTaskEntity> tasks = new ArrayList<>();
+
+        for(int i = 0; i < freelanceTasks.size(); i++) {
+            if(freelanceTasks.get(i).getTaskOwner().getId() == UserController.getUser().getId())
+                tasks.add(freelanceTasks.get(i));
+        }
+
+        return tasks;
     }
 }

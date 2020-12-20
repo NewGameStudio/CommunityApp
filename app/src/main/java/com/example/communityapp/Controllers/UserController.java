@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.Entities.UserEntity;
 import com.example.communityapp.MainActivity;
 import com.example.communityapp.R;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 public class UserController {
 
     private static UserEntity user;
+
 
     public static boolean login(String username, String password) {
 
@@ -26,15 +28,23 @@ public class UserController {
         Bitmap profileAvatar = BitmapFactory.decodeResource(activity.getResources(),
                 R.drawable.blank_profile);
 
+        user.setId(1);
         user.setAvatar(profileAvatar);
-        user.setUsername("Дима Шелохвостов");
+        user.setUsername("Стас АйКакПросто");
         user.setDescription("Я мячик");
+
+        //TODO delete this
+        FreelanceTasksController.init();
 
         return true;
     }
 
     public static void logout() {
 
+    }
+
+    public static UserEntity getUser() {
+        return user;
     }
 
 

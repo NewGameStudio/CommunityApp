@@ -1,5 +1,5 @@
 package com.example.communityapp.Handlers;
 
 public interface OnClickItemListener {
-    void onClick(int itemIndex);
+    void onItemClick(int itemIndex);
 }

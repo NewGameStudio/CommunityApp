@@ -3,8 +3,9 @@ package com.example.communityapp.Entities;
 import com.example.communityapp.Utils.DateUtil;
 
 import java.util.Date;
+import java.util.List;
 
-public class FreelanceTaskEntity {
+public class FreelanceTaskEntity extends BaseEntity {
 
     private String title;
     private String description;
@@ -15,6 +16,8 @@ public class FreelanceTaskEntity {
     private Date expirationDate;
     private int responsesCount;
     private UserEntity taskOwner;
+    private List<UserEntity> responsesUsers;
+    private UserEntity taskExecutor;
 
     public String getTitle() {
         return title;
@@ -86,6 +89,22 @@ public class FreelanceTaskEntity {
 
     public void setTaskOwner(UserEntity taskOwner) {
         this.taskOwner = taskOwner;
+    }
+
+    public List<UserEntity> getResponsesUsers() {
+        return responsesUsers;
+    }
+
+    public void setResponsesUsers(List<UserEntity> responsesUsers) {
+        this.responsesUsers = responsesUsers;
+    }
+
+    public UserEntity getTaskExecutor() {
+        return taskExecutor;
+    }
+
+    public void setTaskExecutor(UserEntity taskExecutor) {
+        this.taskExecutor = taskExecutor;
     }
 
     public long expirationDaysLeft() {

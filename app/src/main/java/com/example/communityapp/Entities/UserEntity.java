@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 
 import java.util.List;
 
-public class UserEntity {
+public class UserEntity extends BaseEntity{
 
     private Bitmap avatar;
     private String username;

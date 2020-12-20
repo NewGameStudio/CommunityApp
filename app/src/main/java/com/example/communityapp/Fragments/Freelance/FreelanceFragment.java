@@ -13,23 +13,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Controllers.FreelanceTasksController;
+import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FreelanceFragment extends Fragment
-        implements OnClickItemListener {
+        implements OnClickItemListener, View.OnClickListener {
 
     private RecyclerView tasksRecycler;
     private List<FreelanceTaskEntity> freelanceTasks;
+    private int tabIndex = 0;
 
     @Nullable
     @Override
@@ -74,19 +78,53 @@ public class FreelanceFragment extends Fragment
         tasksRecycler.setLayoutManager(layoutManager);
 
         onFreelanceTasksSearchSelected();
+
+        Button searchTasksButton = getView().findViewById(R.id.search_task_btn);
+        Button myTasksButton = getView().findViewById(R.id.my_task_btn);
+
+        searchTasksButton.setOnClickListener(this);
+        myTasksButton.setOnClickListener(this);
     }
 
     private void onFreelanceTasksSearchSelected() {
         freelanceTasks = FreelanceTasksController.findAvailableTasks();
 
-        RecyclerView.Adapter searchTaskAdapter = new FreelanceTaskAdapter(freelanceTasks,
+        RecyclerView.Adapter recyclerAdapter = new FreelanceTaskAdapter(freelanceTasks,
                 this);
 
-        tasksRecycler.setAdapter(searchTaskAdapter);
+        tasksRecycler.setAdapter(recyclerAdapter);
+
+        tabIndex = 0;
+    }
+
+    private void onFreelanceMyTasksSelected() {
+        freelanceTasks = new ArrayList<>();
+
+        freelanceTasks.addAll(FreelanceTasksController.findExecutableTasks());
+        freelanceTasks.addAll(FreelanceTasksController.findPublishedTasks());
+
+        RecyclerView.Adapter recyclerAdapter = new FreelanceTaskAdapter(freelanceTasks,
+                this);
+
+        tasksRecycler.setAdapter(recyclerAdapter);
+
+        tabIndex = 1;
     }
 
     @Override
-    public void onClick(int itemIndex) {
+    public void onClick(View view) {
+        if(view.getId() == R.id.search_task_btn)
+            onFreelanceTasksSearchSelected();
+        else
+            onFreelanceMyTasksSelected();
+    }
+
+    @Override
+    public void onItemClick(int itemIndex) {
+
+        if(freelanceTasks.get(itemIndex).getTaskOwner().getId() == UserController.getUser().getId())
+            return;
+
         DataMaster.setCurrentFreelanceTask(freelanceTasks.get(itemIndex));
         NavigationMaster.navigate(getView(),
                 R.id.action_nav_freelance_to_freelancerTaskViewFragment);

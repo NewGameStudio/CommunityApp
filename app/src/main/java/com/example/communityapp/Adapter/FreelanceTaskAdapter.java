@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.R;
@@ -27,6 +28,7 @@ public class FreelanceTaskAdapter
         public TextView taskExpLeft;
         public TextView taskClass;
         public TextView taskSubject;
+        public TextView taskRelation;
         public TextView taskPrice;
         public TextView taskOwnerName;
         public TextView taskResponses;
@@ -41,6 +43,7 @@ public class FreelanceTaskAdapter
             taskExpLeft = itemView.findViewById(R.id.task_exp_left);
             taskClass = itemView.findViewById(R.id.task_class);
             taskSubject = itemView.findViewById(R.id.task_subject);
+            taskRelation = itemView.findViewById(R.id.task_relation);
             taskPrice = itemView.findViewById(R.id.task_price);
             taskOwnerName = itemView.findViewById(R.id.task_owner_name);
             taskResponses = itemView.findViewById(R.id.task_responses);
@@ -52,7 +55,7 @@ public class FreelanceTaskAdapter
 
         @Override
         public void onClick(View view) {
-            onClickItemListener.onClick(getAdapterPosition());
+            onClickItemListener.onItemClick(getAdapterPosition());
         }
     }
 
@@ -87,6 +90,9 @@ public class FreelanceTaskAdapter
         holder.taskPrice.setText(Integer.toString(currentTask.getPrice()) + " руб");
         holder.taskOwnerName.setText(currentTask.getTaskOwner().getUsername());
         holder.taskResponses.setText("откликов : " + currentTask.getResponsesCount());
+
+        if(currentTask.getTaskOwner().getId() == UserController.getUser().getId())
+            holder.taskRelation.setVisibility(View.VISIBLE);
     }
 
     @Override
