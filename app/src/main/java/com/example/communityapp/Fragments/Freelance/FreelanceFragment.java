@@ -15,12 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
+import com.example.communityapp.Controllers.FreelanceTasksController;
 import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FreelanceFragment extends Fragment {
 
@@ -65,20 +67,7 @@ public class FreelanceFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        FreelanceTaskEntity task1 = new FreelanceTaskEntity();
-        task1.setTitle("Сочинение по русскому");
-        task1.setPrice(300);
-        task1.setClassIndex(10);
-        task1.setPublicationDate(DateUtil.toDateStandard("20.01.20"));
-        task1.setExpirationDate(DateUtil.toDateStandard("11.12.20"));
-
-        ArrayList<FreelanceTaskEntity> freelanceTasks = new ArrayList<>();
-        freelanceTasks.add(task1);
-        freelanceTasks.add(task1);
-        freelanceTasks.add(task1);
-        freelanceTasks.add(task1);
-        freelanceTasks.add(task1);
-        freelanceTasks.add(task1);
+        List<FreelanceTaskEntity> freelanceTasks = FreelanceTasksController.findAvailableTasks();
 
         searchTaskRecycler = getActivity().findViewById(R.id.freelance_tasks_recycler_view);
         searchTaskRecycler.setHasFixedSize(true);

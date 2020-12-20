@@ -70,7 +70,7 @@ public class FreelanceTaskEntity {
         this.taskOwner = taskOwner;
     }
 
-    public int expirationDaysLeft() {
+    public long expirationDaysLeft() {
         return DateUtil.daysBetween(publicationDate, expirationDate);
     }
 }

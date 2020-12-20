@@ -93,5 +93,10 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
+    <fragment
+        android:id="@+id/freelancerTaskViewFragment"
+        android:name="com.example.communityapp.Fragments.Freelance.FreelancerTaskViewFragment"
+        android:label="fragment_freelancer_task_view"
+        tools:layout="@layout/fragment_freelancer_task_view" />
 
 </navigation>

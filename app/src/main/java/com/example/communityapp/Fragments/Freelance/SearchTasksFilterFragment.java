@@ -54,39 +54,39 @@ public class SearchTasksFilterFragment extends Fragment implements View.OnClickL
     }
 
 
-    protected void configureClassFromSpinner() {
-        Spinner spinner = getActivity().findViewById(R.id.class_from_filter_spinner);
-        spinner.setPrompt("Класс от");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, classNames);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
-    }
-
-    protected void configureClassToSpinner() {
-        Spinner spinner = getActivity().findViewById(R.id.class_to_filter_spinner);
-        spinner.setPrompt("Класс до");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, classNames);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
-    }
-
-    protected void configureSubjectSpinner() {
-        Spinner spinner = getActivity().findViewById(R.id.subject_filter_spinner);
-        spinner.setPrompt("Предмет");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, subjects);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
-    }
+//    protected void configureClassFromSpinner() {
+//        Spinner spinner = getActivity().findViewById(R.id.class_from_filter_spinner);
+//        spinner.setPrompt("Класс от");
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
+//                android.R.layout.simple_spinner_item, classNames);
+//
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        spinner.setAdapter(adapter);
+//    }
+//
+//    protected void configureClassToSpinner() {
+//        Spinner spinner = getActivity().findViewById(R.id.class_to_filter_spinner);
+//        spinner.setPrompt("Класс до");
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
+//                android.R.layout.simple_spinner_item, classNames);
+//
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        spinner.setAdapter(adapter);
+//    }
+//
+//    protected void configureSubjectSpinner() {
+//        Spinner spinner = getActivity().findViewById(R.id.subject_filter_spinner);
+//        spinner.setPrompt("Предмет");
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
+//                android.R.layout.simple_spinner_item, subjects);
+//
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        spinner.setAdapter(adapter);
+//    }
 }

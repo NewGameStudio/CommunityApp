@@ -9,6 +9,8 @@ import com.example.communityapp.Entities.UserEntity;
 import com.example.communityapp.MainActivity;
 import com.example.communityapp.R;
 
+import java.util.ArrayList;
+
 public class UserController {
 
     private static UserEntity user;

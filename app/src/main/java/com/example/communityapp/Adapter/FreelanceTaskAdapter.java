@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.R;
+import com.example.communityapp.Utils.DateUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdapter.FreelanceTaskViewHolder> {
 
@@ -35,9 +37,9 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
         }
     }
 
-    private ArrayList<FreelanceTaskEntity> tasks;
+    private List<FreelanceTaskEntity> tasks;
 
-    public FreelanceTaskAdapter(ArrayList<FreelanceTaskEntity> tasks) {
+    public FreelanceTaskAdapter(List<FreelanceTaskEntity> tasks) {
         this.tasks = tasks;
     }
 
@@ -54,11 +56,11 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
     public void onBindViewHolder(@NonNull FreelanceTaskViewHolder holder, int position) {
         FreelanceTaskEntity currentTask = tasks.get(position);
 
-//        holder.taskTitle.setText(currentTask.getTitle());
-//        holder.taskPublDate.setText(currentTask.getPublicationDate().toString());
-//        holder.taskExpDate.setText(("Дата окончания : " + currentTask.expirationDate));
-//        holder.taskClass.setText(Integer.toString(currentTask.classIndex));
-//        holder.taskPrice.setText(Integer.toString(currentTask.price));
+        holder.taskTitle.setText(currentTask.getTitle());
+        holder.taskPublDate.setText(DateUtil.standardDateToString(currentTask.getPublicationDate()));
+        holder.taskExpLeft.setText(("Дата сдачи: " + DateUtil.standardDateToString(currentTask.getExpirationDate())));
+        holder.taskClass.setText(Integer.toString(currentTask.getClassIndex()) + " класс");
+        holder.taskPrice.setText(Integer.toString(currentTask.getPrice()) + " руб");
     }
 
     @Override

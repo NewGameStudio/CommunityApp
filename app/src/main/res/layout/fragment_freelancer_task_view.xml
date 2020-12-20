@@ -2,10 +2,193 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.Freelance.FreelancerTaskViewFragment"
+    android:orientation="vertical"
     android:clipChildren="false">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/shape_rectangle"
+        android:backgroundTint="@color/white"
+        android:backgroundTintMode="add"
+        android:clipChildren="false"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Название задачи"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clipChildren="false"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rectangle"
+                        android:backgroundTint="@color/colorAccent"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="10 класс"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:background="@drawable/shape_rectangle"
+                        android:backgroundTint="@color/colorGrey"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="Русский"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clipChildren="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_calendar" />
+
+                    <TextView
+                        android:id="@+id/freelance_task_publ_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="25.01.2010"
+                        android:textColor="@color/colorBlack" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_otkliki" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="откликов : 7"
+                        android:textColor="@color/colorBlack" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_rectangle"
+                android:backgroundTint="@color/colorAccent"
+                android:backgroundTintMode="add"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="10dp"
+                android:text="15000 руб."
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/task_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="12"
+            android:scrollbars="vertical"
+            android:text="Требуется разработать полный дизайн-проект дома из клееного бруса в современном стиле.\n
+Состав проекта ниже. \n
+Без опыта с домами из клееного бруса не \n
+обращайтесь. Присылайте примеры \n
+выполненных работ домов в клееном брусе.\n\n
+СОСТАВ ПРОЕКТА: \n\n
+Раздел 1: \n
+-план организации пространства с указанием \n
+наименований помещений и их площадей\n
+Раздел 2: \n
+-принципиальная схема силовой и слаботочной\n
+электросетей;\n
+Требуется разработать полный дизайн-проект дома из клееного бруса в современном стиле.\n
+Состав проекта ниже. \n
+Без опыта с домами из клееного бруса не \n
+обращайтесь. Присылайте примеры \n
+выполненных работ домов в клееном брусе.\n\n
+СОСТАВ ПРОЕКТА: \n\n
+Раздел 1: \n
+-план организации пространства с указанием \n
+наименований помещений и их площадей\n
+Раздел 2: \n
+-принципиальная схема силовой и слаботочной\n
+электросетей;\n"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/freelance_task_exp_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorLightGrey"
+            android:backgroundTintMode="add"
+            android:padding="8dp"
+            android:text="Осталось 30 дней"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="Откликнуться"
+        android:textSize="14sp"
+        android:textStyle="bold"/>
 
 </RelativeLayout>
