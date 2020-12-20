@@ -8,16 +8,18 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.Master.DataMaster;
+import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
 
 
-public class FreelancerTaskViewFragment extends Fragment {
+public class FreelancerTaskViewFragment extends Fragment implements View.OnClickListener {
 
     private FreelanceTaskEntity freelanceTask;
 
@@ -35,6 +37,9 @@ public class FreelancerTaskViewFragment extends Fragment {
         freelanceTask = DataMaster.getCurrentFreelanceTask();
 
         setTaskData();
+
+        Button respondButton = getView().findViewById(R.id.respond_btn);
+        respondButton.setOnClickListener(this);
     }
 
     private void setTaskData() {
@@ -57,5 +62,11 @@ public class FreelancerTaskViewFragment extends Fragment {
         taskSubject.setText(freelanceTask.getSubjectName());
         //taskPrice.setText(Integer.toString(freelanceTask.getPrice()) + " руб");
         taskResponses.setText("откликов : " + freelanceTask.getResponsesCount());
+    }
+
+    @Override
+    public void onClick(View view) {
+        NavigationMaster.navigate(getView(),
+                R.id.action_freelancerTaskViewFragment_to_freelanceTaskResponseFragment);
     }
 }

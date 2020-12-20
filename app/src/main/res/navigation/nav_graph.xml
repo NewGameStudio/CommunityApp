@@ -100,6 +100,19 @@
         android:id="@+id/freelancerTaskViewFragment"
         android:name="com.example.communityapp.Fragments.Freelance.FreelancerTaskViewFragment"
         android:label="fragment_freelancer_task_view"
-        tools:layout="@layout/fragment_freelancer_task_view" />
+        tools:layout="@layout/fragment_freelancer_task_view" >
+        <action
+            android:id="@+id/action_freelancerTaskViewFragment_to_freelanceTaskResponseFragment"
+            app:destination="@id/freelanceTaskResponseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/freelanceTaskResponseFragment"
+        android:name="com.example.communityapp.Fragments.Freelance.FreelanceTaskResponseFragment"
+        android:label="fragment_freelance_task_response"
+        tools:layout="@layout/fragment_freelance_task_response" >
+        <action
+            android:id="@+id/action_freelanceTaskResponseFragment_to_nav_freelance"
+            app:destination="@id/nav_freelance" />
+    </fragment>
 
 </navigation>

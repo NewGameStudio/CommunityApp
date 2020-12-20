@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:background="@drawable/shape_rectangle"
-    android:backgroundTint="@color/white"
-    android:backgroundTintMode="add"
-    android:translationZ="4dp"
-    android:clipChildren="false">
+    android:layout_height="match_parent"
+    tools:context=".Fragments.Freelance.FreelanceTaskResponseFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:padding="10dp"
+        android:elevation="4dp"
         android:orientation="vertical"
-        android:clipChildren="false">
+        android:background="@drawable/shape_rectangle"
+        android:backgroundTint="@color/white">
 
         <TextView
-            android:id="@+id/task_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Название задачи"
@@ -30,10 +26,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp">
+            android:layout_marginVertical="8dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/task_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
@@ -46,7 +42,6 @@
                 android:backgroundTintMode="add"/>
 
             <TextView
-                android:id="@+id/task_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
@@ -62,7 +57,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/task_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Мы открываем новую компанию по подбору
@@ -84,7 +78,6 @@
                 android:src="@drawable/ic_calendar"/>
 
             <TextView
-                android:id="@+id/task_public_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -99,7 +92,6 @@
                 android:src="@drawable/ic_otkliki"/>
 
             <TextView
-                android:id="@+id/task_responses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -108,85 +100,64 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorGrey"/>
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:hint="Предложите цену"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="6dp"
-            android:orientation="vertical">
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorGrey"/>
-
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp"
-                android:orientation="horizontal">
+                android:inputType="number"/>
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/blank_profile"
-                    app:civ_border_width="1dp"
-                    app:civ_border_color="@color/colorLightBlack"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/task_owner_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="8dp"
-                    android:text="Дима Шелохвостов"
-                    android:textSize="16sp"
-                    android:textColor="@color/colorBlack"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorGrey"/>
-
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:hint="Укажите срок выполнения"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:paddingVertical="10dp"
-            android:paddingHorizontal="12dp"
-            android:background="@drawable/shape_rectangle"
-            android:backgroundTint="@color/colorLightGrey"
-            android:backgroundTintMode="add"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <TextView
-                android:id="@+id/task_exp_left"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Срок выполнения 30 дней"
-                android:textSize="14sp"
-                android:textColor="@color/colorBlack"/>
+                android:inputType="date"/>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/task_price"
-                android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:hint="Оставьте сообщение заказчику"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="500 руб"
-                android:textSize="20sp"
-                android:textColor="@color/colorPrimary"/>
+                android:gravity="start"
+                android:minLines="4"/>
 
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/send_response_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:text="Отправить"/>
+
+</RelativeLayout>
