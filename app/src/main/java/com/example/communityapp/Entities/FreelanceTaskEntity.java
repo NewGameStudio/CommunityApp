@@ -7,11 +7,13 @@ import java.util.Date;
 public class FreelanceTaskEntity {
 
     private String title;
+    private String description;
     private int price;
     private int classIndex;
     private String subjectName;
     private Date publicationDate;
     private Date expirationDate;
+    private int responsesCount;
     private UserEntity taskOwner;
 
     public String getTitle() {
@@ -20,6 +22,14 @@ public class FreelanceTaskEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getPrice() {
@@ -60,6 +70,14 @@ public class FreelanceTaskEntity {
 
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public int getResponsesCount() {
+        return responsesCount;
+    }
+
+    public void setResponsesCount(int responsesCount) {
+        this.responsesCount = responsesCount;
     }
 
     public UserEntity getTaskOwner() {

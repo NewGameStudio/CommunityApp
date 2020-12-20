@@ -12,6 +12,8 @@ import com.example.communityapp.Entities.FreelanceTaskEntity;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,19 +23,27 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
     public static class FreelanceTaskViewHolder extends RecyclerView.ViewHolder {
 
         public TextView taskTitle;
+        public TextView taskDescription;
         public TextView taskPublDate;
         public TextView taskExpLeft;
         public TextView taskClass;
+        public TextView taskSubject;
         public TextView taskPrice;
+        public TextView taskOwnerName;
+        public TextView taskResponses;
 
         public FreelanceTaskViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            taskTitle = itemView.findViewById(R.id.freelance_task_title);
-            taskPublDate = itemView.findViewById(R.id.freelance_task_publ_date);
-            taskExpLeft = itemView.findViewById(R.id.freelance_task_exp_left);
-            taskClass = itemView.findViewById(R.id.freelance_task_class);
-            taskPrice = itemView.findViewById(R.id.freelance_task_price);
+            taskTitle = itemView.findViewById(R.id.task_title);
+            taskDescription = itemView.findViewById(R.id.task_description);
+            taskPublDate = itemView.findViewById(R.id.task_public_date);
+            taskExpLeft = itemView.findViewById(R.id.task_exp_left);
+            taskClass = itemView.findViewById(R.id.task_class);
+            taskSubject = itemView.findViewById(R.id.task_subject);
+            taskPrice = itemView.findViewById(R.id.task_price);
+            taskOwnerName = itemView.findViewById(R.id.task_owner_name);
+            taskResponses = itemView.findViewById(R.id.task_responses);
         }
     }
 
@@ -57,10 +67,14 @@ public class FreelanceTaskAdapter extends RecyclerView.Adapter<FreelanceTaskAdap
         FreelanceTaskEntity currentTask = tasks.get(position);
 
         holder.taskTitle.setText(currentTask.getTitle());
+        holder.taskDescription.setText(currentTask.getDescription());
         holder.taskPublDate.setText(DateUtil.standardDateToString(currentTask.getPublicationDate()));
         holder.taskExpLeft.setText(("Дата сдачи: " + DateUtil.standardDateToString(currentTask.getExpirationDate())));
         holder.taskClass.setText(Integer.toString(currentTask.getClassIndex()) + " класс");
+        holder.taskSubject.setText(currentTask.getSubjectName());
         holder.taskPrice.setText(Integer.toString(currentTask.getPrice()) + " руб");
+        holder.taskOwnerName.setText(currentTask.getTaskOwner().getUsername());
+        holder.taskResponses.setText("откликов : " + currentTask.getResponsesCount());
     }
 
     @Override

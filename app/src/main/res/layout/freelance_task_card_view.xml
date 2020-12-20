@@ -20,7 +20,7 @@
         android:clipChildren="false">
 
         <TextView
-            android:id="@+id/freelance_task_title"
+            android:id="@+id/task_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Название задачи"
@@ -33,7 +33,7 @@
             android:layout_marginVertical="8dp">
 
             <TextView
-                android:id="@+id/freelance_task_class"
+                android:id="@+id/task_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
@@ -46,6 +46,7 @@
                 android:backgroundTintMode="add"/>
 
             <TextView
+                android:id="@+id/task_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
@@ -61,6 +62,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/task_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Мы открываем новую компанию по подбору
@@ -82,7 +84,7 @@
                 android:src="@drawable/ic_calendar"/>
 
             <TextView
-                android:id="@+id/freelance_task_publ_date"
+                android:id="@+id/task_public_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -97,6 +99,7 @@
                 android:src="@drawable/ic_otkliki"/>
 
             <TextView
+                android:id="@+id/task_responses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -132,6 +135,7 @@
                     app:civ_border_color="@color/colorLightBlack"/>
 
                 <TextView
+                    android:id="@+id/task_owner_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -161,7 +165,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/freelance_task_exp_left"
+                android:id="@+id/task_exp_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Срок выполнения 30 дней"
@@ -174,7 +178,7 @@
                 android:layout_weight="1"/>
 
             <TextView
-                android:id="@+id/freelance_task_price"
+                android:id="@+id/task_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="500 руб"
