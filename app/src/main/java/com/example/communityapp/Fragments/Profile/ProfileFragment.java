@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.communityapp.Controllers.UserController;
+import com.example.communityapp.Entities.User;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
@@ -66,8 +67,10 @@ public class ProfileFragment extends Fragment {
         TextView profileName = getActivity().findViewById(R.id.profile_name_label);
         TextView profileDesc = getActivity().findViewById(R.id.profile_desc_label);
 
-        avatarView.setImageBitmap(UserController.getAvatarImage());
-        profileName.setText(UserController.getUsername());
-        profileDesc.setText(UserController.getProfileDescription());
+        User user = UserController.getUser();
+
+        avatarView.setImageBitmap(user.getAvatar());
+        profileName.setText(user.getUsername());
+        profileDesc.setText(user.getDescription());
     }
 }

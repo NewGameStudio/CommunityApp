@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.communityapp.Controllers.UserController;
+import com.example.communityapp.Entities.User;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -141,9 +142,11 @@ public class ProfileEditFragment extends Fragment implements View.OnClickListene
         TextInputEditText profileName = getActivity().findViewById(R.id.edit_profile_name_edittext);
         TextInputEditText profileDesc = getActivity().findViewById(R.id.edit_profile_desc_edittext);
 
-        avatarView.setImageBitmap(UserController.getAvatarImage());
-        profileName.setText(UserController.getUsername());
-        profileDesc.setText(UserController.getProfileDescription());
+        User user = UserController.getUser();
+
+        avatarView.setImageBitmap(user.getAvatar());
+        profileName.setText(user.getUsername());
+        profileDesc.setText(user.getDescription());
     }
 
     private void pickAvatarFromGallery() {
@@ -157,7 +160,9 @@ public class ProfileEditFragment extends Fragment implements View.OnClickListene
         TextInputEditText profileName = getActivity().findViewById(R.id.edit_profile_name_edittext);
         TextInputEditText profileDesc = getActivity().findViewById(R.id.edit_profile_desc_edittext);
 
-        UserController.setUsername(profileName.getText().toString());
-        UserController.setProfileDescription(profileDesc.getText().toString());
+        User user = UserController.getUser();
+
+        user.setUsername(profileName.getText().toString());
+        user.setDescription(profileDesc.getText().toString());
     }
 }

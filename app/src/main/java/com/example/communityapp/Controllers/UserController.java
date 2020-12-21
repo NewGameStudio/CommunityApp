@@ -9,10 +9,17 @@ import com.example.communityapp.Entities.User;
 import com.example.communityapp.MainActivity;
 import com.example.communityapp.R;
 
+import java.util.List;
+
 public class UserController {
 
     private static User user;
+    private List<User> users;
 
+    //TODO remove this
+    private static void init() {
+
+    }
 
     public static boolean login(String username, String password) {
 
@@ -31,6 +38,7 @@ public class UserController {
         user.setDescription("Я мячик");
 
         //TODO delete this
+        init();
         TextbooksController.init();
         FreelanceTasksController.init();
 
@@ -43,31 +51,5 @@ public class UserController {
 
     public static User getUser() {
         return user;
-    }
-
-
-    public static Bitmap getAvatarImage() {
-        return user.getAvatar();
-    }
-
-    public static String getUsername() {
-        return user.getUsername();
-    }
-
-    public static String getProfileDescription() {
-        return user.getDescription();
-    }
-
-
-    public static void setAvatarImage(Bitmap avatarImage) {
-        user.setAvatar(avatarImage);
-    }
-
-    public static void setUsername(String username) {
-        user.setUsername(username);
-    }
-
-    public static void setProfileDescription(String description) {
-        user.setDescription(description);
     }
 }
