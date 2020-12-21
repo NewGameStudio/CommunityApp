@@ -9,14 +9,11 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class PublishFreelanceTask4 extends Fragment implements View.OnClickListener {
 
@@ -50,7 +47,7 @@ public class PublishFreelanceTask4 extends Fragment implements View.OnClickListe
             if (taskPriceEditText.getText().toString().equals(""))
                 taskPriceEditText.setText("0");
 
-            FreelanceTaskEntity freelanceTask = DataMaster.getCurrentCreatingFreelanceTask();
+            FreelanceTask freelanceTask = DataMaster.getCurrentCreatingFreelanceTask();
 
             freelanceTask.setPrice(Integer.parseInt(taskPriceEditText.getText().toString()));
             freelanceTask.setPublicationDate(DateUtil.toDateStandard("23.12.2020"));

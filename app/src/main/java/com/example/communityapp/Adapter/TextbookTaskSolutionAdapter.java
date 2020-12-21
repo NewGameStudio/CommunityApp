@@ -9,51 +9,50 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.communityapp.Entities.BookEntity;
-import com.example.communityapp.Entities.TaskEntity;
-import com.example.communityapp.Entities.TaskSolution;
+import com.example.communityapp.Entities.TextbookTaskSolution;
 import com.example.communityapp.R;
 
 import java.util.ArrayList;
 
-public class GdzTaskSolutionAdapter extends RecyclerView.Adapter<GdzTaskSolutionAdapter.GdzTaskSolutionViewHolder> {
+public class TextbookTaskSolutionAdapter extends RecyclerView.Adapter<TextbookTaskSolutionAdapter.GdzTaskSolutionViewHolder> {
 
     public static class GdzTaskSolutionViewHolder extends RecyclerView.ViewHolder {
 
         public TextView userTitle;
         public ImageView userAvatar;
-        public TextView rating;
+        public TextView score;
 
         public GdzTaskSolutionViewHolder(@NonNull View itemView) {
             super(itemView);
 
             userTitle = itemView.findViewById(R.id.task_profile_name);
             userAvatar = itemView.findViewById(R.id.task_profile_avatar);
-            rating = itemView.findViewById(R.id.task_rating);
+            score = itemView.findViewById(R.id.task_score);
         }
     }
 
-    private ArrayList<TaskSolution> taskSolutions;
 
-    public GdzTaskSolutionAdapter(ArrayList<TaskSolution> taskSolutions) {
+    private ArrayList<TextbookTaskSolution> taskSolutions;
+
+    public TextbookTaskSolutionAdapter(ArrayList<TextbookTaskSolution> taskSolutions) {
         this.taskSolutions = taskSolutions;
     }
 
     @NonNull
     @Override
-    public GdzTaskSolutionAdapter.GdzTaskSolutionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TextbookTaskSolutionAdapter.GdzTaskSolutionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.gdz_task_solution_card_view, parent, false);
+                .inflate(R.layout.textbook_task_solution_card_view, parent, false);
 
-        return new GdzTaskSolutionAdapter.GdzTaskSolutionViewHolder(view);
+        return new TextbookTaskSolutionAdapter.GdzTaskSolutionViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GdzTaskSolutionAdapter.GdzTaskSolutionViewHolder holder, int position) {
-        TaskSolution currnetSolution = taskSolutions.get(position);
+    public void onBindViewHolder(@NonNull TextbookTaskSolutionAdapter.GdzTaskSolutionViewHolder holder, int position) {
+        TextbookTaskSolution currnetSolution = taskSolutions.get(position);
 
-        holder.userTitle.setText(currnetSolution.taskOwner.getUsername());
-        holder.rating.setText(Integer.toString(currnetSolution.rating));
+        holder.userTitle.setText("Переделать");
+        holder.score.setText(Integer.toString(currnetSolution.getScore()));
 //        holder.userAvatar.setImageResource(currnetSolution.taskOwner.getAvatar());
     }
 

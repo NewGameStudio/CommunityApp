@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
@@ -20,7 +20,7 @@ import com.example.communityapp.Utils.DateUtil;
 
 public class FreelancerTaskViewFragment extends Fragment implements View.OnClickListener {
 
-    private FreelanceTaskEntity freelanceTask;
+    private FreelanceTask freelanceTask;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

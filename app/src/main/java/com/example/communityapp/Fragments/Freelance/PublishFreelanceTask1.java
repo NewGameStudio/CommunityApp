@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
@@ -81,7 +81,7 @@ public class PublishFreelanceTask1 extends Fragment
 
             String subject = subjects[subjectSpinner.getSelectedItemPosition()];
 
-            FreelanceTaskEntity taskEntity = DataMaster.getCurrentCreatingFreelanceTask();
+            FreelanceTask taskEntity = DataMaster.getCurrentCreatingFreelanceTask();
 
             taskEntity.setClassIndex(classSpinner.getSelectedItemPosition() + 1);
             taskEntity.setSubjectName(subject);

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.communityapp.Controllers.UserController;
-import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
@@ -60,10 +60,10 @@ public class FreelanceTaskAdapter
     }
 
 
-    private List<FreelanceTaskEntity> tasks;
+    private List<FreelanceTask> tasks;
     private OnClickItemListener onClickItemListener;
 
-    public FreelanceTaskAdapter(List<FreelanceTaskEntity> tasks, OnClickItemListener onClickItemListener) {
+    public FreelanceTaskAdapter(List<FreelanceTask> tasks, OnClickItemListener onClickItemListener) {
         this.tasks = tasks;
         this.onClickItemListener = onClickItemListener;
     }
@@ -79,7 +79,7 @@ public class FreelanceTaskAdapter
 
     @Override
     public void onBindViewHolder(@NonNull FreelanceTaskViewHolder holder, int position) {
-        FreelanceTaskEntity currentTask = tasks.get(position);
+        FreelanceTask currentTask = tasks.get(position);
 
         holder.taskTitle.setText(currentTask.getTitle());
         holder.taskDescription.setText(currentTask.getDescription());

@@ -7,12 +7,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
-import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
@@ -42,7 +39,7 @@ public class PublishFreelanceTask2 extends Fragment implements View.OnClickListe
         if(view.getId() == R.id.next_btn) {
             EditText titleEditText = getView().findViewById(R.id.title_edit_text);
 
-            FreelanceTaskEntity taskEntity = DataMaster.getCurrentCreatingFreelanceTask();
+            FreelanceTask taskEntity = DataMaster.getCurrentCreatingFreelanceTask();
 
             taskEntity.setTitle(titleEditText.getText().toString());
 

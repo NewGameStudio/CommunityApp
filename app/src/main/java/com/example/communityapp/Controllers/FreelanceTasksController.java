@@ -1,9 +1,7 @@
 package com.example.communityapp.Controllers;
 
-import android.graphics.BitmapFactory;
-
-import com.example.communityapp.Entities.FreelanceTaskEntity;
-import com.example.communityapp.Entities.UserEntity;
+import com.example.communityapp.Entities.FreelanceTask;
+import com.example.communityapp.Entities.User;
 import com.example.communityapp.Utils.DateUtil;
 
 import java.util.ArrayList;
@@ -11,22 +9,22 @@ import java.util.List;
 
 public class FreelanceTasksController {
 
-    private static List<FreelanceTaskEntity> freelanceTasks = new ArrayList<>();
+    private static List<FreelanceTask> freelanceTasks = new ArrayList<>();
 
     //TODO delete this
     public static void init() {
 
-        UserEntity user1 = new UserEntity();
+        User user1 = new User();
         user1.setId(2);
         user1.setUsername("Дима Шелохвостов");
         user1.setDescription("Дебик");
 
-        UserEntity user2 = new UserEntity();
+        User user2 = new User();
         user2.setId(3);
         user2.setUsername("Отец Даниил");
         user2.setDescription("Не дебик");
 
-        FreelanceTaskEntity task1 = new FreelanceTaskEntity();
+        FreelanceTask task1 = new FreelanceTask();
         task1.setTitle("Сочинение по русскому");
         task1.setDescription("Я покакал");
         task1.setPrice(300);
@@ -37,7 +35,7 @@ public class FreelanceTasksController {
         task1.setResponsesCount(5);
         task1.setTaskOwner(user1);
 
-        FreelanceTaskEntity task2 = new FreelanceTaskEntity();
+        FreelanceTask task2 = new FreelanceTask();
         task2.setTitle("Сочинение по математике");
         task2.setDescription("Требуется разработать полный дизайн-проект \n" +
                 "дома из клееного бруса в современном стиле.\n" +
@@ -61,7 +59,7 @@ public class FreelanceTasksController {
         task2.setExpirationDate(DateUtil.toDateStandard("01.03.2020"));
         task2.setTaskOwner(user2);
 
-        FreelanceTaskEntity task3 = new FreelanceTaskEntity();
+        FreelanceTask task3 = new FreelanceTask();
         task3.setTitle("Сочинение по географии");
         task3.setDescription("Я не покакал");
         task3.setPrice(1000);
@@ -77,12 +75,12 @@ public class FreelanceTasksController {
         freelanceTasks.add(task3);
     }
 
-    public static List<FreelanceTaskEntity> findAvailableTasks() {
+    public static List<FreelanceTask> findAvailableTasks() {
         return freelanceTasks;
     }
 
-    public static List<FreelanceTaskEntity> findExecutableTasks() {
-        ArrayList<FreelanceTaskEntity> tasks = new ArrayList<>();
+    public static List<FreelanceTask> findExecutableTasks() {
+        ArrayList<FreelanceTask> tasks = new ArrayList<>();
 
         for(int i = 0; i < freelanceTasks.size(); i++) {
             if(freelanceTasks.get(i).getTaskExecutor() != null) {
@@ -94,8 +92,8 @@ public class FreelanceTasksController {
         return tasks;
     }
 
-    public static List<FreelanceTaskEntity> findPublishedTasks() {
-        ArrayList<FreelanceTaskEntity> tasks = new ArrayList<>();
+    public static List<FreelanceTask> findPublishedTasks() {
+        ArrayList<FreelanceTask> tasks = new ArrayList<>();
 
         for(int i = 0; i < freelanceTasks.size(); i++) {
             if(freelanceTasks.get(i).getTaskOwner().getId() == UserController.getUser().getId())
@@ -105,7 +103,7 @@ public class FreelanceTasksController {
         return tasks;
     }
 
-    public static void publishNewTask(FreelanceTaskEntity taskEntity) {
+    public static void publishNewTask(FreelanceTask taskEntity) {
         freelanceTasks.add(taskEntity);
     }
 }

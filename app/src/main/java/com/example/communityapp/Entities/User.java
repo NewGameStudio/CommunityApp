@@ -4,13 +4,13 @@ import android.graphics.Bitmap;
 
 import java.util.List;
 
-public class UserEntity extends BaseEntity{
+public class User extends BaseEntity{
 
     private Bitmap avatar;
     private String username;
     private String description;
-    private List<FreelanceTaskEntity> publicatedTasks;
-    private List<FreelanceTaskEntity> executableTasks;
+    private List<FreelanceTask> publicatedTasks;
+    private List<FreelanceTask> executableTasks;
 
 
     public Bitmap getAvatar() {
@@ -37,19 +37,19 @@ public class UserEntity extends BaseEntity{
         this.description = description;
     }
 
-    public List<FreelanceTaskEntity> getPublicatedTasks() {
+    public List<FreelanceTask> getPublicatedTasks() {
         return publicatedTasks;
     }
 
-    public void setPublicatedTasks(List<FreelanceTaskEntity> publicatedTasks) {
+    public void setPublicatedTasks(List<FreelanceTask> publicatedTasks) {
         this.publicatedTasks = publicatedTasks;
     }
 
-    public List<FreelanceTaskEntity> getExecutableTasks() {
+    public List<FreelanceTask> getExecutableTasks() {
         return executableTasks;
     }
 
-    public void setExecutableTasks(List<FreelanceTaskEntity> executableTasks) {
+    public void setExecutableTasks(List<FreelanceTask> executableTasks) {
         this.executableTasks = executableTasks;
     }
 }

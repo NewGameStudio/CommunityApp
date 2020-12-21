@@ -27,7 +27,7 @@
                 android:clipChildren="false">
 
                 <ImageView
-                    android:id="@+id/gdz_book_cover"
+                    android:id="@+id/textbook_cover"
                     android:layout_width="109dp"
                     android:layout_height="171dp"
                     android:layout_marginVertical="8dp"
@@ -41,7 +41,7 @@
                     android:layout_marginVertical="8dp">
 
                     <TextView
-                        android:id="@+id/gdz_book_title"
+                        android:id="@+id/textbook_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Физика 10 класс Мякишев"
@@ -58,7 +58,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/gdz_book_authors"
+                        android:id="@+id/textbook_authors"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Мякишева Г.Я.,Буховцева Б.Б., Сотского Н.Н"
@@ -84,7 +84,7 @@
                         android:paddingBottom="8dp">
 
                         <TextView
-                            android:id="@+id/gdz_book_class"
+                            android:id="@+id/textbook_class"
                             android:layout_width="0dp"
                             android:layout_weight="0.5"
                             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/gdz_book_subject"
+                            android:id="@+id/textbook_subject"
                             android:layout_width="0dp"
                             android:layout_weight="0.5"
                             android:layout_height="wrap_content"

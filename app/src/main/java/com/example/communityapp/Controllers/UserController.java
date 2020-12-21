@@ -5,16 +5,13 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.example.communityapp.Entities.FreelanceTaskEntity;
-import com.example.communityapp.Entities.UserEntity;
+import com.example.communityapp.Entities.User;
 import com.example.communityapp.MainActivity;
 import com.example.communityapp.R;
 
-import java.util.ArrayList;
-
 public class UserController {
 
-    private static UserEntity user;
+    private static User user;
 
 
     public static boolean login(String username, String password) {
@@ -22,7 +19,7 @@ public class UserController {
         if(!username.equals("admin") || !password.equals("admin"))
             return false;
 
-        user = new UserEntity();
+        user = new User();
 
         Activity activity = MainActivity.getMainActivity();
         Bitmap profileAvatar = BitmapFactory.decodeResource(activity.getResources(),
@@ -34,6 +31,7 @@ public class UserController {
         user.setDescription("Я мячик");
 
         //TODO delete this
+        TextbooksController.init();
         FreelanceTasksController.init();
 
         return true;
@@ -43,7 +41,7 @@ public class UserController {
 
     }
 
-    public static UserEntity getUser() {
+    public static User getUser() {
         return user;
     }
 

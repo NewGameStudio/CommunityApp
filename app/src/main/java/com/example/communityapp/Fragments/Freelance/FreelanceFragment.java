@@ -18,7 +18,7 @@ import android.widget.Button;
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Controllers.FreelanceTasksController;
 import com.example.communityapp.Controllers.UserController;
-import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
@@ -31,7 +31,7 @@ public class FreelanceFragment extends Fragment
         implements OnClickItemListener, View.OnClickListener {
 
     private RecyclerView tasksRecycler;
-    private List<FreelanceTaskEntity> freelanceTasks;
+    private List<FreelanceTask> freelanceTasks;
     private int tabIndex = 0;
 
     @Nullable
@@ -126,7 +126,7 @@ public class FreelanceFragment extends Fragment
 
         else if(view.getId() == R.id.new_task_btn) {
 
-            FreelanceTaskEntity freelanceTask = new FreelanceTaskEntity();
+            FreelanceTask freelanceTask = new FreelanceTask();
 
             freelanceTask.setTaskOwner(UserController.getUser());
 

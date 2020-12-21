@@ -40,7 +40,7 @@
             android:layout_height="500dp"
             android:scrollbars="vertical"
             android:paddingBottom="5dp"
-            tools:listitem="@layout/gdz_task_solution_card_view">
+            tools:listitem="@layout/textbook_task_solution_card_view">
         </androidx.recyclerview.widget.RecyclerView>
 
         <RelativeLayout

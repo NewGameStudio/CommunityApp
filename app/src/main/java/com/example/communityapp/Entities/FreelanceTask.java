@@ -5,7 +5,7 @@ import com.example.communityapp.Utils.DateUtil;
 import java.util.Date;
 import java.util.List;
 
-public class FreelanceTaskEntity extends BaseEntity {
+public class FreelanceTask extends BaseEntity {
 
     private String title;
     private String description;
@@ -15,9 +15,9 @@ public class FreelanceTaskEntity extends BaseEntity {
     private Date publicationDate;
     private Date expirationDate;
     private int responsesCount;
-    private UserEntity taskOwner;
-    private List<UserEntity> responsesUsers;
-    private UserEntity taskExecutor;
+    private User taskOwner;
+    private List<User> responsesUsers;
+    private User taskExecutor;
 
     public String getTitle() {
         return title;
@@ -83,27 +83,27 @@ public class FreelanceTaskEntity extends BaseEntity {
         this.responsesCount = responsesCount;
     }
 
-    public UserEntity getTaskOwner() {
+    public User getTaskOwner() {
         return taskOwner;
     }
 
-    public void setTaskOwner(UserEntity taskOwner) {
+    public void setTaskOwner(User taskOwner) {
         this.taskOwner = taskOwner;
     }
 
-    public List<UserEntity> getResponsesUsers() {
+    public List<User> getResponsesUsers() {
         return responsesUsers;
     }
 
-    public void setResponsesUsers(List<UserEntity> responsesUsers) {
+    public void setResponsesUsers(List<User> responsesUsers) {
         this.responsesUsers = responsesUsers;
     }
 
-    public UserEntity getTaskExecutor() {
+    public User getTaskExecutor() {
         return taskExecutor;
     }
 
-    public void setTaskExecutor(UserEntity taskExecutor) {
+    public void setTaskExecutor(User taskExecutor) {
         this.taskExecutor = taskExecutor;
     }
 

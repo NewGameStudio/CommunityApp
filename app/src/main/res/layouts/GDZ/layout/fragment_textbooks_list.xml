@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
-            tools:listitem="@layout/gdz_book_card_view">
+            tools:listitem="@layout/textbook_card_view">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>

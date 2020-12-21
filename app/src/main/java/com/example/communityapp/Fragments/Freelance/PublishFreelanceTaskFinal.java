@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.communityapp.Controllers.FreelanceTasksController;
-import com.example.communityapp.Entities.FreelanceTaskEntity;
+import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Master.DataMaster;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
@@ -39,7 +39,7 @@ public class PublishFreelanceTaskFinal extends Fragment implements View.OnClickL
     }
 
     private void setTaskData() {
-        FreelanceTaskEntity freelanceTask = DataMaster.getCurrentCreatingFreelanceTask();
+        FreelanceTask freelanceTask = DataMaster.getCurrentCreatingFreelanceTask();
 
         TextView taskTitle = getView().findViewById(R.id.task_title);
         TextView taskDescription = getView().findViewById(R.id.task_description);
@@ -66,7 +66,7 @@ public class PublishFreelanceTaskFinal extends Fragment implements View.OnClickL
     public void onClick(View view) {
         if(view.getId() == R.id.publish_btn) {
 
-            FreelanceTaskEntity freelanceTask = DataMaster.getCurrentCreatingFreelanceTask();
+            FreelanceTask freelanceTask = DataMaster.getCurrentCreatingFreelanceTask();
 
             FreelanceTasksController.publishNewTask(freelanceTask);
 
