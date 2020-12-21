@@ -42,9 +42,9 @@
 
     <fragment
         android:id="@+id/nav_gdz"
-        android:name="com.example.communityapp.Fragments.Gdz.GdzFragment"
+        android:name="com.example.communityapp.Fragments.Gdz.SearchTextbookFilterFragment"
         android:label="fragment_gdz"
-        tools:layout="@layout/fragment_gdz" />
+        tools:layout="@layout/fragment_search_textbook_filter" />
 
     <fragment
         android:id="@+id/nav_messenger"

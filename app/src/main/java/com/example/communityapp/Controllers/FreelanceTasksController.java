@@ -14,16 +14,6 @@ public class FreelanceTasksController {
     //TODO delete this
     public static void init() {
 
-        User user1 = new User();
-        user1.setId(2);
-        user1.setUsername("Дима Шелохвостов");
-        user1.setDescription("Дебик");
-
-        User user2 = new User();
-        user2.setId(3);
-        user2.setUsername("Отец Даниил");
-        user2.setDescription("Не дебик");
-
         FreelanceTask task1 = new FreelanceTask();
         task1.setTitle("Сочинение по русскому");
         task1.setDescription("Я покакал");
@@ -33,7 +23,7 @@ public class FreelanceTasksController {
         task1.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
         task1.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
         task1.setResponsesCount(5);
-        task1.setTaskOwner(user1);
+        task1.setTaskOwner(UserController.findUserById(1));
 
         FreelanceTask task2 = new FreelanceTask();
         task2.setTitle("Сочинение по математике");
@@ -57,7 +47,7 @@ public class FreelanceTasksController {
         task2.setSubjectName("Математика");
         task2.setPublicationDate(DateUtil.toDateStandard("25.02.2020"));
         task2.setExpirationDate(DateUtil.toDateStandard("01.03.2020"));
-        task2.setTaskOwner(user2);
+        task2.setTaskOwner(UserController.findUserById(2));
 
         FreelanceTask task3 = new FreelanceTask();
         task3.setTitle("Сочинение по географии");

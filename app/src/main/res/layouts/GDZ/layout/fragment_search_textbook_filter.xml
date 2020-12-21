@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".Fragments.Gdz.SearchTextbookFilterFragment"
+    android:clipChildren="false">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clipChildren="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="15dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clipChildren="false">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -24,13 +30,15 @@
                 android:textStyle="bold"/>
 
             <Spinner
-                android:id="@+id/gdz_class_filter_spinner"
+                android:id="@+id/class_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="3dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:backgroundTintMode="add"
                 android:spinnerMode="dialog"
-                style="@style/Widget.AppCompat.DropDownItem.Spinner">
-            </Spinner>
+                android:elevation="4dp"
+                style="@style/spinner_style"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,13 +50,15 @@
                 android:textStyle="bold"/>
 
             <Spinner
-                android:id="@+id/gdz_subject_filter_spinner"
+                android:id="@+id/subject_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="3dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:backgroundTintMode="add"
                 android:spinnerMode="dialog"
-                style="@style/Widget.AppCompat.DropDownItem.Spinner">
-            </Spinner>
+                android:elevation="4dp"
+                style="@style/spinner_style"/>
 
             <View
                 android:layout_width="match_parent"
@@ -61,7 +71,6 @@
     </ScrollView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/apply_gdz_filter_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

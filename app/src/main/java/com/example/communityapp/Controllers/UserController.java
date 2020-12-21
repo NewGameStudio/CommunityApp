@@ -9,16 +9,30 @@ import com.example.communityapp.Entities.User;
 import com.example.communityapp.MainActivity;
 import com.example.communityapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
 
     private static User user;
-    private List<User> users;
+    private static List<User> users;
 
     //TODO remove this
     private static void init() {
+        User user1 = new User();
+        user1.setId(2);
+        user1.setUsername("Дима Шелохвостов");
+        user1.setDescription("Дебик");
 
+        User user2 = new User();
+        user2.setId(3);
+        user2.setUsername("Отец Даниил");
+        user2.setDescription("Не дебик");
+
+        users = new ArrayList<>();
+        users.add(user);
+        users.add(user1);
+        users.add(user2);
     }
 
     public static boolean login(String username, String password) {
@@ -51,5 +65,15 @@ public class UserController {
 
     public static User getUser() {
         return user;
+    }
+
+
+    public static User findUserById(int id) {
+        for(User user : users) {
+            if(user.getId() == id)
+                return user;
+        }
+
+        return null;
     }
 }
