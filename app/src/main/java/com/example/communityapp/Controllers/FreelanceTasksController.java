@@ -19,7 +19,7 @@ public class FreelanceTasksController {
     //TODO delete this
     public static void init() {
 
-        FreelanceTask task1 = new FreelanceTask();
+        FreelanceTask task1 = new FreelanceTask(UserController.findUserByName("admin").getId());
         task1.setTitle("Сочинение по русскому");
         task1.setDescription("Требуется разработать полный дизайн-проект \n" +
                 "дома из клееного бруса в современном стиле.\n" +
@@ -41,9 +41,8 @@ public class FreelanceTasksController {
         task1.setSubjectName("Русский язык");
         task1.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
         task1.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
-        task1.setTaskOwnerId(UserController.findUserByName("admin").getId());
 
-        FreelanceTask task2 = new FreelanceTask();
+        FreelanceTask task2 = new FreelanceTask(UserController.findUserByName("admin2").getId());
         task2.setTitle("Сочинение по математике");
         task2.setDescription("Требуется разработать полный дизайн-проект \n" +
                 "дома из клееного бруса в современном стиле.\n" +
@@ -65,9 +64,8 @@ public class FreelanceTasksController {
         task2.setSubjectName("Математика");
         task2.setPublicationDate(DateUtil.toDateStandard("25.02.2020"));
         task2.setExpirationDate(DateUtil.toDateStandard("01.03.2020"));
-        task2.setTaskOwnerId(UserController.findUserByName("Отец Даниил").getId());
 
-        FreelanceTask task3 = new FreelanceTask();
+        FreelanceTask task3 = new FreelanceTask(UserController.findUserByName("Дима Шелохвостов").getId());
         task3.setTitle("Сочинение по географии");
         task3.setDescription("Написать сочинение по географии, плачу много");
         task3.setPrice(1000);
@@ -75,7 +73,6 @@ public class FreelanceTasksController {
         task3.setSubjectName("География");
         task3.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
         task3.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
-        task3.setTaskOwnerId(UserController.findUserByName("Дима Шелохвостов").getId());
 
         freelanceTasks.add(task1);
         freelanceTasks.add(task2);

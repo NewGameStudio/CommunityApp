@@ -163,9 +163,7 @@ public class FreelanceFragment extends Fragment
 
         else if(view.getId() == R.id.new_task_btn) {
 
-            FreelanceTask freelanceTask = new FreelanceTask();
-
-            freelanceTask.setTaskOwnerId(UserController.getUser().getId());
+            FreelanceTask freelanceTask = new FreelanceTask(UserController.getUser().getId());
 
             FreelanceFragmentsDataContainer.setCurrentCreatingFreelanceTask(freelanceTask);
 

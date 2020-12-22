@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class Response extends BaseEntity {
 
-    private int taskId;
-    private int ownerId;
+    private int taskId = -1;
+    private int ownerId = -1;
     private String description;
     private Date completionDate;
     private int price;
@@ -19,16 +19,8 @@ public class Response extends BaseEntity {
         return ownerId;
     }
 
-    public void setOwnerId(int ownerId) {
-        this.ownerId = ownerId;
-    }
-
     public int getTaskId() {
         return taskId;
-    }
-
-    public void setTaskId(int taskId) {
-        this.taskId = taskId;
     }
 
     public String getDescription() {

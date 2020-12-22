@@ -17,8 +17,12 @@ public class FreelanceTask extends BaseEntity {
     private Date expirationDate;
 
     private int taskOwnerId;
-    private int taskExecutorId;
+    private int taskExecutorId = -1;
     private List<Integer> responsesIDs = new ArrayList<>();
+
+    public FreelanceTask(int taskOwnerId) {
+        this.taskOwnerId = taskOwnerId;
+    }
 
     public String getTitle() {
         return title;
@@ -78,10 +82,6 @@ public class FreelanceTask extends BaseEntity {
 
     public int getTaskOwnerId() {
         return taskOwnerId;
-    }
-
-    public void setTaskOwnerId(int taskOwnerId) {
-        this.taskOwnerId = taskOwnerId;
     }
 
     public int getTaskExecutorId() {

@@ -19,7 +19,6 @@ public class UserController {
 
     //TODO remove this
     private static void init() {
-
         User user1 = new User();
         user1.setUsername("admin");
         user1.setPassword("admin");
@@ -31,7 +30,7 @@ public class UserController {
         user2.setDescription("Дебик");
 
         User user3 = new User();
-        user3.setUsername("Отец Даниил");
+        user3.setUsername("admin2");
         user3.setPassword("admin");
         user3.setDescription("Не дебик");
 
@@ -44,7 +43,11 @@ public class UserController {
     public static boolean login(String username, String password) {
 
         //TODO delete this
-        init();
+        boolean initialized = (users != null && users.size() > 0);
+
+        //TODO delete this
+        if(!initialized)
+            init();
 
         for(User user : users) {
             if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -54,8 +57,10 @@ public class UserController {
         }
 
         //TODO delete this
-        TextbooksController.init();
-        FreelanceTasksController.init();
+        if(!initialized) {
+            TextbooksController.init();
+            FreelanceTasksController.init();
+        }
 
         return true;
     }
