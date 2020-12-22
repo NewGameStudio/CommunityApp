@@ -10,7 +10,7 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
 import com.example.communityapp.Entities.FreelanceTask;
-import com.example.communityapp.Master.DataMaster;
+import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
@@ -40,11 +40,11 @@ public class PublishFreelanceTask3 extends Fragment implements View.OnClickListe
 
             EditText descriptionEditText = getView().findViewById(R.id.task_description_edit_text);
 
-            FreelanceTask taskEntity = DataMaster.getCurrentCreatingFreelanceTask();
+            FreelanceTask taskEntity = FreelanceFragmentsDataContainer.getCurrentCreatingFreelanceTask();
 
             taskEntity.setDescription(descriptionEditText.getText().toString());
 
-            DataMaster.setCurrentCreatingFreelanceTask(taskEntity);
+            FreelanceFragmentsDataContainer.setCurrentCreatingFreelanceTask(taskEntity);
 
             NavigationMaster.navigate(getView(),
                     R.id.action_publishFreelanceTask3_to_publishFreelanceTask4);

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TextbooksController {
 
-    private static List<Textbook> textbookList;
+    private static List<Textbook> textbooksList;
 
     //TODO delete this
     public static void init() {
@@ -31,11 +31,28 @@ public class TextbooksController {
         textbook1.setClassIndex(10);
         textbook1.setSubjectName("Физика");
 
-        textbookList = new ArrayList<>();
-        textbookList.add(textbook1);
+        textbooksList = new ArrayList<>();
+        textbooksList.add(textbook1);
     }
 
     public static List<Textbook> findAllTextbooks() {
-        return textbookList;
+        return textbooksList;
+    }
+
+    public static List<Textbook> findTextbooks(String subject, int classIndex) {
+
+        ArrayList<Textbook> textbooks = new ArrayList<>();
+
+        for(Textbook textbook : textbooksList) {
+            if(textbook.getClassIndex() < classIndex)
+                continue;
+
+            if(!textbook.getSubjectName().equals(subject))
+                continue;
+
+            textbooks.add(textbook);
+        }
+
+        return textbooks;
     }
 }

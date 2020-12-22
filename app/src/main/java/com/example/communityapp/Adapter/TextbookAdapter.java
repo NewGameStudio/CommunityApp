@@ -14,6 +14,7 @@ import com.example.communityapp.Entities.Textbook;
 import com.example.communityapp.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TextbookAdapter extends RecyclerView.Adapter<TextbookAdapter.TextbookViewHolder> {
 
@@ -36,9 +37,9 @@ public class TextbookAdapter extends RecyclerView.Adapter<TextbookAdapter.Textbo
         }
     }
 
-    private ArrayList<Textbook> textbooks;
+    private List<Textbook> textbooks;
 
-    public TextbookAdapter(ArrayList<Textbook> books) {
+    public TextbookAdapter(List<Textbook> books) {
         this.textbooks = books;
     }
 
@@ -65,7 +66,7 @@ public class TextbookAdapter extends RecyclerView.Adapter<TextbookAdapter.Textbo
 
         holder.bookTitle.setText(currentBook.getTextbookTitle());
         holder.authors.setText(authorsNames);
-        holder.bookClass.setText(Integer.toString(currentBook.getClassIndex()));
+        holder.bookClass.setText(Integer.toString(currentBook.getClassIndex()) + " класс");
         holder.bookSubject.setText(currentBook.getSubjectName());
         holder.bookCover.setImageBitmap(currentBook.getTextbookCover());
     }

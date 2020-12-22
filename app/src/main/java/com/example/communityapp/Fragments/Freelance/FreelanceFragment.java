@@ -20,7 +20,7 @@ import com.example.communityapp.Controllers.FreelanceTasksController;
 import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Handlers.OnClickItemListener;
-import com.example.communityapp.Master.DataMaster;
+import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
@@ -130,7 +130,7 @@ public class FreelanceFragment extends Fragment
 
             freelanceTask.setTaskOwner(UserController.getUser());
 
-            DataMaster.setCurrentCreatingFreelanceTask(freelanceTask);
+            FreelanceFragmentsDataContainer.setCurrentCreatingFreelanceTask(freelanceTask);
 
             NavigationMaster.navigate(getView(),
                     R.id.action_nav_freelance_to_publishFreelanceTask1);
@@ -143,7 +143,7 @@ public class FreelanceFragment extends Fragment
         if(freelanceTasks.get(itemIndex).getTaskOwner().getId() == UserController.getUser().getId())
             return;
 
-        DataMaster.setCurrentFreelanceViewTask(freelanceTasks.get(itemIndex));
+        FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(freelanceTasks.get(itemIndex));
         NavigationMaster.navigate(getView(),
                 R.id.action_nav_freelance_to_freelancerTaskViewFragment);
     }

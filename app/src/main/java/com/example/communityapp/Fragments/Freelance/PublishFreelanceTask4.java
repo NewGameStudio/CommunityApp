@@ -10,7 +10,7 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
 import com.example.communityapp.Entities.FreelanceTask;
-import com.example.communityapp.Master.DataMaster;
+import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
@@ -47,13 +47,13 @@ public class PublishFreelanceTask4 extends Fragment implements View.OnClickListe
             if (taskPriceEditText.getText().toString().equals(""))
                 taskPriceEditText.setText("0");
 
-            FreelanceTask freelanceTask = DataMaster.getCurrentCreatingFreelanceTask();
+            FreelanceTask freelanceTask = FreelanceFragmentsDataContainer.getCurrentCreatingFreelanceTask();
 
             freelanceTask.setPrice(Integer.parseInt(taskPriceEditText.getText().toString()));
             freelanceTask.setPublicationDate(DateUtil.toDateStandard("23.12.2020"));
             freelanceTask.setExpirationDate(DateUtil.toDateStandard(expDateEditText.getText().toString()));
 
-            DataMaster.setCurrentCreatingFreelanceTask(freelanceTask);
+            FreelanceFragmentsDataContainer.setCurrentCreatingFreelanceTask(freelanceTask);
 
             NavigationMaster.navigate(getView(),
                     R.id.action_publishFreelanceTask4_to_publishFreelanceTaskFinal);

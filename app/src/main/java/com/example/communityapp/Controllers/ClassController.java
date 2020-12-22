@@ -6,13 +6,16 @@ import java.util.List;
 
 public class ClassController {
 
-    private static String[] classNames = {
+    private static List<String> classNames = new ArrayList<>(Arrays.asList(
             "Первый", "Второй", "Третий",
             "Четвертый", "Пятый", "Шестой", "Восьмой",
-            "Девятый", "Десятый", "Одиннадцатый"
-    };
+            "Девятый", "Десятый", "Одиннадцатый"));
 
     public static List<String> findAllClasses() {
-        return new ArrayList<String>(Arrays.asList(classNames));
+        return classNames;
+    }
+
+    public static int getClassIndex(String className) {
+        return classNames.indexOf(className) + 1;
     }
 }

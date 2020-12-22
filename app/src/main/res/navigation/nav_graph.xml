@@ -44,7 +44,11 @@
         android:id="@+id/nav_gdz"
         android:name="com.example.communityapp.Fragments.Gdz.SearchTextbookFilterFragment"
         android:label="fragment_gdz"
-        tools:layout="@layout/fragment_search_textbook_filter" />
+        tools:layout="@layout/fragment_search_textbook_filter" >
+        <action
+            android:id="@+id/action_nav_gdz_to_textbooksListFragment"
+            app:destination="@id/textbooksListFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_messenger"
@@ -99,6 +103,7 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
+
     <fragment
         android:id="@+id/freelancerTaskViewFragment"
         android:name="com.example.communityapp.Fragments.Freelance.FreelancerTaskViewFragment"
@@ -108,6 +113,7 @@
             android:id="@+id/action_freelancerTaskViewFragment_to_freelanceTaskResponseFragment"
             app:destination="@id/freelanceTaskResponseFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/freelanceTaskResponseFragment"
         android:name="com.example.communityapp.Fragments.Freelance.FreelanceTaskResponseFragment"
@@ -117,6 +123,7 @@
             android:id="@+id/action_freelanceTaskResponseFragment_to_nav_freelance"
             app:destination="@id/nav_freelance" />
     </fragment>
+
     <fragment
         android:id="@+id/publishFreelanceTask1"
         android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTask1"
@@ -126,6 +133,7 @@
             android:id="@+id/action_publishFreelanceTask1_to_publishFreelanceTask2"
             app:destination="@id/publishFreelanceTask2" />
     </fragment>
+
     <fragment
         android:id="@+id/publishFreelanceTask2"
         android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTask2"
@@ -138,6 +146,7 @@
             android:id="@+id/action_publishFreelanceTask2_to_publishFreelanceTask3"
             app:destination="@id/publishFreelanceTask3" />
     </fragment>
+
     <fragment
         android:id="@+id/publishFreelanceTask3"
         android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTask3"
@@ -150,6 +159,7 @@
             android:id="@+id/action_publishFreelanceTask3_to_publishFreelanceTask4"
             app:destination="@id/publishFreelanceTask4" />
     </fragment>
+
     <fragment
         android:id="@+id/publishFreelanceTask4"
         android:name="com.example.communityapp.Fragments.Freelance.PublishFreelanceTask4"
@@ -172,5 +182,11 @@
             android:id="@+id/action_publishFreelanceTaskFinal_to_nav_freelance2"
             app:destination="@id/nav_freelance" />
     </fragment>
+
+    <fragment
+        android:id="@+id/textbooksListFragment"
+        android:name="com.example.communityapp.Fragments.Gdz.TextbooksListFragment"
+        android:label="fragment_textbooks_list"
+        tools:layout="@layout/fragment_textbooks_list" />
 
 </navigation>

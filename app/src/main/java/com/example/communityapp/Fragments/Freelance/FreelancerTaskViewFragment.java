@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.communityapp.Entities.FreelanceTask;
-import com.example.communityapp.Master.DataMaster;
+import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
@@ -33,7 +33,7 @@ public class FreelancerTaskViewFragment extends Fragment implements View.OnClick
     public void onStart() {
         super.onStart();
 
-        freelanceTask = DataMaster.getCurrentFreelanceViewTask();
+        freelanceTask = FreelanceFragmentsDataContainer.getCurrentViewFreelanceTask();
 
         setTaskData();
 

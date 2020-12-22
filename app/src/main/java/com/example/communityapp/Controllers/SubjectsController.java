@@ -8,7 +8,7 @@ public class SubjectsController {
 
     private static String[] subjects = { "Математика", "Русский язык", "История",
             "Иностранный язык", "Алгебра", "Геометрия", "Биология",
-            "Информатика", "Другое"
+            "Информатика", "Физика","Другое"
     };
 
     public static List<String> findAllSubjects() {
