@@ -175,13 +175,23 @@ public class FreelanceFragment extends Fragment
     @Override
     public void onItemClick(int itemIndex) {
 
+        FreelanceTask currentTask = freelanceTasks.get(itemIndex);
+
         User taskOwner = UserController
-                .findUserById(freelanceTasks.get(itemIndex).getTaskOwnerId());
+                .findUserById(currentTask.getTaskOwnerId());
 
-        if(taskOwner.getId() == UserController.getUser().getId())
+        if (taskOwner.getId() == UserController.getUser().getId()) {
+
+            if(currentTask.getResponsesCount() > 0) {
+                FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(currentTask);
+                NavigationMaster.navigate(getView(),
+                        R.id.action_nav_freelance_to_freelanceResponsesFragment);
+            }
+
             return;
+        }
 
-        FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(freelanceTasks.get(itemIndex));
+        FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(currentTask);
         NavigationMaster.navigate(getView(),
                 R.id.action_nav_freelance_to_freelancerTaskViewFragment);
     }

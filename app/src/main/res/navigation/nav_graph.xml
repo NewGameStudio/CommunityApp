@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_nav_freelance_to_publishFreelanceTask1"
             app:destination="@id/publishFreelanceTask1" />
+        <action
+            android:id="@+id/action_nav_freelance_to_freelanceResponsesFragment"
+            app:destination="@id/freelanceResponsesFragment" />
     </fragment>
 
     <fragment
@@ -188,5 +191,10 @@
         android:name="com.example.communityapp.Fragments.Gdz.TextbooksListFragment"
         android:label="fragment_textbooks_list"
         tools:layout="@layout/fragment_textbooks_list" />
+    <fragment
+        android:id="@+id/freelanceResponsesFragment"
+        android:name="com.example.communityapp.Fragments.Freelance.FreelanceResponsesFragment"
+        android:label="fragment_responses_list"
+        tools:layout="@layout/fragment_responses_list" />
 
 </navigation>

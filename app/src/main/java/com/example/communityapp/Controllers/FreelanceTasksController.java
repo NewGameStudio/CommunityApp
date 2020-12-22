@@ -77,7 +77,24 @@ public class FreelanceTasksController {
         freelanceTasks.add(task1);
         freelanceTasks.add(task2);
         freelanceTasks.add(task3);
+
+        Response response = new Response(UserController.findUserByName("Дима Шелохвостов").getId(),
+                task1.getId());
+        response.setPrice(500);
+        response.setDescription("description1");
+        response.setCompletionDate(DateUtil.toDateStandard("21.01.2000"));
+
+        respondToTask(task1.getId(), response);
+
+        response = new Response(UserController.findUserByName("admin2").getId(),
+                task1.getId());
+        response.setPrice(300);
+        response.setDescription("description2");
+        response.setCompletionDate(DateUtil.toDateStandard("21.03.2000"));
+
+        respondToTask(task1.getId(), response);
     }
+
 
     public static FreelanceTask findTaskById(int id) {
         for (FreelanceTask task : freelanceTasks) {
@@ -125,6 +142,16 @@ public class FreelanceTasksController {
 
     public static void publishNewTask(FreelanceTask taskEntity) {
         freelanceTasks.add(taskEntity);
+    }
+
+
+    public static Response findResponseById(int id) {
+        for(Response response : responses) {
+            if (response.getId() == id)
+                return response;
+        }
+
+        return null;
     }
 
     public static void respondToTask(int taskId, Response response) {
