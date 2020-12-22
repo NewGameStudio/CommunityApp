@@ -19,6 +19,13 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class SignInFragment extends Fragment implements View.OnClickListener {
 
+    private Toolbar toolbar;
+    private BottomNavigationView bottomNavigation;
+    private MaterialButton signinButton;
+
+    private TextInputLayout usernameLayout;
+    private TextInputLayout passwordLayout;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -29,44 +36,41 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     public void onStart() {
 
         super.onStart();
+        findFragmentElements();
 
-        BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
-        bottomNavigation.setVisibility(View.GONE);
 
-        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         toolbar.setVisibility(View.GONE);
-
-        MaterialButton signinButton = getActivity().findViewById(R.id.signin_btn);
+        bottomNavigation.setVisibility(View.GONE);
         signinButton.setOnClickListener(this);
     }
+
+    private void findFragmentElements() {
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
+        signinButton = getActivity().findViewById(R.id.signin_btn);
+
+        usernameLayout = getView().findViewById(R.id.signin_username_input);
+        passwordLayout = getView().findViewById(R.id.signin_password_input);
+    }
+
 
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
+        if (view.getId() == R.id.signin_btn) {
 
-            case R.id.signin_btn:
+            String username = usernameLayout.getEditText().getText().toString();
+            String password = passwordLayout.getEditText().getText().toString();
 
-                TextInputLayout usernameLayout = getActivity().findViewById(R.id.signin_username_input);
-                String username = usernameLayout.getEditText().getText().toString();
+            if (!UserController.login(username, password)) {
+                passwordLayout.setError("Неверный логин или пароль");
+                return;
+            }
 
-                TextInputLayout passwordLayout = getActivity().findViewById(R.id.signin_password_input);
-                String password = passwordLayout.getEditText().getText().toString();
+            bottomNavigation.setVisibility(View.VISIBLE);
+            toolbar.setVisibility(View.VISIBLE);
 
-                if (!UserController.login(username, password)) {
-                    passwordLayout.setError("Неверный логин или пароль");
-                    return;
-                }
-
-                BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
-                bottomNavigation.setVisibility(View.VISIBLE);
-
-                Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
-                toolbar.setVisibility(View.VISIBLE);
-
-                NavigationMaster.navigate(getView(), R.id.action_signInFragment_to_profileFragment);
-
-                break;
+            NavigationMaster.navigate(getView(), R.id.action_signInFragment_to_profileFragment);
         }
     }
 }

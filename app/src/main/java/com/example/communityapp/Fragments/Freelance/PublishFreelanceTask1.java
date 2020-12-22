@@ -23,6 +23,9 @@ import java.util.List;
 public class PublishFreelanceTask1 extends Fragment
         implements View.OnClickListener {
 
+    private Spinner classSpinner;
+    private Spinner subjectSpinner;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,8 +45,8 @@ public class PublishFreelanceTask1 extends Fragment
     }
 
     protected void configureClassSpinner() {
-        Spinner spinner = getView().findViewById(R.id.class_spinner);
-        spinner.setPrompt("Класс");
+        classSpinner = getView().findViewById(R.id.class_spinner);
+        classSpinner.setPrompt("Класс");
 
         List<String> classNames = ClassController.findAllClasses();
 
@@ -52,12 +55,12 @@ public class PublishFreelanceTask1 extends Fragment
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(adapter);
+        classSpinner.setAdapter(adapter);
     }
 
     protected void configureSubjectSpinner() {
-        Spinner spinner = getView().findViewById(R.id.subject_spinner);
-        spinner.setPrompt("Предмет");
+        subjectSpinner = getView().findViewById(R.id.subject_spinner);
+        subjectSpinner.setPrompt("Предмет");
 
         List<String> subjects = SubjectsController.findAllSubjects();
 
@@ -66,15 +69,13 @@ public class PublishFreelanceTask1 extends Fragment
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(adapter);
+        subjectSpinner.setAdapter(adapter);
     }
 
     @Override
     public void onClick(View view) {
 
         if(view.getId() == R.id.next_btn) {
-            Spinner classSpinner = getView().findViewById(R.id.class_spinner);
-            Spinner subjectSpinner = getView().findViewById(R.id.subject_spinner);
 
             String subject = SubjectsController
                     .findSubjectById(subjectSpinner.getSelectedItemPosition());

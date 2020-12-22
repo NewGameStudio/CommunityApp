@@ -36,6 +36,10 @@ public class FreelanceFragment extends Fragment
     private List<FreelanceTask> freelanceTasks;
     private int tabIndex = 0;
 
+    private Button searchTasksButton;
+    private Button myTasksButton;
+    private Button newTaskButton;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -68,25 +72,34 @@ public class FreelanceFragment extends Fragment
         }
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
 
-        recyclerView = getView().findViewById(R.id.freelance_tasks_recycler_view);
-        recyclerView.setHasFixedSize(true);
+        findFragmentElements();
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+        initializeRecyclerView();
 
         onFreelanceTasksSearchSelected();
-
-        Button searchTasksButton = getView().findViewById(R.id.search_task_btn);
-        Button myTasksButton = getView().findViewById(R.id.my_task_btn);
-        Button newTaskButton = getView().findViewById(R.id.new_task_btn);
 
         searchTasksButton.setOnClickListener(this);
         myTasksButton.setOnClickListener(this);
         newTaskButton.setOnClickListener(this);
+    }
+
+    private void findFragmentElements() {
+
+        recyclerView = getView().findViewById(R.id.freelance_tasks_recycler_view);
+        searchTasksButton = getView().findViewById(R.id.search_task_btn);
+        myTasksButton = getView().findViewById(R.id.my_task_btn);
+        newTaskButton = getView().findViewById(R.id.new_task_btn);
+    }
+
+    private void initializeRecyclerView() {
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
@@ -97,10 +110,17 @@ public class FreelanceFragment extends Fragment
                 super.onScrolled(recyclerView, dx, dy);
 
                 posX += dy;
+
+                if(tabIndex == 0)
+                    return;
+
+                if(posX > 30)
+                    newTaskButton.setVisibility(View.GONE);
+                else
+                    newTaskButton.setVisibility(View.VISIBLE);
             }
         });
     }
-
 
 
     private void onFreelanceTasksSearchSelected() {
@@ -131,6 +151,7 @@ public class FreelanceFragment extends Fragment
 
         tabIndex = 1;
     }
+
 
     @Override
     public void onClick(View view) {

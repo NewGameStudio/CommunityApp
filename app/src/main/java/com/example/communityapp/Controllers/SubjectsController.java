@@ -6,13 +6,14 @@ import java.util.List;
 
 public class SubjectsController {
 
-    private static String[] subjects = { "Математика", "Русский язык", "История",
+    private static String[] subjects = {
+            "Математика", "Русский язык", "История",
             "Иностранный язык", "Алгебра", "Геометрия", "Биология",
-            "Информатика", "Физика","Другое"
+            "Информатика", "Физика"
     };
 
     public static List<String> findAllSubjects() {
-        return new ArrayList<String>(Arrays.asList(subjects));
+        return new ArrayList<>(Arrays.asList(subjects));
     }
 
     public static String findSubjectById(int id) {
