@@ -1,7 +1,11 @@
 package com.example.communityapp.Controllers;
 
+import android.widget.Toast;
+
 import com.example.communityapp.Entities.FreelanceTask;
+import com.example.communityapp.Entities.Response;
 import com.example.communityapp.Entities.User;
+import com.example.communityapp.MainActivity;
 import com.example.communityapp.Utils.DateUtil;
 
 import java.util.ArrayList;
@@ -10,6 +14,7 @@ import java.util.List;
 public class FreelanceTasksController {
 
     private static List<FreelanceTask> freelanceTasks = new ArrayList<>();
+    private static List<Response> responses = new ArrayList<>();
 
     //TODO delete this
     public static void init() {
@@ -36,8 +41,7 @@ public class FreelanceTasksController {
         task1.setSubjectName("Русский язык");
         task1.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
         task1.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
-        task1.setResponsesCount(5);
-        task1.setTaskOwnerId(1);
+        task1.setTaskOwnerId(UserController.findUserByName("admin").getId());
 
         FreelanceTask task2 = new FreelanceTask();
         task2.setTitle("Сочинение по математике");
@@ -61,7 +65,7 @@ public class FreelanceTasksController {
         task2.setSubjectName("Математика");
         task2.setPublicationDate(DateUtil.toDateStandard("25.02.2020"));
         task2.setExpirationDate(DateUtil.toDateStandard("01.03.2020"));
-        task2.setTaskOwnerId(2);
+        task2.setTaskOwnerId(UserController.findUserByName("Отец Даниил").getId());
 
         FreelanceTask task3 = new FreelanceTask();
         task3.setTitle("Сочинение по географии");
@@ -71,12 +75,20 @@ public class FreelanceTasksController {
         task3.setSubjectName("География");
         task3.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
         task3.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
-        task3.setResponsesCount(5);
-        task3.setTaskOwnerId(UserController.getUser().getId());
+        task3.setTaskOwnerId(UserController.findUserByName("Дима Шелохвостов").getId());
 
         freelanceTasks.add(task1);
         freelanceTasks.add(task2);
         freelanceTasks.add(task3);
+    }
+
+    public static FreelanceTask findTaskById(int id) {
+        for (FreelanceTask task : freelanceTasks) {
+            if(task.getId() == id)
+                return task;
+        }
+
+        return null;
     }
 
     public static List<FreelanceTask> findAvailableTasks() {
@@ -116,5 +128,23 @@ public class FreelanceTasksController {
 
     public static void publishNewTask(FreelanceTask taskEntity) {
         freelanceTasks.add(taskEntity);
+    }
+
+    public static void respondToTask(int taskId, Response response) {
+
+        FreelanceTask task = findTaskById(taskId);
+
+        if(task == null) {
+            Toast.makeText(MainActivity.getMainActivity(),
+                    "Задача не найдена, где-то ты обосрался", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        responses.add(response);
+
+        List<Integer> responsesIDs = task.getResponsesIDs();
+        responsesIDs.add(response.getId());
+
+        task.setResponsesIDs(responsesIDs);
     }
 }

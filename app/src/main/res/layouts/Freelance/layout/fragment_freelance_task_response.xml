@@ -17,6 +17,7 @@
         android:backgroundTint="@color/white">
 
         <TextView
+            android:id="@+id/task_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Название задачи"
@@ -30,6 +31,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/task_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
@@ -42,6 +44,7 @@
                 android:backgroundTintMode="add"/>
 
             <TextView
+                android:id="@+id/task_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
@@ -57,6 +60,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/task_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Мы открываем новую компанию по подбору
@@ -78,6 +82,7 @@
                 android:src="@drawable/ic_calendar"/>
 
             <TextView
+                android:id="@+id/task_public_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -92,6 +97,7 @@
                 android:src="@drawable/ic_otkliki"/>
 
             <TextView
+                android:id="@+id/task_responses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -107,6 +113,7 @@
             android:background="@color/colorGrey"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_input_layout"
             android:hint="Предложите цену"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,7 +128,8 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:hint="Укажите срок выполнения"
+            android:id="@+id/task_compelete_date_layout"
+            android:hint="Укажите дату выполнения"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -135,6 +143,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/task_description_layout"
             android:hint="Оставьте сообщение заказчику"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

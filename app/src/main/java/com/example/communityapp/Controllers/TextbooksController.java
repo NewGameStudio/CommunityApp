@@ -25,7 +25,6 @@ public class TextbooksController {
                 R.drawable.book_cover);
 
         Textbook textbook1 = new Textbook();
-        textbook1.setId(1);
         textbook1.setTextbookTitle("Физика 10 класс");
         textbook1.setTextbookCover(textbookCover);
         textbook1.setAuthors(new ArrayList<String>(Arrays.asList("Мякишев", "Буховцева")));
@@ -41,9 +40,6 @@ public class TextbooksController {
     }
 
     public static List<Textbook> findTextbooks(String subject, int classIndex) {
-
-        Toast.makeText(MainActivity.getMainActivity(), Integer.toString(classIndex),
-                Toast.LENGTH_SHORT).show();
 
         ArrayList<Textbook> textbooks = new ArrayList<>();
 

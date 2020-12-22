@@ -21,19 +21,16 @@ public class UserController {
     private static void init() {
 
         User user1 = new User();
-        user1.setId(1);
         user1.setUsername("admin");
         user1.setPassword("admin");
         user1.setDescription("Я мячик");
 
         User user2 = new User();
-        user2.setId(2);
         user2.setUsername("Дима Шелохвостов");
         user2.setPassword("admin");
         user2.setDescription("Дебик");
 
         User user3 = new User();
-        user3.setId(3);
         user3.setUsername("Отец Даниил");
         user3.setPassword("admin");
         user3.setDescription("Не дебик");
@@ -75,6 +72,15 @@ public class UserController {
     public static User findUserById(int id) {
         for(User user : users) {
             if(user.getId() == id)
+                return user;
+        }
+
+        return null;
+    }
+
+    public static User findUserByName(String name) {
+        for(User user : users) {
+            if(user.getUsername() == name)
                 return user;
         }
 

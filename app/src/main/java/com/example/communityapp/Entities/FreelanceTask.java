@@ -2,6 +2,7 @@ package com.example.communityapp.Entities;
 
 import com.example.communityapp.Utils.DateUtil;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +18,7 @@ public class FreelanceTask extends BaseEntity {
 
     private int taskOwnerId;
     private int taskExecutorId;
-    private List<Integer> responsesIDs;
-    private int responsesCount;
+    private List<Integer> responsesIDs = new ArrayList<>();
 
     public String getTitle() {
         return title;
@@ -101,10 +101,6 @@ public class FreelanceTask extends BaseEntity {
     }
 
     public int getResponsesCount() {
-        return responsesCount;
-    }
-
-    public void setResponsesCount(int responsesCount) {
-        this.responsesCount = responsesCount;
+        return responsesIDs.size();
     }
 }
