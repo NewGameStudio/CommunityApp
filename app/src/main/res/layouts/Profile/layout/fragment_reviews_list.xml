@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/freelance_responses_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:clipChildren="false"
+        tools:listitem="@layout/review_card_view">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

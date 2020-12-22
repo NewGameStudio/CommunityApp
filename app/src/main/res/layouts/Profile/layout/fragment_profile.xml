@@ -113,6 +113,7 @@
                 android:clipChildren="false">
 
                 <Button
+                    android:id="@+id/rating_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
@@ -125,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textSize="14sp"
-                    android:text="Отзывы"/>
+                    android:text="Рейтинг"/>
 
             </LinearLayout>
 

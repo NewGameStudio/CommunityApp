@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.example.communityapp.Entities.Review;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.MainActivity;
 import com.example.communityapp.R;
@@ -16,6 +17,7 @@ public class UserController {
 
     private static User user;
     private static List<User> users;
+    private static List<Review> reviews = new ArrayList<>();
 
     //TODO remove this
     private static void init() {
@@ -90,5 +92,17 @@ public class UserController {
         }
 
         return null;
+    }
+
+
+    public static List<Review> findUserReviews(int userId) {
+        ArrayList<Review> userReviews = new ArrayList<>();
+
+        for(Review review : reviews) {
+            if(review.getOwnerId() == userId)
+                userReviews.add(review);
+        }
+
+        return userReviews;
     }
 }

@@ -49,28 +49,28 @@ public class FreelanceFragment extends Fragment
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+        //setHasOptionsMenu(true);
     }
 
     @Override
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.filter_btn).setVisible(true);
+        //menu.findItem(R.id.filter_btn).setVisible(true);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.filter_btn:
-                NavigationMaster.navigate(getView(),
-                        R.id.action_nav_freelance_to_searchTasksFilterFragment);
-                return true;
-
-            default:
-                return false;
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//
+//            case R.id.filter_btn:
+//                NavigationMaster.navigate(getView(),
+//                        R.id.action_nav_freelance_to_searchTasksFilterFragment);
+//                return true;
+//
+//            default:
+//                return false;
+//        }
+//    }
 
 
     @Override

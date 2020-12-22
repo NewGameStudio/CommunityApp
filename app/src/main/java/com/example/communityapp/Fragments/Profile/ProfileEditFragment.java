@@ -18,15 +18,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.communityapp.Controllers.UserController;
+import com.example.communityapp.Entities.Review;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -66,19 +69,19 @@ public class ProfileEditFragment extends Fragment implements View.OnClickListene
         switch (view.getId()) {
 
             case R.id.edit_profile_avatar:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-                    int selfPermission = getActivity()
-                            .checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
-
-                    if (selfPermission == PackageManager.PERMISSION_DENIED) {
-                        String[] permissions = { Manifest.permission.READ_EXTERNAL_STORAGE };
-                        requestPermissions(permissions, PERMISSION_CODE);
-                    } else
-                        pickAvatarFromGallery();
-
-                } else
-                    pickAvatarFromGallery();
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//
+//                    int selfPermission = getActivity()
+//                            .checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
+//
+//                    if (selfPermission == PackageManager.PERMISSION_DENIED) {
+//                        String[] permissions = { Manifest.permission.READ_EXTERNAL_STORAGE };
+//                        requestPermissions(permissions, PERMISSION_CODE);
+//                    } else
+//                        pickAvatarFromGallery();
+//
+//                } else
+//                    pickAvatarFromGallery();
 
                 break;
         }
@@ -141,12 +144,15 @@ public class ProfileEditFragment extends Fragment implements View.OnClickListene
         CircleImageView avatarView = getActivity().findViewById(R.id.edit_profile_avatar);
         TextInputEditText profileName = getActivity().findViewById(R.id.edit_profile_name_edittext);
         TextInputEditText profileDesc = getActivity().findViewById(R.id.edit_profile_desc_edittext);
+        Button ratingBtn = getView().findViewById(R.id.rating_btn);
 
         User user = UserController.getUser();
+        List<Review> reviews = UserController.findUserReviews(user.getId());
 
         avatarView.setImageBitmap(user.getAvatar());
         profileName.setText(user.getUsername());
         profileDesc.setText(user.getDescription());
+        ratingBtn.setText(Integer.toString(reviews.size()));
     }
 
     private void pickAvatarFromGallery() {

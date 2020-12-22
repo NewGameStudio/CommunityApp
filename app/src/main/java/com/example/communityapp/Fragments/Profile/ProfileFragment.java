@@ -11,12 +11,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.communityapp.Controllers.UserController;
+import com.example.communityapp.Entities.Review;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
+
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -63,14 +67,17 @@ public class ProfileFragment extends Fragment {
 
     private void loadUserData() {
 
-        CircleImageView avatarView = getActivity().findViewById(R.id.profile_avatar);
-        TextView profileName = getActivity().findViewById(R.id.profile_name_label);
-        TextView profileDesc = getActivity().findViewById(R.id.profile_desc_label);
+        CircleImageView avatarView = getView().findViewById(R.id.profile_avatar);
+        TextView profileName = getView().findViewById(R.id.profile_name_label);
+        TextView profileDesc = getView().findViewById(R.id.profile_desc_label);
+        Button ratingBtn = getView().findViewById(R.id.rating_btn);
 
         User user = UserController.getUser();
+        List<Review> reviews = UserController.findUserReviews(user.getId());
 
         avatarView.setImageBitmap(user.getAvatar());
         profileName.setText(user.getUsername());
         profileDesc.setText(user.getDescription());
+        ratingBtn.setText(Integer.toString(reviews.size()));
     }
 }
