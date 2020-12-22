@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.FreelanceTask;
+import com.example.communityapp.Entities.User;
 import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
@@ -81,6 +82,8 @@ public class FreelanceTaskAdapter
     public void onBindViewHolder(@NonNull FreelanceTaskViewHolder holder, int position) {
         FreelanceTask currentTask = tasks.get(position);
 
+        User taskOwner = UserController.findUserById(currentTask.getTaskOwnerId());
+
         holder.taskTitle.setText(currentTask.getTitle());
         holder.taskDescription.setText(currentTask.getDescription());
         holder.taskPublDate.setText(DateUtil.standardDateToString(currentTask.getPublicationDate()));
@@ -88,10 +91,10 @@ public class FreelanceTaskAdapter
         holder.taskClass.setText(Integer.toString(currentTask.getClassIndex()) + " класс");
         holder.taskSubject.setText(currentTask.getSubjectName());
         holder.taskPrice.setText(Integer.toString(currentTask.getPrice()) + " руб");
-        holder.taskOwnerName.setText(currentTask.getTaskOwner().getUsername());
+        holder.taskOwnerName.setText(taskOwner.getUsername());
         holder.taskResponses.setText("откликов : " + currentTask.getResponsesCount());
 
-        if(currentTask.getTaskOwner().getId() == UserController.getUser().getId())
+        if(taskOwner.getId() == UserController.getUser().getId())
             holder.taskRelation.setVisibility(View.VISIBLE);
     }
 

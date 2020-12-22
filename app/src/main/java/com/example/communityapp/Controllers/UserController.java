@@ -19,40 +19,44 @@ public class UserController {
 
     //TODO remove this
     private static void init() {
+
         User user1 = new User();
-        user1.setId(2);
-        user1.setUsername("Дима Шелохвостов");
-        user1.setDescription("Дебик");
+        user1.setId(1);
+        user1.setUsername("admin");
+        user1.setPassword("admin");
+        user1.setDescription("Я мячик");
 
         User user2 = new User();
-        user2.setId(3);
-        user2.setUsername("Отец Даниил");
-        user2.setDescription("Не дебик");
+        user2.setId(2);
+        user2.setUsername("Дима Шелохвостов");
+        user2.setPassword("admin");
+        user2.setDescription("Дебик");
+
+        User user3 = new User();
+        user3.setId(3);
+        user3.setUsername("Отец Даниил");
+        user3.setPassword("admin");
+        user3.setDescription("Не дебик");
 
         users = new ArrayList<>();
-        users.add(user);
         users.add(user1);
         users.add(user2);
+        users.add(user3);
     }
 
     public static boolean login(String username, String password) {
 
-        if(!username.equals("admin") || !password.equals("admin"))
-            return false;
-
-        user = new User();
-
-        Activity activity = MainActivity.getMainActivity();
-        Bitmap profileAvatar = BitmapFactory.decodeResource(activity.getResources(),
-                R.drawable.blank_profile);
-
-        user.setId(1);
-        user.setAvatar(profileAvatar);
-        user.setUsername("Стас АйКакПросто");
-        user.setDescription("Я мячик");
-
         //TODO delete this
         init();
+
+        for(User user : users) {
+            if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                UserController.user = user;
+                break;
+            }
+        }
+
+        //TODO delete this
         TextbooksController.init();
         FreelanceTasksController.init();
 

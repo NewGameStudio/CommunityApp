@@ -14,11 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Controllers.FreelanceTasksController;
 import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.FreelanceTask;
+import com.example.communityapp.Entities.User;
 import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
@@ -30,7 +32,7 @@ import java.util.List;
 public class FreelanceFragment extends Fragment
         implements OnClickItemListener, View.OnClickListener {
 
-    private RecyclerView tasksRecycler;
+    private RecyclerView recyclerView;
     private List<FreelanceTask> freelanceTasks;
     private int tabIndex = 0;
 
@@ -70,11 +72,11 @@ public class FreelanceFragment extends Fragment
     public void onStart() {
         super.onStart();
 
-        tasksRecycler = getView().findViewById(R.id.freelance_tasks_recycler_view);
-        tasksRecycler.setHasFixedSize(true);
+        recyclerView = getView().findViewById(R.id.freelance_tasks_recycler_view);
+        recyclerView.setHasFixedSize(true);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        tasksRecycler.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(layoutManager);
 
         onFreelanceTasksSearchSelected();
 
@@ -85,7 +87,21 @@ public class FreelanceFragment extends Fragment
         searchTasksButton.setOnClickListener(this);
         myTasksButton.setOnClickListener(this);
         newTaskButton.setOnClickListener(this);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            private int posX = 0;
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                posX += dy;
+            }
+        });
     }
+
+
 
     private void onFreelanceTasksSearchSelected() {
         freelanceTasks = FreelanceTasksController.findAvailableTasks();
@@ -95,7 +111,7 @@ public class FreelanceFragment extends Fragment
         RecyclerView.Adapter recyclerAdapter = new FreelanceTaskAdapter(freelanceTasks,
                 this);
 
-        tasksRecycler.setAdapter(recyclerAdapter);
+        recyclerView.setAdapter(recyclerAdapter);
 
         tabIndex = 0;
     }
@@ -111,7 +127,7 @@ public class FreelanceFragment extends Fragment
         RecyclerView.Adapter recyclerAdapter = new FreelanceTaskAdapter(freelanceTasks,
                 this);
 
-        tasksRecycler.setAdapter(recyclerAdapter);
+        recyclerView.setAdapter(recyclerAdapter);
 
         tabIndex = 1;
     }
@@ -128,7 +144,7 @@ public class FreelanceFragment extends Fragment
 
             FreelanceTask freelanceTask = new FreelanceTask();
 
-            freelanceTask.setTaskOwner(UserController.getUser());
+            freelanceTask.setTaskOwnerId(UserController.getUser().getId());
 
             FreelanceFragmentsDataContainer.setCurrentCreatingFreelanceTask(freelanceTask);
 
@@ -140,7 +156,10 @@ public class FreelanceFragment extends Fragment
     @Override
     public void onItemClick(int itemIndex) {
 
-        if(freelanceTasks.get(itemIndex).getTaskOwner().getId() == UserController.getUser().getId())
+        User taskOwner = UserController
+                .findUserById(freelanceTasks.get(itemIndex).getTaskOwnerId());
+
+        if(taskOwner.getId() == UserController.getUser().getId())
             return;
 
         FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(freelanceTasks.get(itemIndex));

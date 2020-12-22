@@ -37,7 +37,7 @@ public class FreelanceTasksController {
         task1.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
         task1.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
         task1.setResponsesCount(5);
-        task1.setTaskOwner(UserController.findUserById(1));
+        task1.setTaskOwnerId(1);
 
         FreelanceTask task2 = new FreelanceTask();
         task2.setTitle("Сочинение по математике");
@@ -61,7 +61,7 @@ public class FreelanceTasksController {
         task2.setSubjectName("Математика");
         task2.setPublicationDate(DateUtil.toDateStandard("25.02.2020"));
         task2.setExpirationDate(DateUtil.toDateStandard("01.03.2020"));
-        task2.setTaskOwner(UserController.findUserById(2));
+        task2.setTaskOwnerId(2);
 
         FreelanceTask task3 = new FreelanceTask();
         task3.setTitle("Сочинение по географии");
@@ -72,7 +72,7 @@ public class FreelanceTasksController {
         task3.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
         task3.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
         task3.setResponsesCount(5);
-        task3.setTaskOwner(UserController.getUser());
+        task3.setTaskOwnerId(UserController.getUser().getId());
 
         freelanceTasks.add(task1);
         freelanceTasks.add(task2);
@@ -87,8 +87,11 @@ public class FreelanceTasksController {
         ArrayList<FreelanceTask> tasks = new ArrayList<>();
 
         for(int i = 0; i < freelanceTasks.size(); i++) {
-            if(freelanceTasks.get(i).getTaskExecutor() != null) {
-                if (freelanceTasks.get(i).getTaskExecutor().getId() == UserController.getUser().getId())
+            User taskExecutor = UserController
+                    .findUserById(freelanceTasks.get(i).getTaskExecutorId());
+
+            if(taskExecutor != null) {
+                if (taskExecutor.getId() == UserController.getUser().getId())
                     tasks.add(freelanceTasks.get(i));
             }
         }
@@ -100,7 +103,11 @@ public class FreelanceTasksController {
         ArrayList<FreelanceTask> tasks = new ArrayList<>();
 
         for(int i = 0; i < freelanceTasks.size(); i++) {
-            if(freelanceTasks.get(i).getTaskOwner().getId() == UserController.getUser().getId())
+
+            User taskOwner = UserController
+                    .findUserById(freelanceTasks.get(i).getTaskOwnerId());
+
+            if(taskOwner.getId() == UserController.getUser().getId())
                 tasks.add(freelanceTasks.get(i));
         }
 

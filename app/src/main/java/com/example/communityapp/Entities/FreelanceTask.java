@@ -14,10 +14,11 @@ public class FreelanceTask extends BaseEntity {
     private String subjectName;
     private Date publicationDate;
     private Date expirationDate;
+
+    private int taskOwnerId;
+    private int taskExecutorId;
+    private List<Integer> responsesIDs;
     private int responsesCount;
-    private User taskOwner;
-    private List<User> responsesUsers;
-    private User taskExecutor;
 
     public String getTitle() {
         return title;
@@ -75,39 +76,35 @@ public class FreelanceTask extends BaseEntity {
         this.expirationDate = expirationDate;
     }
 
+    public int getTaskOwnerId() {
+        return taskOwnerId;
+    }
+
+    public void setTaskOwnerId(int taskOwnerId) {
+        this.taskOwnerId = taskOwnerId;
+    }
+
+    public int getTaskExecutorId() {
+        return taskExecutorId;
+    }
+
+    public void setTaskExecutorId(int taskExecutorId) {
+        this.taskExecutorId = taskExecutorId;
+    }
+
+    public List<Integer> getResponsesIDs() {
+        return responsesIDs;
+    }
+
+    public void setResponsesIDs(List<Integer> responsesIDs) {
+        this.responsesIDs = responsesIDs;
+    }
+
     public int getResponsesCount() {
         return responsesCount;
     }
 
     public void setResponsesCount(int responsesCount) {
         this.responsesCount = responsesCount;
-    }
-
-    public User getTaskOwner() {
-        return taskOwner;
-    }
-
-    public void setTaskOwner(User taskOwner) {
-        this.taskOwner = taskOwner;
-    }
-
-    public List<User> getResponsesUsers() {
-        return responsesUsers;
-    }
-
-    public void setResponsesUsers(List<User> responsesUsers) {
-        this.responsesUsers = responsesUsers;
-    }
-
-    public User getTaskExecutor() {
-        return taskExecutor;
-    }
-
-    public void setTaskExecutor(User taskExecutor) {
-        this.taskExecutor = taskExecutor;
-    }
-
-    public long expirationDaysLeft() {
-        return DateUtil.daysBetween(publicationDate, expirationDate);
     }
 }
