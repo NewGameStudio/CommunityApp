@@ -8,8 +8,9 @@ public class ClassController {
 
     private static List<String> classNames = new ArrayList<>(Arrays.asList(
             "Первый", "Второй", "Третий",
-            "Четвертый", "Пятый", "Шестой", "Восьмой",
-            "Девятый", "Десятый", "Одиннадцатый"));
+            "Четвертый", "Пятый", "Шестой",
+            "Седьмой", "Восьмой", "Девятый",
+            "Десятый", "Одиннадцатый"));
 
     public static List<String> findAllClasses() {
         return classNames;

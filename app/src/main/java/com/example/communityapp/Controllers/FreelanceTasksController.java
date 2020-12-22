@@ -16,7 +16,21 @@ public class FreelanceTasksController {
 
         FreelanceTask task1 = new FreelanceTask();
         task1.setTitle("Сочинение по русскому");
-        task1.setDescription("Я покакал");
+        task1.setDescription("Требуется разработать полный дизайн-проект \n" +
+                "дома из клееного бруса в современном стиле.\n" +
+                "Состав проекта ниже. \n" +
+                "Без опыта с домами из клееного бруса не \n" +
+                "обращайтесь. Присылайте примеры \n" +
+                "выполненных работ домов в клееном брусе.\n" +
+                "\n" +
+                "СОСТАВ ПРОЕКТА: \n" +
+                "\n" +
+                "Раздел 1: \n" +
+                "-план организации пространства с указанием \n" +
+                "наименований помещений и их площадей\n" +
+                "Раздел 2: \n" +
+                "-принципиальная схема силовой и слаботочной\n" +
+                " электросетей;\n");
         task1.setPrice(300);
         task1.setClassIndex(10);
         task1.setSubjectName("Русский язык");
@@ -51,7 +65,7 @@ public class FreelanceTasksController {
 
         FreelanceTask task3 = new FreelanceTask();
         task3.setTitle("Сочинение по географии");
-        task3.setDescription("Я не покакал");
+        task3.setDescription("Написать сочинение по географии, плачу много");
         task3.setPrice(1000);
         task3.setClassIndex(10);
         task3.setSubjectName("География");

@@ -3,6 +3,7 @@ package com.example.communityapp.Controllers;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.widget.Toast;
 
 import com.example.communityapp.Entities.Textbook;
 import com.example.communityapp.MainActivity;
@@ -41,10 +42,13 @@ public class TextbooksController {
 
     public static List<Textbook> findTextbooks(String subject, int classIndex) {
 
+        Toast.makeText(MainActivity.getMainActivity(), Integer.toString(classIndex),
+                Toast.LENGTH_SHORT).show();
+
         ArrayList<Textbook> textbooks = new ArrayList<>();
 
         for(Textbook textbook : textbooksList) {
-            if(textbook.getClassIndex() < classIndex)
+            if(textbook.getClassIndex() != classIndex)
                 continue;
 
             if(!textbook.getSubjectName().equals(subject))
