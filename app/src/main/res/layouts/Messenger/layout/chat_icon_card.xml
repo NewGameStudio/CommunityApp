@@ -34,7 +34,7 @@
                 app:civ_border_color="@color/colorLightBlack"/>
 
             <TextView
-                android:id="@+id/interlocutor_name"
+                android:id="@+id/chat_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

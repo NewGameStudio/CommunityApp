@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.example.communityapp.Entities.ChatRoom;
 import com.example.communityapp.Entities.Review;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.MainActivity;
@@ -18,6 +19,7 @@ public class UserController {
     private static User user;
     private static List<User> users;
     private static List<Review> reviews = new ArrayList<>();
+    private static List<ChatRoom> chatRooms = new ArrayList<>();
 
     //TODO remove this
     private static void init() {
@@ -48,6 +50,9 @@ public class UserController {
         review = new Review(user3.getId(), user1.getId(), -1);
         review.setReviewText("Ненормально");
         postReview(review);
+
+        createChatRoom(user1.getId(), user2.getId());
+        createChatRoom(user1.getId(), user3.getId());
     }
 
     public static boolean login(String username, String password) {
@@ -116,5 +121,39 @@ public class UserController {
 
     public static void postReview(Review review) {
         reviews.add(review);
+    }
+
+
+    public static List<ChatRoom> findAllUserChatRooms(int userId) {
+        ArrayList<ChatRoom> userRooms = new ArrayList<>();
+
+        for(ChatRoom chatRoom : chatRooms) {
+            if(chatRoom.getUser1Id() == userId || chatRoom.getUser2Id() == userId)
+                userRooms.add(chatRoom);
+        }
+
+        return userRooms;
+    }
+
+    public static ChatRoom createChatRoom(int user1Id, int user2Id) {
+        ChatRoom chatRoom = new ChatRoom(user1Id, user2Id);
+
+        chatRooms.add(chatRoom);
+
+        return chatRoom;
+    }
+
+    public static ChatRoom findChatRoomOrCreateNew(int user1Id, int user2Id) {
+
+        for(ChatRoom chatRoom : chatRooms) {
+
+            if(chatRoom.getUser1Id() == user1Id && chatRoom.getUser2Id() == user2Id)
+                return chatRoom;
+
+            if(chatRoom.getUser1Id() == user2Id && chatRoom.getUser2Id() == user1Id)
+                return chatRoom;
+        }
+
+        return createChatRoom(user1Id, user2Id);
     }
 }
