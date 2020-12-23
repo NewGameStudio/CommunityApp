@@ -71,7 +71,7 @@ public class ViewResponseFragment extends Fragment implements View.OnClickListen
             NavigationMaster.navigate(getView(), R.id.action_viewResponseFragment_to_chatRoomFragment);
 
         } else if(view.getId() == R.id.appoint_as_executor_btn) {
-            FreelanceTasksController.appointAsExecutor(response.getTaskId(), responseOwner.getId());
+            FreelanceTasksController.appointAsExecutor(response);
             Toast.makeText(getContext(), "Исполнитель назначен", Toast.LENGTH_SHORT).show();
             NavigationMaster.navigate(getView(), R.id.action_viewResponseFragment_to_nav_freelance);
         }

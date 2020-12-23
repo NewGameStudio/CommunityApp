@@ -108,9 +108,10 @@ public class FreelanceTasksController {
     public static List<FreelanceTask> findAvailableTasks() {
 
         ArrayList<FreelanceTask> tasks = new ArrayList<>();
+        User user = UserController.getUser();
 
         for(FreelanceTask task : freelanceTasks) {
-            if (task.getTaskExecutorId() == -1)
+            if (task.getTaskExecutorId() == -1 && task.getTaskOwnerId() != user.getId())
                 tasks.add(task);
         }
 
@@ -181,15 +182,16 @@ public class FreelanceTasksController {
     }
 
 
-    public static void appointAsExecutor(int taskId, int executorId) {
+    public static void appointAsExecutor(Response response) {
 
-        FreelanceTask freelanceTask = findTaskById(taskId);
+        FreelanceTask freelanceTask = findTaskById(response.getTaskId());
 
         if(freelanceTask == null) {
             Toast.makeText(MainActivity.getMainActivity(),
                     "Где-то ты обосрался", Toast.LENGTH_SHORT).show();
         }
 
-        freelanceTask.setTaskExecutorId(executorId);
+        freelanceTask.setPrice(response.getPrice());
+        freelanceTask.setTaskExecutorId(response.getOwnerId());
     }
 }

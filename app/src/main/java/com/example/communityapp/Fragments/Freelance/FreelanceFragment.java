@@ -179,13 +179,15 @@ public class FreelanceFragment extends Fragment
         User taskOwner = UserController
                 .findUserById(currentTask.getTaskOwnerId());
 
+        FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(currentTask);
+
         if (taskOwner.getId() == UserController.getUser().getId()) {
 
             if(currentTask.getTaskExecutorId() != -1) {
-
+                NavigationMaster.navigate(getView(),
+                        R.id.action_nav_freelance_to_viewMyExecutingTask);
             }
             else if(currentTask.getResponsesCount() > 0) {
-                FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(currentTask);
                 NavigationMaster.navigate(getView(),
                         R.id.action_nav_freelance_to_freelanceResponsesFragment);
             }
@@ -193,7 +195,6 @@ public class FreelanceFragment extends Fragment
             return;
         }
 
-        FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(currentTask);
         NavigationMaster.navigate(getView(),
                 R.id.action_nav_freelance_to_freelancerTaskViewFragment);
     }

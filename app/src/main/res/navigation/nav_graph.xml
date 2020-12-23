@@ -84,6 +84,9 @@
         <action
             android:id="@+id/action_nav_freelance_to_freelanceResponsesFragment"
             app:destination="@id/freelanceResponsesFragment" />
+        <action
+            android:id="@+id/action_nav_freelance_to_viewMyExecutingTask"
+            app:destination="@id/viewMyExecutingTask" />
     </fragment>
 
     <fragment
@@ -231,5 +234,10 @@
             android:id="@+id/action_viewResponseFragment_to_nav_freelance"
             app:destination="@id/nav_freelance" />
     </fragment>
+    <fragment
+        android:id="@+id/viewMyExecutingTask"
+        android:name="com.example.communityapp.Fragments.Freelance.ViewMyExecutingTask"
+        android:label="fragment_view_my_executing_task"
+        tools:layout="@layout/fragment_view_my_executing_task" />
 
 </navigation>
