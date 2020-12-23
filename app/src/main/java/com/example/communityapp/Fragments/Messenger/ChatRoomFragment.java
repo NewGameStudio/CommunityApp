@@ -80,7 +80,7 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
             List<Integer> ownerIDs = chatRoom.getOwnerIDs();
 
             messages.add(message);
-            ownerIDs.add(user1.getId());
+            ownerIDs.add(UserController.getUser().getId());
 
             chatRoom.setMessages(messages);
             chatRoom.setOwnerIDs(ownerIDs);

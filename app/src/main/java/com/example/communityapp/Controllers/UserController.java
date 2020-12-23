@@ -25,19 +25,19 @@ public class UserController {
     //TODO remove this
     private static void init() {
         User user1 = new User();
-        user1.setUsername("admin");
-        user1.setPassword("admin");
+        user1.setUsername("user1");
+        user1.setPassword("user1");
         user1.setDescription("Я мячик");
 
         User user2 = new User();
-        user2.setUsername("Дима Шелохвостов");
+        user2.setUsername("ДимаШелохвостов");
         user2.setPassword("admin");
-        user2.setDescription("Дебик");
+        user2.setDescription("Я не мячик");
 
         User user3 = new User();
-        user3.setUsername("admin2");
-        user3.setPassword("admin");
-        user3.setDescription("Не дебик");
+        user3.setUsername("user2");
+        user3.setPassword("user2");
+        user3.setDescription("У меня есть джакузи");
 
         users = new ArrayList<>();
         users.add(user1);
@@ -54,11 +54,17 @@ public class UserController {
 
         createChatRoom(user1.getId(), user2.getId());
         ChatRoom chatRoom = findChatRoom(user1.getId(), user2.getId());
-        List<String> messages = new ArrayList<>(Arrays.asList("Привет", "Пошёл ты"));
+        List<String> messages = new ArrayList<>(Arrays.asList("Ты сделаешь?", "Может да, а может и нет. А может пошёл ты"));
         List<Integer> messageOwnerIds = new ArrayList<>(Arrays.asList(user1.getId(), user2.getId()));
         chatRoom.setMessages(messages);
         chatRoom.setOwnerIDs(messageOwnerIds);
     }
+
+    //TODO delete this too
+    public static List<User> getUsers() {
+        return users;
+    }
+
 
     public static boolean login(String username, String password) {
 
@@ -66,8 +72,11 @@ public class UserController {
         boolean initialized = (users != null && users.size() > 0);
 
         //TODO delete this
-        if(!initialized)
+        if(!initialized) {
             init();
+            TextbooksController.init();
+            FreelanceTasksController.init();
+        }
 
         for(User user : users) {
             if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -76,13 +85,7 @@ public class UserController {
             }
         }
 
-        //TODO delete this
-        if(!initialized) {
-            TextbooksController.init();
-            FreelanceTasksController.init();
-        }
-
-        return true;
+        return user != null;
     }
 
     public static void logout() {

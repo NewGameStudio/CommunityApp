@@ -20,7 +20,7 @@ public class FreelanceTasksController {
     //TODO delete this
     public static void init() {
 
-        FreelanceTask task1 = new FreelanceTask(UserController.findUserByName("admin").getId());
+        FreelanceTask task1 = new FreelanceTask(UserController.getUsers().get(0).getId());
         task1.setTitle("Сочинение по русскому");
         task1.setDescription("Требуется разработать полный дизайн-проект \n" +
                 "дома из клееного бруса в современном стиле.\n" +
@@ -43,7 +43,7 @@ public class FreelanceTasksController {
         task1.setPublicationDate(DateUtil.toDateStandard("20.01.2020"));
         task1.setExpirationDate(DateUtil.toDateStandard("11.12.2020"));
 
-        FreelanceTask task2 = new FreelanceTask(UserController.findUserByName("admin2").getId());
+        FreelanceTask task2 = new FreelanceTask(UserController.getUsers().get(1).getId());
         task2.setTitle("Сочинение по математике");
         task2.setDescription("Требуется разработать полный дизайн-проект \n" +
                 "дома из клееного бруса в современном стиле.\n" +
@@ -66,7 +66,7 @@ public class FreelanceTasksController {
         task2.setPublicationDate(DateUtil.toDateStandard("25.02.2020"));
         task2.setExpirationDate(DateUtil.toDateStandard("01.03.2020"));
 
-        FreelanceTask task3 = new FreelanceTask(UserController.findUserByName("Дима Шелохвостов").getId());
+        FreelanceTask task3 = new FreelanceTask(UserController.getUsers().get(2).getId());
         task3.setTitle("Сочинение по географии");
         task3.setDescription("Написать сочинение по географии, плачу много");
         task3.setPrice(1000);
@@ -79,18 +79,18 @@ public class FreelanceTasksController {
         freelanceTasks.add(task2);
         freelanceTasks.add(task3);
 
-        Response response = new Response(UserController.findUserByName("Дима Шелохвостов").getId(),
+        Response response = new Response(UserController.getUsers().get(2).getId(),
                 task1.getId());
         response.setPrice(500);
-        response.setDescription("description1");
+        response.setDescription("Сделаю за тыщу");
         response.setCompletionDate(DateUtil.toDateStandard("21.01.2000"));
 
         respondToTask(task1.getId(), response);
 
-        response = new Response(UserController.findUserByName("admin2").getId(),
+        response = new Response(UserController.getUsers().get(1).getId(),
                 task1.getId());
         response.setPrice(300);
-        response.setDescription("description2");
+        response.setDescription("Сделаю за сотку");
         response.setCompletionDate(DateUtil.toDateStandard("21.03.2000"));
 
         respondToTask(task1.getId(), response);
