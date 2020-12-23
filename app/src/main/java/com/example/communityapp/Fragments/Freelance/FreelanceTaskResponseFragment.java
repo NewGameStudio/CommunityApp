@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import com.example.communityapp.Controllers.FreelanceTasksController;
 import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Entities.Response;
-import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
+import com.example.communityapp.DataContainers.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;

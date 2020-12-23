@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.communityapp.Entities.FreelanceTask;
-import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
+import com.example.communityapp.DataContainers.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;

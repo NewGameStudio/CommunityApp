@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.communityapp.Controllers.ClassController;
 import com.example.communityapp.Controllers.SubjectsController;
-import com.example.communityapp.Master.GdzFragmentsDataContainer;
+import com.example.communityapp.DataContainers.GdzFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 

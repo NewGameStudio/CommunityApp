@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#43CEA2</color>
 
+    <color name="white">#FFFFFF</color>
+    <color name="darkWhite">#EBEBEB</color>
+
     <color name="colorBlack">#414141</color>
     <color name="colorLightBlack">#323232</color>
     <color name="colorDarkBlack">#000000</color>
@@ -11,6 +14,6 @@
     <color name="colorLightGrey">#EEEEEE</color>
     <color name="colorGrey">#999999</color>
 
-    <color name="white">#FFFFFF</color>
-    <color name="darkWhite">#EBEBEB</color>
+    <color name="colorPaleRed">#FF0000</color>
+    <color name="colorPaleGreen">#A9FF00</color>
 </resources>

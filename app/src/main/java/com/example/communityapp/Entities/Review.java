@@ -10,9 +10,10 @@ public class Review extends BaseEntity {
     private Date publicationDate;
     private int score;
 
-    public Review(int ownerId, int employeeId) {
+    public Review(int ownerId, int employeeId, int score) {
         this.ownerId = ownerId;
         this.employeeId = employeeId;
+        this.score = score;
     }
 
     public int getOwnerId() {

@@ -10,7 +10,7 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
 import com.example.communityapp.Entities.FreelanceTask;
-import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
+import com.example.communityapp.DataContainers.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 

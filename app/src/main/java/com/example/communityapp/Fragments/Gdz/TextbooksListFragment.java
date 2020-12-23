@@ -11,11 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Adapter.TextbookAdapter;
 import com.example.communityapp.Controllers.TextbooksController;
 import com.example.communityapp.Entities.Textbook;
-import com.example.communityapp.Master.GdzFragmentsDataContainer;
+import com.example.communityapp.DataContainers.GdzFragmentsDataContainer;
 import com.example.communityapp.R;
 
 import java.util.List;

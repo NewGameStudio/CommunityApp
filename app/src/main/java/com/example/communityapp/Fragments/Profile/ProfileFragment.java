@@ -13,8 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.communityapp.Controllers.UserController;
+import com.example.communityapp.DataContainers.ReviewsDataContainer;
 import com.example.communityapp.Entities.Review;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.Master.NavigationMaster;
@@ -24,7 +26,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     @Nullable
     @Override
@@ -63,6 +65,9 @@ public class ProfileFragment extends Fragment {
         super.onStart();
 
         loadUserData();
+
+        Button reviewsButton = getView().findViewById(R.id.rating_btn);
+        reviewsButton.setOnClickListener(this);
     }
 
     private void loadUserData() {
@@ -73,11 +78,28 @@ public class ProfileFragment extends Fragment {
         Button ratingBtn = getView().findViewById(R.id.rating_btn);
 
         User user = UserController.getUser();
-        List<Review> reviews = UserController.findUserReviews(user.getId());
+        List<Review> reviews = UserController.findAboutUserReviews(user.getId());
 
         avatarView.setImageBitmap(user.getAvatar());
         profileName.setText(user.getUsername());
         profileDesc.setText(user.getDescription());
         ratingBtn.setText(Integer.toString(reviews.size()));
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.rating_btn) {
+
+            Button reviewsButton = getView().findViewById(R.id.rating_btn);
+            int reviewsCount = Integer.parseInt(reviewsButton.getText().toString());
+
+            if(reviewsCount == 0) {
+                Toast.makeText(getActivity(), "У вас покачто нет отзывов", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            ReviewsDataContainer.setCurrentUser(UserController.getUser());
+            NavigationMaster.navigate(getView(), R.id.action_nav_profile_to_reviewsListFragment);
+        }
     }
 }

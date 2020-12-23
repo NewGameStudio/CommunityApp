@@ -10,11 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Controllers.FreelanceTasksController;
@@ -22,7 +20,7 @@ import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.Handlers.OnClickItemListener;
-import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
+import com.example.communityapp.DataContainers.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 

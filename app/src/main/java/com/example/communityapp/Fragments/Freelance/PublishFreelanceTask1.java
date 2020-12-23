@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import com.example.communityapp.Controllers.ClassController;
 import com.example.communityapp.Controllers.SubjectsController;
 import com.example.communityapp.Entities.FreelanceTask;
-import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
+import com.example.communityapp.DataContainers.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 

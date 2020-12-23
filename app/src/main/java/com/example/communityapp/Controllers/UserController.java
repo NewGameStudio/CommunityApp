@@ -40,6 +40,14 @@ public class UserController {
         users.add(user1);
         users.add(user2);
         users.add(user3);
+
+        Review review = new Review(user2.getId(), user1.getId(), 1);
+        review.setReviewText("Нормально");
+        postReview(review);
+
+        review = new Review(user3.getId(), user1.getId(), -1);
+        review.setReviewText("Ненормально");
+        postReview(review);
     }
 
     public static boolean login(String username, String password) {
@@ -95,14 +103,18 @@ public class UserController {
     }
 
 
-    public static List<Review> findUserReviews(int userId) {
+    public static List<Review> findAboutUserReviews(int userId) {
         ArrayList<Review> userReviews = new ArrayList<>();
 
         for(Review review : reviews) {
-            if(review.getOwnerId() == userId)
+            if(review.getEmployeeId() == userId)
                 userReviews.add(review);
         }
 
         return userReviews;
+    }
+
+    public static void postReview(Review review) {
+        reviews.add(review);
     }
 }

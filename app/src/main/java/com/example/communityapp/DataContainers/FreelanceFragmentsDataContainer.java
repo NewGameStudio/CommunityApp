@@ -1,4 +1,4 @@
-package com.example.communityapp.Master;
+package com.example.communityapp.DataContainers;
 
 import com.example.communityapp.Entities.FreelanceTask;
 

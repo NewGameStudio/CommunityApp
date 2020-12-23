@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,12 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Adapter.ResponseAdapter;
 import com.example.communityapp.Controllers.FreelanceTasksController;
 import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Entities.Response;
-import com.example.communityapp.Master.FreelanceFragmentsDataContainer;
+import com.example.communityapp.DataContainers.FreelanceFragmentsDataContainer;
 import com.example.communityapp.R;
 
 import java.util.ArrayList;

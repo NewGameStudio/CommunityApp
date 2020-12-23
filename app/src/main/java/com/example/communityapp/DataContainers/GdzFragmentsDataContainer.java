@@ -1,4 +1,4 @@
-package com.example.communityapp.Master;
+package com.example.communityapp.DataContainers;
 
 public class GdzFragmentsDataContainer {
 
