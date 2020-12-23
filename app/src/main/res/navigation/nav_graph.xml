@@ -77,16 +77,30 @@
             app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_nav_freelance_to_freelancerTaskViewFragment"
-            app:destination="@id/freelancerTaskViewFragment" />
+            app:destination="@id/freelancerTaskViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_nav_freelance_to_publishFreelanceTask1"
-            app:destination="@id/publishFreelanceTask1" />
+            app:destination="@id/publishFreelanceTask1"
+            app:enterAnim="@anim/slide_out_up"
+            app:exitAnim="@anim/slide_in_up"/>
         <action
             android:id="@+id/action_nav_freelance_to_freelanceResponsesFragment"
-            app:destination="@id/freelanceResponsesFragment" />
+            app:destination="@id/freelanceResponsesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_nav_freelance_to_viewMyExecutingTask"
-            app:destination="@id/viewMyExecutingTask" />
+            app:destination="@id/viewMyExecutingTask"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -144,7 +158,11 @@
         tools:layout="@layout/fragment_publish_freelance_task1" >
         <action
             android:id="@+id/action_publishFreelanceTask1_to_publishFreelanceTask2"
-            app:destination="@id/publishFreelanceTask2" />
+            app:destination="@id/publishFreelanceTask2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -154,10 +172,18 @@
         tools:layout="@layout/fragment_publish_freelance_task2" >
         <action
             android:id="@+id/action_publishFreelanceTask2_to_publishFreelanceTask1"
-            app:destination="@id/publishFreelanceTask1" />
+            app:destination="@id/publishFreelanceTask1"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_publishFreelanceTask2_to_publishFreelanceTask3"
-            app:destination="@id/publishFreelanceTask3" />
+            app:destination="@id/publishFreelanceTask3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -167,10 +193,18 @@
         tools:layout="@layout/fragment_publish_freelance_task3" >
         <action
             android:id="@+id/action_publishFreelanceTask3_to_publishFreelanceTask2"
-            app:destination="@id/publishFreelanceTask2" />
+            app:destination="@id/publishFreelanceTask2"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_publishFreelanceTask3_to_publishFreelanceTask4"
-            app:destination="@id/publishFreelanceTask4" />
+            app:destination="@id/publishFreelanceTask4"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -180,10 +214,18 @@
         tools:layout="@layout/fragment_publish_freelance_task4" >
         <action
             android:id="@+id/action_publishFreelanceTask4_to_publishFreelanceTask3"
-            app:destination="@id/publishFreelanceTask3" />
+            app:destination="@id/publishFreelanceTask3"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_publishFreelanceTask4_to_publishFreelanceTaskFinal"
-            app:destination="@id/publishFreelanceTaskFinal" />
+            app:destination="@id/publishFreelanceTaskFinal"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
