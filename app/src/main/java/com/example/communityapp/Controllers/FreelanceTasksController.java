@@ -4,6 +4,7 @@ import android.widget.Toast;
 
 import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Entities.Response;
+import com.example.communityapp.Entities.Review;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.MainActivity;
 import com.example.communityapp.Utils.DateUtil;
@@ -193,5 +194,13 @@ public class FreelanceTasksController {
 
         freelanceTask.setPrice(response.getPrice());
         freelanceTask.setTaskExecutorId(response.getOwnerId());
+    }
+
+    public static void approveTaskCompletion(int taskId, Review review) {
+        FreelanceTask task = findTaskById(taskId);
+
+        freelanceTasks.remove(task);
+
+        UserController.postReview(review);
     }
 }

@@ -247,6 +247,10 @@
         android:id="@+id/approveTaskCompletionFragment"
         android:name="com.example.communityapp.Fragments.Freelance.ApproveTaskCompletionFragment"
         android:label="approve_task_completion"
-        tools:layout="@layout/approve_task_completion" />
+        tools:layout="@layout/approve_task_completion" >
+        <action
+            android:id="@+id/action_approveTaskCompletionFragment_to_nav_freelance"
+            app:destination="@id/nav_freelance" />
+    </fragment>
 
 </navigation>
