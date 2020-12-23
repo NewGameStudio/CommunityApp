@@ -107,6 +107,7 @@
                 android:textColor="@color/colorBlack"/>
 
             <ImageView
+                android:id="@+id/task_responses_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -120,6 +121,21 @@
                 android:layout_marginStart="4dp"
                 android:text="откликов : 7"
                 android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/task_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="10dp"
+                android:text="ВЫПОЛНЯЕТСЯ"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_rectangle"
+                android:backgroundTint="@color/colorAccent"
+                android:backgroundTintMode="add"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

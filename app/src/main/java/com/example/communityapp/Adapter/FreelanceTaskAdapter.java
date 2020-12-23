@@ -3,6 +3,7 @@ package com.example.communityapp.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,7 +33,9 @@ public class FreelanceTaskAdapter
         public TextView taskRelation;
         public TextView taskPrice;
         public TextView taskOwnerName;
+        public ImageView taskResponsesIcon;
         public TextView taskResponses;
+        public TextView taskStatus;
         private OnClickItemListener onClickItemListener;
 
         public FreelanceTaskViewHolder(@NonNull View itemView, OnClickItemListener onClickItemListener) {
@@ -47,7 +50,9 @@ public class FreelanceTaskAdapter
             taskRelation = itemView.findViewById(R.id.task_relation);
             taskPrice = itemView.findViewById(R.id.task_price);
             taskOwnerName = itemView.findViewById(R.id.task_owner_name);
+            taskResponsesIcon = itemView.findViewById(R.id.task_responses_icon);
             taskResponses = itemView.findViewById(R.id.task_responses);
+            taskStatus = itemView.findViewById(R.id.task_status);
 
             this.onClickItemListener = onClickItemListener;
 
@@ -92,7 +97,15 @@ public class FreelanceTaskAdapter
         holder.taskSubject.setText(currentTask.getSubjectName());
         holder.taskPrice.setText(Integer.toString(currentTask.getPrice()) + " руб");
         holder.taskOwnerName.setText(taskOwner.getUsername());
-        holder.taskResponses.setText("откликов : " + currentTask.getResponsesCount());
+
+        if(currentTask.getTaskExecutorId() == -1) {
+            holder.taskResponses.setText("откликов : " + currentTask.getResponsesCount());
+        }
+        else {
+            holder.taskResponsesIcon.setVisibility(View.GONE);
+            holder.taskResponses.setVisibility(View.GONE);
+            holder.taskStatus.setVisibility(View.VISIBLE);
+        }
 
         if(taskOwner.getId() == UserController.getUser().getId())
             holder.taskRelation.setVisibility(View.VISIBLE);

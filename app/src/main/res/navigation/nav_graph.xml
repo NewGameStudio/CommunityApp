@@ -227,6 +227,9 @@
         <action
             android:id="@+id/action_viewResponseFragment_to_chatRoomFragment"
             app:destination="@id/chatRoomFragment" />
+        <action
+            android:id="@+id/action_viewResponseFragment_to_nav_freelance"
+            app:destination="@id/nav_freelance" />
     </fragment>
 
 </navigation>

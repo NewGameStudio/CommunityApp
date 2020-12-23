@@ -106,7 +106,15 @@ public class FreelanceTasksController {
     }
 
     public static List<FreelanceTask> findAvailableTasks() {
-        return freelanceTasks;
+
+        ArrayList<FreelanceTask> tasks = new ArrayList<>();
+
+        for(FreelanceTask task : freelanceTasks) {
+            if (task.getTaskExecutorId() == -1)
+                tasks.add(task);
+        }
+
+        return tasks;
     }
 
     public static List<FreelanceTask> findExecutableTasks() {
