@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,12 +18,19 @@ import com.example.communityapp.DataContainers.MessengerFragmentsDataContainer;
 import com.example.communityapp.Entities.ChatRoom;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.R;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 
-public class ChatRoomFragment extends Fragment {
+import java.util.List;
+
+public class ChatRoomFragment extends Fragment implements View.OnClickListener {
 
     private User user1;
     private User user2;
     private ChatRoom chatRoom;
+
+    private TextInputEditText messageEditText;
+    private MaterialButton sendBtn;
     private RecyclerView recyclerView;
 
     @Nullable
@@ -35,6 +43,9 @@ public class ChatRoomFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        messageEditText = getView().findViewById(R.id.chat_message_field);
+        sendBtn = getView().findViewById(R.id.send_message_btn);
+
         chatRoom = MessengerFragmentsDataContainer.getChatRoom();
         user1 = UserController.findUserById(chatRoom.getUser1Id());
         user2 = UserController.findUserById(chatRoom.getUser2Id());
@@ -43,13 +54,42 @@ public class ChatRoomFragment extends Fragment {
 
         RecyclerView.Adapter recyclerAdapter = new ChatRoomAdapter(user1, user2, chatRoom);
         recyclerView.setAdapter(recyclerAdapter);
+
+        sendBtn.setOnClickListener(this);
     }
 
     private void initializeRecyclerView() {
         recyclerView = getView().findViewById(R.id.chat_room_recycler_view);
         recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setReverseLayout(false);
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.send_message_btn) {
+
+            String message = messageEditText.getText().toString();
+
+            if(message.equals(""))
+                return;
+
+            List<String> messages = chatRoom.getMessages();
+            List<Integer> ownerIDs = chatRoom.getOwnerIDs();
+
+            messages.add(message);
+            ownerIDs.add(user1.getId());
+
+            chatRoom.setMessages(messages);
+            chatRoom.setOwnerIDs(ownerIDs);
+
+            RecyclerView.Adapter recyclerAdapter = new ChatRoomAdapter(user1, user2, chatRoom);
+            recyclerView.setAdapter(recyclerAdapter);
+
+            messageEditText.setText("");
+            messageEditText.clearFocus();
+        }
     }
 }
