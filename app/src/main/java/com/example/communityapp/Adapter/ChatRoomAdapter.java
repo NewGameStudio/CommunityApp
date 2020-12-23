@@ -67,7 +67,7 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.Messag
         String name = companion.getUsername();
         String message = messages.get(position);
 
-        if(ownerIDs.get(position) == UserController.getUser().getId()) {
+        if(ownerIDs.get(position) == user.getId()) {
             name = user.getUsername();
             holder.userName.setGravity(Gravity.END);
 

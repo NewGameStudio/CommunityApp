@@ -52,7 +52,10 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
 
         initializeRecyclerView();
 
-        RecyclerView.Adapter recyclerAdapter = new ChatRoomAdapter(user1, user2, chatRoom);
+        User user = UserController.getUser();
+        User companion = user.getId() == user1.getId() ? user2 : user1;
+
+        RecyclerView.Adapter recyclerAdapter = new ChatRoomAdapter(user, companion, chatRoom);
         recyclerView.setAdapter(recyclerAdapter);
 
         sendBtn.setOnClickListener(this);
@@ -85,7 +88,10 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
             chatRoom.setMessages(messages);
             chatRoom.setOwnerIDs(ownerIDs);
 
-            RecyclerView.Adapter recyclerAdapter = new ChatRoomAdapter(user1, user2, chatRoom);
+            User user = UserController.getUser();
+            User companion = user.getId() == user1.getId() ? user2 : user1;
+
+            RecyclerView.Adapter recyclerAdapter = new ChatRoomAdapter(user, companion, chatRoom);
             recyclerView.setAdapter(recyclerAdapter);
 
             messageEditText.setText("");
