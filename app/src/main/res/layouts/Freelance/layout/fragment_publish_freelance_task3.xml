@@ -29,7 +29,7 @@
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="- Что вы хотите получить\n
+            android:text=" - Что вы хотите получить\n
 - Какие критерии для вас важны\n
 - и т.д."
             android:textSize="16sp"/>
