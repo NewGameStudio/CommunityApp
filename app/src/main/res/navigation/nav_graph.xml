@@ -57,7 +57,11 @@
         android:id="@+id/nav_messenger"
         android:name="com.example.communityapp.Fragments.Messenger.MessengerFragment"
         android:label="fragment_messenger"
-        tools:layout="@layout/fragment_messenger" />
+        tools:layout="@layout/fragment_messenger" >
+        <action
+            android:id="@+id/action_nav_messenger_to_chatRoomFragment"
+            app:destination="@id/chatRoomFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_freelance"
@@ -204,5 +208,10 @@
         android:name="com.example.communityapp.Fragments.Profile.ReviewsListFragment"
         android:label="fragment_reviews_list"
         tools:layout="@layout/fragment_reviews_list" />
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.example.communityapp.Fragments.Messenger.ChatRoomFragment"
+        android:label="fragment_chat_screen"
+        tools:layout="@layout/fragment_chat_screen" />
 
 </navigation>

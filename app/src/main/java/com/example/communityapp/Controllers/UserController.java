@@ -12,6 +12,7 @@ import com.example.communityapp.MainActivity;
 import com.example.communityapp.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class UserController {
@@ -52,6 +53,12 @@ public class UserController {
         postReview(review);
 
         createChatRoom(user1.getId(), user2.getId());
+        ChatRoom chatRoom = findChatRoom(user1.getId(), user2.getId());
+        List<String> messages = new ArrayList<>(Arrays.asList("Привет", "Пошёл ты"));
+        List<Integer> messageOwnerIds = new ArrayList<>(Arrays.asList(user1.getId(), user2.getId()));
+        chatRoom.setMessages(messages);
+        chatRoom.setOwnerIDs(messageOwnerIds);
+
         createChatRoom(user1.getId(), user3.getId());
     }
 
@@ -143,8 +150,7 @@ public class UserController {
         return chatRoom;
     }
 
-    public static ChatRoom findChatRoomOrCreateNew(int user1Id, int user2Id) {
-
+    public static ChatRoom findChatRoom(int user1Id, int user2Id) {
         for(ChatRoom chatRoom : chatRooms) {
 
             if(chatRoom.getUser1Id() == user1Id && chatRoom.getUser2Id() == user2Id)
@@ -153,6 +159,16 @@ public class UserController {
             if(chatRoom.getUser1Id() == user2Id && chatRoom.getUser2Id() == user1Id)
                 return chatRoom;
         }
+
+        return null;
+    }
+
+    public static ChatRoom findChatRoomOrCreateNew(int user1Id, int user2Id) {
+
+        ChatRoom chatRoom = findChatRoom(user1Id, user2Id);
+
+        if(chatRoom != null)
+            return chatRoom;
 
         return createChatRoom(user1Id, user2Id);
     }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.ChatRoom;
 import com.example.communityapp.Entities.User;
+import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.R;
 
 import org.w3c.dom.Text;
@@ -21,24 +22,38 @@ import java.util.List;
 public class ChatRoomsAdapter extends RecyclerView.Adapter<ChatRoomsAdapter.ChatRoomViewHolder> {
 
 
-    public static class ChatRoomViewHolder extends RecyclerView.ViewHolder {
+    public static class ChatRoomViewHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener {
 
         public TextView userName;
+        private OnClickItemListener onClickItemListener;
 
-        public ChatRoomViewHolder(@NonNull View itemView) {
+        public ChatRoomViewHolder(@NonNull View itemView,
+                                  OnClickItemListener onClickItemListener) {
             super(itemView);
 
             userName = itemView.findViewById(R.id.chat_user_name);
+            this.onClickItemListener = onClickItemListener;
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            onClickItemListener.onItemClick(getAdapterPosition());
         }
     }
 
 
     private User user;
     private List<ChatRoom> chatRooms;
+    private OnClickItemListener onClickItemListener;
 
-    public ChatRoomsAdapter(User user, List<ChatRoom> chatRooms) {
+    public ChatRoomsAdapter(User user, List<ChatRoom> chatRooms,
+                            OnClickItemListener onClickItemListener) {
         this.user = user;
         this.chatRooms = chatRooms;
+        this.onClickItemListener = onClickItemListener;
     }
 
     @NonNull
@@ -47,7 +62,7 @@ public class ChatRoomsAdapter extends RecyclerView.Adapter<ChatRoomsAdapter.Chat
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.chat_icon_card, parent, false);
 
-        return new ChatRoomsAdapter.ChatRoomViewHolder(view);
+        return new ChatRoomsAdapter.ChatRoomViewHolder(view, onClickItemListener);
     }
 
     @Override

@@ -1,13 +1,14 @@
 package com.example.communityapp.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChatRoom extends BaseEntity {
 
     private int user1Id;
     private int user2Id;
-    private List<String> messages;
-    private List<Integer> ownerIDs;
+    private List<String> messages = new ArrayList<>();
+    private List<Integer> ownerIDs = new ArrayList<>();
 
     public ChatRoom(int user1Id, int user2Id) {
         this.user1Id = user1Id;

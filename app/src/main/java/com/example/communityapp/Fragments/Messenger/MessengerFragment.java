@@ -11,17 +11,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.communityapp.Adapter.ChatRoomsAdapter;
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Controllers.UserController;
+import com.example.communityapp.DataContainers.MessengerFragmentsDataContainer;
 import com.example.communityapp.Entities.ChatRoom;
 import com.example.communityapp.Entities.User;
+import com.example.communityapp.Handlers.OnClickItemListener;
+import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
 import java.util.List;
 
-public class MessengerFragment extends Fragment {
+public class MessengerFragment extends Fragment implements OnClickItemListener {
 
     private User user;
     private List<ChatRoom> chatRooms;
@@ -42,7 +48,8 @@ public class MessengerFragment extends Fragment {
         user = UserController.getUser();
         chatRooms = UserController.findAllUserChatRooms(user.getId());
 
-        RecyclerView.Adapter recyclerAdapter = new ChatRoomsAdapter(user, chatRooms);
+        RecyclerView.Adapter recyclerAdapter = new ChatRoomsAdapter(user, chatRooms,
+                this);
 
         recyclerView.setAdapter(recyclerAdapter);
     }
@@ -53,5 +60,11 @@ public class MessengerFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    public void onItemClick(int itemIndex) {
+        MessengerFragmentsDataContainer.setChatRoom(chatRooms.get(itemIndex));
+        NavigationMaster.navigate(getView(), R.id.action_nav_messenger_to_chatRoomFragment);
     }
 }
