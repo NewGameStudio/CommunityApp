@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.Response;
 import com.example.communityapp.Entities.User;
+import com.example.communityapp.Handlers.OnClickItemListener;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
 
@@ -19,28 +20,39 @@ import java.util.List;
 public class ResponseAdapter
         extends RecyclerView.Adapter<ResponseAdapter.ResponseViewHolder> {
 
-    public static class ResponseViewHolder extends RecyclerView.ViewHolder {
+    public static class ResponseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView responseOwnerName;
         public TextView responseDescription;
         public TextView responseComplDate;
         public TextView responsePrice;
+        private OnClickItemListener onClickItemListener;
 
-        public ResponseViewHolder(@NonNull View itemView) {
+        public ResponseViewHolder(@NonNull View itemView, OnClickItemListener onClickItemListener) {
             super(itemView);
 
             responseOwnerName = itemView.findViewById(R.id.response_owner_name);
             responseDescription = itemView.findViewById(R.id.response_description);
             responseComplDate = itemView.findViewById(R.id.response_compl_date);
             responsePrice = itemView.findViewById(R.id.response_price);
+            this.onClickItemListener = onClickItemListener;
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            onClickItemListener.onItemClick(getAdapterPosition());
         }
     }
 
 
     private List<Response> responses;
+    private OnClickItemListener onClickItemListener;
 
-    public ResponseAdapter(List<Response> responses) {
+    public ResponseAdapter(List<Response> responses, OnClickItemListener onClickItemListener) {
         this.responses = responses;
+        this.onClickItemListener = onClickItemListener;
     }
 
     @NonNull
@@ -49,7 +61,7 @@ public class ResponseAdapter
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.freelance_response_card_view, parent, false);
 
-        return new ResponseAdapter.ResponseViewHolder(view);
+        return new ResponseAdapter.ResponseViewHolder(view, onClickItemListener);
     }
 
     @Override

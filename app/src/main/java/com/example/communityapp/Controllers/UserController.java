@@ -58,8 +58,6 @@ public class UserController {
         List<Integer> messageOwnerIds = new ArrayList<>(Arrays.asList(user1.getId(), user2.getId()));
         chatRoom.setMessages(messages);
         chatRoom.setOwnerIDs(messageOwnerIds);
-
-        createChatRoom(user1.getId(), user3.getId());
     }
 
     public static boolean login(String username, String password) {

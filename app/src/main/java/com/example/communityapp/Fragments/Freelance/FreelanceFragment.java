@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.communityapp.Adapter.FreelanceTaskAdapter;
 import com.example.communityapp.Controllers.FreelanceTasksController;
@@ -180,7 +181,10 @@ public class FreelanceFragment extends Fragment
 
         if (taskOwner.getId() == UserController.getUser().getId()) {
 
-            if(currentTask.getResponsesCount() > 0) {
+            if(currentTask.getTaskExecutorId() != -1) {
+
+            }
+            else if(currentTask.getResponsesCount() > 0) {
                 FreelanceFragmentsDataContainer.setCurrentViewFreelanceTask(currentTask);
                 NavigationMaster.navigate(getView(),
                         R.id.action_nav_freelance_to_freelanceResponsesFragment);

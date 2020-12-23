@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,13 +18,16 @@ import com.example.communityapp.Controllers.FreelanceTasksController;
 import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Entities.Response;
 import com.example.communityapp.DataContainers.FreelanceFragmentsDataContainer;
+import com.example.communityapp.Handlers.OnClickItemListener;
+import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FreelanceResponsesFragment extends Fragment {
+public class FreelanceResponsesFragment extends Fragment implements OnClickItemListener {
 
+    private List<Response> responses;
     private RecyclerView recyclerView;
     private FreelanceTask freelanceTask;
 
@@ -43,11 +47,11 @@ public class FreelanceResponsesFragment extends Fragment {
         initializeTaskViews(freelanceTask);
         initializeRecyclerView();
 
-        List<Response> responses = new ArrayList<>();
+        responses = new ArrayList<>();
         for(int id : freelanceTask.getResponsesIDs())
             responses.add(FreelanceTasksController.findResponseById(id));
 
-        RecyclerView.Adapter recyclerAdapter = new ResponseAdapter(responses);
+        RecyclerView.Adapter recyclerAdapter = new ResponseAdapter(responses, this);
         recyclerView.setAdapter(recyclerAdapter);
     }
 
@@ -67,5 +71,11 @@ public class FreelanceResponsesFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    public void onItemClick(int itemIndex) {
+        FreelanceFragmentsDataContainer.setCurrentViewResponse(responses.get(itemIndex));
+        NavigationMaster.navigate(getView(), R.id.action_freelanceResponsesFragment_to_viewResponseFragment);
     }
 }

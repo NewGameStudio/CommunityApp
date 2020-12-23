@@ -202,16 +202,31 @@
         android:id="@+id/freelanceResponsesFragment"
         android:name="com.example.communityapp.Fragments.Freelance.FreelanceResponsesFragment"
         android:label="fragment_responses_list"
-        tools:layout="@layout/fragment_responses_list" />
+        tools:layout="@layout/fragment_responses_list" >
+        <action
+            android:id="@+id/action_freelanceResponsesFragment_to_viewResponseFragment"
+            app:destination="@id/viewResponseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/reviewsListFragment"
         android:name="com.example.communityapp.Fragments.Profile.ReviewsListFragment"
         android:label="fragment_reviews_list"
         tools:layout="@layout/fragment_reviews_list" />
+
     <fragment
         android:id="@+id/chatRoomFragment"
         android:name="com.example.communityapp.Fragments.Messenger.ChatRoomFragment"
         android:label="fragment_chat_screen"
         tools:layout="@layout/fragment_chat_screen" />
+
+    <fragment
+        android:id="@+id/viewResponseFragment"
+        android:name="com.example.communityapp.Fragments.Freelance.ViewResponseFragment"
+        android:label="freelance_view_task_response"
+        tools:layout="@layout/freelance_view_task_response" >
+        <action
+            android:id="@+id/action_viewResponseFragment_to_chatRoomFragment"
+            app:destination="@id/chatRoomFragment" />
+    </fragment>
 
 </navigation>

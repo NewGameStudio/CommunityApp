@@ -171,4 +171,17 @@ public class FreelanceTasksController {
 
         task.setResponsesIDs(responsesIDs);
     }
+
+
+    public static void appointAsExecutor(int taskId, int executorId) {
+
+        FreelanceTask freelanceTask = findTaskById(taskId);
+
+        if(freelanceTask == null) {
+            Toast.makeText(MainActivity.getMainActivity(),
+                    "Где-то ты обосрался", Toast.LENGTH_SHORT).show();
+        }
+
+        freelanceTask.setTaskExecutorId(executorId);
+    }
 }
