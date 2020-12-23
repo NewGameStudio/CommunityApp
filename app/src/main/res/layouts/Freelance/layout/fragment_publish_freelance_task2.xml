@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Напишите название вашего заданияНазвание должно привлечь вниманиеи отразить суть"
+            android:text="Напишите название вашего задания. Название должно привлечь внимание и отразить суть"
             android:textSize="16sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
