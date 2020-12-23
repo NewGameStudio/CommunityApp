@@ -63,7 +63,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
         Review review = reviews.get(position);
 
         User reviewOwner = UserController.findUserById(review.getOwnerId());
-        
+
         Drawable drawable = MainActivity.getMainActivity().getDrawable(R.drawable.shape_rectangle_green);
 
         if(review.getScore() < 0)
