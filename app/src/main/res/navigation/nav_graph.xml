@@ -238,6 +238,15 @@
         android:id="@+id/viewMyExecutingTask"
         android:name="com.example.communityapp.Fragments.Freelance.ViewMyExecutingTask"
         android:label="fragment_view_my_executing_task"
-        tools:layout="@layout/fragment_view_my_executing_task" />
+        tools:layout="@layout/fragment_view_my_executing_task" >
+        <action
+            android:id="@+id/action_viewMyExecutingTask_to_approveTaskCompletionFragment"
+            app:destination="@id/approveTaskCompletionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/approveTaskCompletionFragment"
+        android:name="com.example.communityapp.Fragments.Freelance.ApproveTaskCompletionFragment"
+        android:label="approve_task_completion"
+        tools:layout="@layout/approve_task_completion" />
 
 </navigation>

@@ -5,6 +5,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -14,12 +15,13 @@ import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.DataContainers.FreelanceFragmentsDataContainer;
 import com.example.communityapp.Entities.FreelanceTask;
 import com.example.communityapp.Entities.User;
+import com.example.communityapp.Master.NavigationMaster;
 import com.example.communityapp.R;
 import com.example.communityapp.Utils.DateUtil;
 
 import org.w3c.dom.Text;
 
-public class ViewMyExecutingTask extends Fragment {
+public class ViewMyExecutingTask extends Fragment implements View.OnClickListener {
 
     private FreelanceTask freelanceTask;
     private User taskExecutor;
@@ -40,6 +42,9 @@ public class ViewMyExecutingTask extends Fragment {
         taskExecutor = UserController.findUserById(freelanceTask.getTaskExecutorId());
 
         setTaskData();
+
+        Button approveCompleteButton = getView().findViewById(R.id.approve_complete_btn);
+        approveCompleteButton.setOnClickListener(this);
     }
 
     private void setTaskData() {
@@ -62,5 +67,13 @@ public class ViewMyExecutingTask extends Fragment {
         taskSubject.setText(freelanceTask.getSubjectName());
         taskPrice.setText(Integer.toString(freelanceTask.getPrice()) + " руб");
         taskExecutorName.setText(taskExecutor.getUsername());
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.approve_complete_btn) {
+            NavigationMaster.navigate(getView(),
+                    R.id.action_viewMyExecutingTask_to_approveTaskCompletionFragment);
+        }
     }
 }
