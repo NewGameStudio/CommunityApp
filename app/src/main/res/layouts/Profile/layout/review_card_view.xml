@@ -5,18 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="@drawable/shape_rectangle"
-    android:backgroundTint="@color/white"
-    android:backgroundTintMode="add"
     android:elevation="6dp"
     android:clipChildren="false"
     android:id="@+id/review_card_view">
 
     <LinearLayout
+        android:id="@+id/review_card_main_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:background="@drawable/shape_rectangle_red">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="50dp"
