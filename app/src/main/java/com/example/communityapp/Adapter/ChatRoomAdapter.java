@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.communityapp.Controllers.UserController;
 import com.example.communityapp.Entities.ChatRoom;
 import com.example.communityapp.Entities.User;
 import com.example.communityapp.R;
@@ -66,7 +67,7 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.Messag
         String name = companion.getUsername();
         String message = messages.get(position);
 
-        if(ownerIDs.get(position) == user.getId()) {
+        if(ownerIDs.get(position) == UserController.getUser().getId()) {
             name = user.getUsername();
             holder.userName.setGravity(Gravity.END);
 
